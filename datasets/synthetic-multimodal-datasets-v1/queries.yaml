@@ -1,0 +1,1501 @@
+queries:
+  - id: fruits_apple_asset
+    query_type: asset
+    q: "哪张图片展示了红色圆形苹果和绿色叶片？"
+    expect_any: [fruits]
+    expect_asset_any: [fruits.apple.image]
+  - id: fruits_apple_chunk
+    query_type: text_chunk
+    q: "苹果的小节介绍了哪些视觉特征和常见用途？"
+    expect_any: [fruits]
+    expect_chunk_any: [fruits.apple.text]
+  - id: fruits_banana_asset
+    query_type: asset
+    q: "Find the curved yellow banana image."
+    expect_any: [fruits]
+    expect_asset_any: [fruits.banana.image]
+  - id: fruits_banana_chunk
+    query_type: text_chunk
+    q: "香蕉的小节如何描述形状、颜色和食用特点？"
+    expect_any: [fruits]
+    expect_chunk_any: [fruits.banana.text]
+  - id: fruits_orange_asset
+    query_type: asset
+    q: "检索包含橙色圆形橙子的水果图片。"
+    expect_any: [fruits]
+    expect_asset_any: [fruits.orange.image]
+  - id: fruits_orange_chunk
+    query_type: text_chunk
+    q: "橙子的小节提到了哪些用途和视觉特征？"
+    expect_any: [fruits]
+    expect_chunk_any: [fruits.orange.text]
+  - id: fruits_strawberry_asset
+    query_type: asset
+    q: "哪张图片有红色草莓、浅色小籽和绿色萼片？"
+    expect_any: [fruits]
+    expect_asset_any: [fruits.strawberry.image]
+  - id: fruits_strawberry_chunk
+    query_type: text_chunk
+    q: "草莓的小节如何描述果身、籽点和用途？"
+    expect_any: [fruits]
+    expect_chunk_any: [fruits.strawberry.text]
+  - id: fruits_grape_asset
+    query_type: asset
+    q: "Find the purple grape cluster image."
+    expect_any: [fruits]
+    expect_asset_any: [fruits.grape.image]
+  - id: fruits_grape_chunk
+    query_type: text_chunk
+    q: "葡萄的小节介绍了哪些成串结构和用途？"
+    expect_any: [fruits]
+    expect_chunk_any: [fruits.grape.text]
+  - id: fruits_watermelon_asset
+    query_type: asset
+    q: "检索绿色瓜皮、红色果肉和黑籽的西瓜切片。"
+    expect_any: [fruits]
+    expect_asset_any: [fruits.watermelon.image]
+  - id: fruits_watermelon_chunk
+    query_type: text_chunk
+    q: "西瓜的小节如何描述果皮、果肉和食用方式？"
+    expect_any: [fruits]
+    expect_chunk_any: [fruits.watermelon.text]
+  - id: fruits_pineapple_asset
+    query_type: asset
+    q: "Which image has a yellow pineapple body with green crown leaves?"
+    expect_any: [fruits]
+    expect_asset_any: [fruits.pineapple.image]
+  - id: fruits_pineapple_chunk
+    query_type: text_chunk
+    q: "菠萝的小节说明了哪些纹理和冠叶特征？"
+    expect_any: [fruits]
+    expect_chunk_any: [fruits.pineapple.text]
+  - id: fruits_kiwi_asset
+    query_type: asset
+    q: "查找绿色切面、白色中心和黑色环形籽的猕猴桃。"
+    expect_any: [fruits]
+    expect_asset_any: [fruits.kiwi.image]
+  - id: fruits_kiwi_chunk
+    query_type: text_chunk
+    q: "猕猴桃的小节如何描述切面结构？"
+    expect_any: [fruits]
+    expect_chunk_any: [fruits.kiwi.text]
+  - id: fruits_mango_asset
+    query_type: asset
+    q: "Find the orange-yellow mango with red color transition."
+    expect_any: [fruits]
+    expect_asset_any: [fruits.mango.image]
+  - id: fruits_mango_chunk
+    query_type: text_chunk
+    q: "芒果的小节介绍了哪些颜色过渡和用途？"
+    expect_any: [fruits]
+    expect_chunk_any: [fruits.mango.text]
+  - id: fruits_lemon_asset
+    query_type: asset
+    q: "检索亮黄色椭圆形、两端略尖的柠檬图片。"
+    expect_any: [fruits]
+    expect_asset_any: [fruits.lemon.image]
+  - id: fruits_lemon_chunk
+    query_type: text_chunk
+    q: "柠檬的小节如何区分它和橙子？"
+    expect_any: [fruits]
+    expect_chunk_any: [fruits.lemon.text]
+  - id: animals_cat_asset
+    query_type: asset
+    q: "检索有三角耳、胡须和圆脸的猫图片。"
+    expect_any: [animals]
+    expect_asset_any: [animals.cat.image]
+  - id: animals_cat_chunk
+    query_type: text_chunk
+    q: "猫的小节说明了哪些面部视觉特征？"
+    expect_any: [animals]
+    expect_chunk_any: [animals.cat.text]
+  - id: animals_dog_asset
+    query_type: asset
+    q: "Find the dog image with floppy ears and a short muzzle."
+    expect_any: [animals]
+    expect_asset_any: [animals.dog.image]
+  - id: animals_dog_chunk
+    query_type: text_chunk
+    q: "狗的小节介绍了哪些用途和外形特征？"
+    expect_any: [animals]
+    expect_chunk_any: [animals.dog.text]
+  - id: animals_rabbit_asset
+    query_type: asset
+    q: "哪张动物图片展示长耳朵和浅色皮毛的兔子？"
+    expect_any: [animals]
+    expect_asset_any: [animals.rabbit.image]
+  - id: animals_rabbit_chunk
+    query_type: text_chunk
+    q: "兔子的小节如何描述长耳和皮毛？"
+    expect_any: [animals]
+    expect_chunk_any: [animals.rabbit.text]
+  - id: animals_panda_asset
+    query_type: asset
+    q: "Find the black-and-white panda with dark eye patches."
+    expect_any: [animals]
+    expect_asset_any: [animals.panda.image]
+  - id: animals_panda_chunk
+    query_type: text_chunk
+    q: "熊猫的小节说明了哪些颜色对比和生态特征？"
+    expect_any: [animals]
+    expect_chunk_any: [animals.panda.text]
+  - id: animals_elephant_asset
+    query_type: asset
+    q: "检索灰色大耳朵和长鼻子的大象图片。"
+    expect_any: [animals]
+    expect_asset_any: [animals.elephant.image]
+  - id: animals_elephant_chunk
+    query_type: text_chunk
+    q: "大象的小节介绍了哪些局部结构？"
+    expect_any: [animals]
+    expect_chunk_any: [animals.elephant.text]
+  - id: animals_lion_asset
+    query_type: asset
+    q: "Which image shows a lion with a brown mane?"
+    expect_any: [animals]
+    expect_asset_any: [animals.lion.image]
+  - id: animals_lion_chunk
+    query_type: text_chunk
+    q: "狮子的小节如何描述鬃毛和生态角色？"
+    expect_any: [animals]
+    expect_chunk_any: [animals.lion.text]
+  - id: animals_penguin_asset
+    query_type: asset
+    q: "查找黑白身体和橙色喙的企鹅图片。"
+    expect_any: [animals]
+    expect_asset_any: [animals.penguin.image]
+  - id: animals_penguin_chunk
+    query_type: text_chunk
+    q: "企鹅的小节说明了哪些鸟类和姿态特征？"
+    expect_any: [animals]
+    expect_chunk_any: [animals.penguin.text]
+  - id: animals_owl_asset
+    query_type: asset
+    q: "Find the owl image with large round eyes."
+    expect_any: [animals]
+    expect_asset_any: [animals.owl.image]
+  - id: animals_owl_chunk
+    query_type: text_chunk
+    q: "猫头鹰的小节如何描述眼睛和夜行特征？"
+    expect_any: [animals]
+    expect_chunk_any: [animals.owl.text]
+  - id: animals_fox_asset
+    query_type: asset
+    q: "检索橙红色毛发、尖耳和白色面部的狐狸。"
+    expect_any: [animals]
+    expect_asset_any: [animals.fox.image]
+  - id: animals_fox_chunk
+    query_type: text_chunk
+    q: "狐狸的小节介绍了哪些颜色和轮廓特征？"
+    expect_any: [animals]
+    expect_chunk_any: [animals.fox.text]
+  - id: animals_turtle_asset
+    query_type: asset
+    q: "Which image shows a turtle with a patterned shell?"
+    expect_any: [animals]
+    expect_asset_any: [animals.turtle.image]
+  - id: animals_turtle_chunk
+    query_type: text_chunk
+    q: "乌龟的小节如何描述龟壳和身体结构？"
+    expect_any: [animals]
+    expect_chunk_any: [animals.turtle.text]
+  - id: vehicles_car_asset
+    query_type: asset
+    q: "检索蓝色汽车、车窗和两个可见车轮。"
+    expect_any: [vehicles]
+    expect_asset_any: [vehicles.car.image]
+  - id: vehicles_car_chunk
+    query_type: text_chunk
+    q: "汽车的小节介绍了哪些道路交通和外形特征？"
+    expect_any: [vehicles]
+    expect_chunk_any: [vehicles.car.text]
+  - id: vehicles_bus_asset
+    query_type: asset
+    q: "Find the yellow bus with long body and windows."
+    expect_any: [vehicles]
+    expect_asset_any: [vehicles.bus.image]
+  - id: vehicles_bus_chunk
+    query_type: text_chunk
+    q: "公交车的小节如何描述公共交通用途？"
+    expect_any: [vehicles]
+    expect_chunk_any: [vehicles.bus.text]
+  - id: vehicles_train_asset
+    query_type: asset
+    q: "检索蓝色火车和轨道。"
+    expect_any: [vehicles]
+    expect_asset_any: [vehicles.train.image]
+  - id: vehicles_train_chunk
+    query_type: text_chunk
+    q: "火车的小节介绍了哪些轨道和运输特征？"
+    expect_any: [vehicles]
+    expect_chunk_any: [vehicles.train.text]
+  - id: vehicles_airplane_asset
+    query_type: asset
+    q: "Find the airplane with wings and fuselage."
+    expect_any: [vehicles]
+    expect_asset_any: [vehicles.airplane.image]
+  - id: vehicles_airplane_chunk
+    query_type: text_chunk
+    q: "飞机的小节如何描述机翼和远距离用途？"
+    expect_any: [vehicles]
+    expect_chunk_any: [vehicles.airplane.text]
+  - id: vehicles_ship_asset
+    query_type: asset
+    q: "检索有船体和烟囱的轮船。"
+    expect_any: [vehicles]
+    expect_asset_any: [vehicles.ship.image]
+  - id: vehicles_ship_chunk
+    query_type: text_chunk
+    q: "轮船的小节说明了哪些水上交通特征？"
+    expect_any: [vehicles]
+    expect_chunk_any: [vehicles.ship.text]
+  - id: vehicles_bicycle_asset
+    query_type: asset
+    q: "Find the bicycle with two wheels and frame."
+    expect_any: [vehicles]
+    expect_asset_any: [vehicles.bicycle.image]
+  - id: vehicles_bicycle_chunk
+    query_type: text_chunk
+    q: "自行车的小节如何描述双轮和人力驱动？"
+    expect_any: [vehicles]
+    expect_chunk_any: [vehicles.bicycle.text]
+  - id: vehicles_motorcycle_asset
+    query_type: asset
+    q: "检索摩托车图片。"
+    expect_any: [vehicles]
+    expect_asset_any: [vehicles.motorcycle.image]
+  - id: vehicles_motorcycle_chunk
+    query_type: text_chunk
+    q: "摩托车的小节介绍了哪些机动结构？"
+    expect_any: [vehicles]
+    expect_chunk_any: [vehicles.motorcycle.text]
+  - id: vehicles_ambulance_asset
+    query_type: asset
+    q: "Find the ambulance with red medical cross."
+    expect_any: [vehicles]
+    expect_asset_any: [vehicles.ambulance.image]
+  - id: vehicles_ambulance_chunk
+    query_type: text_chunk
+    q: "救护车的小节如何描述急救用途？"
+    expect_any: [vehicles]
+    expect_chunk_any: [vehicles.ambulance.text]
+  - id: vehicles_fire_truck_asset
+    query_type: asset
+    q: "检索红色消防车和梯子。"
+    expect_any: [vehicles]
+    expect_asset_any: [vehicles.fire_truck.image]
+  - id: vehicles_fire_truck_chunk
+    query_type: text_chunk
+    q: "消防车的小节介绍了哪些救援装备？"
+    expect_any: [vehicles]
+    expect_chunk_any: [vehicles.fire_truck.text]
+  - id: vehicles_subway_asset
+    query_type: asset
+    q: "Find the subway train front with tracks."
+    expect_any: [vehicles]
+    expect_asset_any: [vehicles.subway.image]
+  - id: vehicles_subway_chunk
+    query_type: text_chunk
+    q: "地铁的小节如何描述城市轨道交通？"
+    expect_any: [vehicles]
+    expect_chunk_any: [vehicles.subway.text]
+  - id: plants_rose_asset
+    query_type: asset
+    q: "检索红色玫瑰和绿色茎叶。"
+    expect_any: [plants]
+    expect_asset_any: [plants.rose.image]
+  - id: plants_rose_chunk
+    query_type: text_chunk
+    q: "玫瑰的小节如何描述花瓣和用途？"
+    expect_any: [plants]
+    expect_chunk_any: [plants.rose.text]
+  - id: plants_sunflower_asset
+    query_type: asset
+    q: "Find the sunflower with yellow petals."
+    expect_any: [plants]
+    expect_asset_any: [plants.sunflower.image]
+  - id: plants_sunflower_chunk
+    query_type: text_chunk
+    q: "向日葵的小节介绍了哪些花盘和用途？"
+    expect_any: [plants]
+    expect_chunk_any: [plants.sunflower.text]
+  - id: plants_bamboo_asset
+    query_type: asset
+    q: "检索分节绿色竹子。"
+    expect_any: [plants]
+    expect_asset_any: [plants.bamboo.image]
+  - id: plants_bamboo_chunk
+    query_type: text_chunk
+    q: "竹子的小节如何描述茎秆和用途？"
+    expect_any: [plants]
+    expect_chunk_any: [plants.bamboo.text]
+  - id: plants_cactus_asset
+    query_type: asset
+    q: "Find the cactus with arms."
+    expect_any: [plants]
+    expect_asset_any: [plants.cactus.image]
+  - id: plants_cactus_chunk
+    query_type: text_chunk
+    q: "仙人掌的小节说明了哪些干旱适应特征？"
+    expect_any: [plants]
+    expect_chunk_any: [plants.cactus.text]
+  - id: plants_pine_tree_asset
+    query_type: asset
+    q: "检索三角形树冠的松树。"
+    expect_any: [plants]
+    expect_asset_any: [plants.pine_tree.image]
+  - id: plants_pine_tree_chunk
+    query_type: text_chunk
+    q: "松树的小节如何描述常绿和树冠？"
+    expect_any: [plants]
+    expect_chunk_any: [plants.pine_tree.text]
+  - id: plants_lotus_asset
+    query_type: asset
+    q: "Find the pink lotus flower."
+    expect_any: [plants]
+    expect_asset_any: [plants.lotus.image]
+  - id: plants_lotus_chunk
+    query_type: text_chunk
+    q: "荷花的小节介绍了哪些水生环境特征？"
+    expect_any: [plants]
+    expect_chunk_any: [plants.lotus.text]
+  - id: plants_maple_asset
+    query_type: asset
+    q: "检索红色枫叶。"
+    expect_any: [plants]
+    expect_asset_any: [plants.maple.image]
+  - id: plants_maple_chunk
+    query_type: text_chunk
+    q: "枫树的小节如何描述叶片形状和季节？"
+    expect_any: [plants]
+    expect_chunk_any: [plants.maple.text]
+  - id: plants_tulip_asset
+    query_type: asset
+    q: "Find the tulip with cup-shaped petals."
+    expect_any: [plants]
+    expect_asset_any: [plants.tulip.image]
+  - id: plants_tulip_chunk
+    query_type: text_chunk
+    q: "郁金香的小节介绍了哪些花冠和茎叶特征？"
+    expect_any: [plants]
+    expect_chunk_any: [plants.tulip.text]
+  - id: plants_fern_asset
+    query_type: asset
+    q: "检索羽状蕨类叶片。"
+    expect_any: [plants]
+    expect_asset_any: [plants.fern.image]
+  - id: plants_fern_chunk
+    query_type: text_chunk
+    q: "蕨类的小节如何描述羽状复叶？"
+    expect_any: [plants]
+    expect_chunk_any: [plants.fern.text]
+  - id: plants_rice_asset
+    query_type: asset
+    q: "Find the golden rice panicles."
+    expect_any: [plants]
+    expect_asset_any: [plants.rice.image]
+  - id: plants_rice_chunk
+    query_type: text_chunk
+    q: "稻谷的小节介绍了哪些成熟谷粒特征？"
+    expect_any: [plants]
+    expect_chunk_any: [plants.rice.text]
+  - id: tools_hammer_asset
+    query_type: asset
+    q: "检索锤子、金属锤头和木柄。"
+    expect_any: [tools]
+    expect_asset_any: [tools.hammer.image]
+  - id: tools_hammer_chunk
+    query_type: text_chunk
+    q: "锤子的小节如何描述结构和用途？"
+    expect_any: [tools]
+    expect_chunk_any: [tools.hammer.text]
+  - id: tools_wrench_asset
+    query_type: asset
+    q: "Find the wrench with open jaw."
+    expect_any: [tools]
+    expect_asset_any: [tools.wrench.image]
+  - id: tools_wrench_chunk
+    query_type: text_chunk
+    q: "扳手的小节介绍了哪些夹持结构？"
+    expect_any: [tools]
+    expect_chunk_any: [tools.wrench.text]
+  - id: tools_screwdriver_asset
+    query_type: asset
+    q: "检索螺丝刀和尖端。"
+    expect_any: [tools]
+    expect_asset_any: [tools.screwdriver.image]
+  - id: tools_screwdriver_chunk
+    query_type: text_chunk
+    q: "螺丝刀的小节如何描述手柄和尖端？"
+    expect_any: [tools]
+    expect_chunk_any: [tools.screwdriver.text]
+  - id: tools_pliers_asset
+    query_type: asset
+    q: "Find the pliers with two handles."
+    expect_any: [tools]
+    expect_asset_any: [tools.pliers.image]
+  - id: tools_pliers_chunk
+    query_type: text_chunk
+    q: "钳子的小节介绍了哪些夹持和铰接特征？"
+    expect_any: [tools]
+    expect_chunk_any: [tools.pliers.text]
+  - id: tools_scissors_asset
+    query_type: asset
+    q: "检索交叉刀刃剪刀。"
+    expect_any: [tools]
+    expect_asset_any: [tools.scissors.image]
+  - id: tools_scissors_chunk
+    query_type: text_chunk
+    q: "剪刀的小节如何描述握环和刀刃？"
+    expect_any: [tools]
+    expect_chunk_any: [tools.scissors.text]
+  - id: tools_tape_measure_asset
+    query_type: asset
+    q: "Find the tape measure with metal tape."
+    expect_any: [tools]
+    expect_asset_any: [tools.tape_measure.image]
+  - id: tools_tape_measure_chunk
+    query_type: text_chunk
+    q: "卷尺的小节介绍了哪些测量结构？"
+    expect_any: [tools]
+    expect_chunk_any: [tools.tape_measure.text]
+  - id: tools_drill_asset
+    query_type: asset
+    q: "检索电钻和钻头。"
+    expect_any: [tools]
+    expect_asset_any: [tools.drill.image]
+  - id: tools_drill_chunk
+    query_type: text_chunk
+    q: "电钻的小节如何描述电动结构和用途？"
+    expect_any: [tools]
+    expect_chunk_any: [tools.drill.text]
+  - id: tools_brush_asset
+    query_type: asset
+    q: "Find the brush with bristles."
+    expect_any: [tools]
+    expect_asset_any: [tools.brush.image]
+  - id: tools_brush_chunk
+    query_type: text_chunk
+    q: "刷子的小节介绍了哪些刷毛和手柄特征？"
+    expect_any: [tools]
+    expect_chunk_any: [tools.brush.text]
+  - id: tools_shovel_asset
+    query_type: asset
+    q: "检索铲子和宽铲头。"
+    expect_any: [tools]
+    expect_asset_any: [tools.shovel.image]
+  - id: tools_shovel_chunk
+    query_type: text_chunk
+    q: "铲子的小节如何描述挖掘用途？"
+    expect_any: [tools]
+    expect_chunk_any: [tools.shovel.text]
+  - id: tools_flashlight_asset
+    query_type: asset
+    q: "Find the flashlight beam."
+    expect_any: [tools]
+    expect_asset_any: [tools.flashlight.image]
+  - id: tools_flashlight_chunk
+    query_type: text_chunk
+    q: "手电筒的小节介绍了哪些照明结构？"
+    expect_any: [tools]
+    expect_chunk_any: [tools.flashlight.text]
+  - id: foods_bread_asset
+    query_type: asset
+    q: "检索金棕色面包。"
+    expect_any: [foods]
+    expect_asset_any: [foods.bread.image]
+  - id: foods_bread_chunk
+    query_type: text_chunk
+    q: "面包的小节介绍了哪些烘焙外观和用途？"
+    expect_any: [foods]
+    expect_chunk_any: [foods.bread.text]
+  - id: foods_pizza_asset
+    query_type: asset
+    q: "Find the triangular pizza slice."
+    expect_any: [foods]
+    expect_asset_any: [foods.pizza.image]
+  - id: foods_pizza_chunk
+    query_type: text_chunk
+    q: "披萨的小节如何描述切片和配料？"
+    expect_any: [foods]
+    expect_chunk_any: [foods.pizza.text]
+  - id: foods_sushi_asset
+    query_type: asset
+    q: "检索寿司卷。"
+    expect_any: [foods]
+    expect_asset_any: [foods.sushi.image]
+  - id: foods_sushi_chunk
+    query_type: text_chunk
+    q: "寿司的小节介绍了哪些材料和切面特征？"
+    expect_any: [foods]
+    expect_chunk_any: [foods.sushi.text]
+  - id: foods_dumpling_asset
+    query_type: asset
+    q: "Find the dumplings with folded edges."
+    expect_any: [foods]
+    expect_asset_any: [foods.dumpling.image]
+  - id: foods_dumpling_chunk
+    query_type: text_chunk
+    q: "饺子的小节如何描述面皮和褶边？"
+    expect_any: [foods]
+    expect_chunk_any: [foods.dumpling.text]
+  - id: foods_burger_asset
+    query_type: asset
+    q: "检索分层汉堡。"
+    expect_any: [foods]
+    expect_asset_any: [foods.burger.image]
+  - id: foods_burger_chunk
+    query_type: text_chunk
+    q: "汉堡的小节介绍了哪些分层食材？"
+    expect_any: [foods]
+    expect_chunk_any: [foods.burger.text]
+  - id: foods_salad_asset
+    query_type: asset
+    q: "Find the bowl of salad."
+    expect_any: [foods]
+    expect_asset_any: [foods.salad.image]
+  - id: foods_salad_chunk
+    query_type: text_chunk
+    q: "沙拉的小节如何描述配料和容器？"
+    expect_any: [foods]
+    expect_chunk_any: [foods.salad.text]
+  - id: foods_noodles_asset
+    query_type: asset
+    q: "检索碗中的面条。"
+    expect_any: [foods]
+    expect_asset_any: [foods.noodles.image]
+  - id: foods_noodles_chunk
+    query_type: text_chunk
+    q: "面条的小节介绍了哪些形状和食用方式？"
+    expect_any: [foods]
+    expect_chunk_any: [foods.noodles.text]
+  - id: foods_cake_asset
+    query_type: asset
+    q: "Find the birthday cake with candles."
+    expect_any: [foods]
+    expect_asset_any: [foods.cake.image]
+  - id: foods_cake_chunk
+    query_type: text_chunk
+    q: "蛋糕的小节如何描述甜点和庆祝场景？"
+    expect_any: [foods]
+    expect_chunk_any: [foods.cake.text]
+  - id: foods_rice_asset
+    query_type: asset
+    q: "检索白米饭。"
+    expect_any: [foods]
+    expect_asset_any: [foods.rice.image]
+  - id: foods_rice_chunk
+    query_type: text_chunk
+    q: "米饭的小节介绍了哪些主食和米粒特征？"
+    expect_any: [foods]
+    expect_chunk_any: [foods.rice.text]
+  - id: foods_soup_asset
+    query_type: asset
+    q: "Find the bowl of soup."
+    expect_any: [foods]
+    expect_asset_any: [foods.soup.image]
+  - id: foods_soup_chunk
+    query_type: text_chunk
+    q: "汤的小节如何描述液体和配料？"
+    expect_any: [foods]
+    expect_chunk_any: [foods.soup.text]
+  - id: landmarks_great_wall_asset
+    query_type: asset
+    q: "检索蜿蜒城墙和垛口。"
+    expect_any: [landmarks]
+    expect_asset_any: [landmarks.great_wall.image]
+  - id: landmarks_great_wall_chunk
+    query_type: text_chunk
+    q: "长城的小节如何描述城墙和历史地标特征？"
+    expect_any: [landmarks]
+    expect_chunk_any: [landmarks.great_wall.text]
+  - id: landmarks_eiffel_tower_asset
+    query_type: asset
+    q: "Find the Eiffel Tower lattice silhouette."
+    expect_any: [landmarks]
+    expect_asset_any: [landmarks.eiffel_tower.image]
+  - id: landmarks_eiffel_tower_chunk
+    query_type: text_chunk
+    q: "埃菲尔铁塔的小节介绍了哪些金属结构？"
+    expect_any: [landmarks]
+    expect_chunk_any: [landmarks.eiffel_tower.text]
+  - id: landmarks_pyramid_asset
+    query_type: asset
+    q: "检索沙色金字塔。"
+    expect_any: [landmarks]
+    expect_asset_any: [landmarks.pyramid.image]
+  - id: landmarks_pyramid_chunk
+    query_type: text_chunk
+    q: "金字塔的小节如何描述几何形状和古代建筑？"
+    expect_any: [landmarks]
+    expect_chunk_any: [landmarks.pyramid.text]
+  - id: landmarks_statue_of_liberty_asset
+    query_type: asset
+    q: "Find the Statue of Liberty with torch."
+    expect_any: [landmarks]
+    expect_asset_any: [landmarks.statue_of_liberty.image]
+  - id: landmarks_statue_of_liberty_chunk
+    query_type: text_chunk
+    q: "自由女神像的小节介绍了哪些姿态和象征物？"
+    expect_any: [landmarks]
+    expect_chunk_any: [landmarks.statue_of_liberty.text]
+  - id: landmarks_taj_mahal_asset
+    query_type: asset
+    q: "检索白色穹顶泰姬陵。"
+    expect_any: [landmarks]
+    expect_asset_any: [landmarks.taj_mahal.image]
+  - id: landmarks_taj_mahal_chunk
+    query_type: text_chunk
+    q: "泰姬陵的小节如何描述穹顶和对称结构？"
+    expect_any: [landmarks]
+    expect_chunk_any: [landmarks.taj_mahal.text]
+  - id: landmarks_sydney_opera_asset
+    query_type: asset
+    q: "Find the sail-shaped opera house."
+    expect_any: [landmarks]
+    expect_asset_any: [landmarks.sydney_opera.image]
+  - id: landmarks_sydney_opera_chunk
+    query_type: text_chunk
+    q: "悉尼歌剧院的小节介绍了哪些屋顶形态？"
+    expect_any: [landmarks]
+    expect_chunk_any: [landmarks.sydney_opera.text]
+  - id: landmarks_forbidden_city_asset
+    query_type: asset
+    q: "检索红墙黄瓦故宫。"
+    expect_any: [landmarks]
+    expect_asset_any: [landmarks.forbidden_city.image]
+  - id: landmarks_forbidden_city_chunk
+    query_type: text_chunk
+    q: "故宫的小节如何描述红墙黄瓦和宫殿结构？"
+    expect_any: [landmarks]
+    expect_chunk_any: [landmarks.forbidden_city.text]
+  - id: landmarks_colosseum_asset
+    query_type: asset
+    q: "Find the Colosseum arches."
+    expect_any: [landmarks]
+    expect_asset_any: [landmarks.colosseum.image]
+  - id: landmarks_colosseum_chunk
+    query_type: text_chunk
+    q: "罗马斗兽场的小节介绍了哪些拱门和遗迹特征？"
+    expect_any: [landmarks]
+    expect_chunk_any: [landmarks.colosseum.text]
+  - id: landmarks_tower_bridge_asset
+    query_type: asset
+    q: "检索双塔桥梁。"
+    expect_any: [landmarks]
+    expect_asset_any: [landmarks.tower_bridge.image]
+  - id: landmarks_tower_bridge_chunk
+    query_type: text_chunk
+    q: "伦敦塔桥的小节如何描述双塔和桥面？"
+    expect_any: [landmarks]
+    expect_chunk_any: [landmarks.tower_bridge.text]
+  - id: landmarks_mount_fuji_asset
+    query_type: asset
+    q: "Find Mount Fuji with snow cap."
+    expect_any: [landmarks]
+    expect_asset_any: [landmarks.mount_fuji.image]
+  - id: landmarks_mount_fuji_chunk
+    query_type: text_chunk
+    q: "富士山的小节介绍了哪些山体和雪冠特征？"
+    expect_any: [landmarks]
+    expect_chunk_any: [landmarks.mount_fuji.text]
+  - id: electronics_smartphone_asset
+    query_type: asset
+    q: "Find the smartphone with a black rectangular screen."
+    expect_any: [electronics]
+    expect_asset_any: [electronics.smartphone.image]
+  - id: electronics_smartphone_chunk
+    query_type: text_chunk
+    q: "手机的小节如何描述屏幕和便携用途？"
+    expect_any: [electronics]
+    expect_chunk_any: [electronics.smartphone.text]
+  - id: electronics_laptop_asset
+    query_type: asset
+    q: "检索带屏幕和键盘的笔记本电脑图片。"
+    expect_any: [electronics]
+    expect_asset_any: [electronics.laptop.image]
+  - id: electronics_laptop_chunk
+    query_type: text_chunk
+    q: "笔记本电脑的小节介绍了哪些计算用途和结构？"
+    expect_any: [electronics]
+    expect_chunk_any: [electronics.laptop.text]
+  - id: electronics_camera_asset
+    query_type: asset
+    q: "Find the camera with a prominent round lens."
+    expect_any: [electronics]
+    expect_asset_any: [electronics.camera.image]
+  - id: electronics_camera_chunk
+    query_type: text_chunk
+    q: "相机的小节如何描述镜头和拍摄用途？"
+    expect_any: [electronics]
+    expect_chunk_any: [electronics.camera.text]
+  - id: electronics_headphones_asset
+    query_type: asset
+    q: "检索带头梁和双耳罩的耳机图片。"
+    expect_any: [electronics]
+    expect_asset_any: [electronics.headphones.image]
+  - id: electronics_headphones_chunk
+    query_type: text_chunk
+    q: "耳机的小节介绍了哪些音频和结构特征？"
+    expect_any: [electronics]
+    expect_chunk_any: [electronics.headphones.text]
+  - id: electronics_smartwatch_asset
+    query_type: asset
+    q: "Find the smartwatch with a screen and wrist strap."
+    expect_any: [electronics]
+    expect_asset_any: [electronics.smartwatch.image]
+  - id: electronics_smartwatch_chunk
+    query_type: text_chunk
+    q: "智能手表的小节如何描述屏幕和健康用途？"
+    expect_any: [electronics]
+    expect_chunk_any: [electronics.smartwatch.text]
+  - id: electronics_router_asset
+    query_type: asset
+    q: "检索带天线的 Wi-Fi 路由器图片。"
+    expect_any: [electronics]
+    expect_asset_any: [electronics.router.image]
+  - id: electronics_router_chunk
+    query_type: text_chunk
+    q: "路由器的小节介绍了哪些网络连接特征？"
+    expect_any: [electronics]
+    expect_chunk_any: [electronics.router.text]
+  - id: electronics_printer_asset
+    query_type: asset
+    q: "Find the printer with a paper output tray."
+    expect_any: [electronics]
+    expect_asset_any: [electronics.printer.image]
+  - id: electronics_printer_chunk
+    query_type: text_chunk
+    q: "打印机的小节如何描述出纸口和办公用途？"
+    expect_any: [electronics]
+    expect_chunk_any: [electronics.printer.text]
+  - id: electronics_drone_asset
+    query_type: asset
+    q: "检索四旋翼无人机图片。"
+    expect_any: [electronics]
+    expect_asset_any: [electronics.drone.image]
+  - id: electronics_drone_chunk
+    query_type: text_chunk
+    q: "无人机的小节介绍了哪些飞行和旋翼特征？"
+    expect_any: [electronics]
+    expect_chunk_any: [electronics.drone.text]
+  - id: electronics_game_controller_asset
+    query_type: asset
+    q: "Find the game controller with buttons and joysticks."
+    expect_any: [electronics]
+    expect_asset_any: [electronics.game_controller.image]
+  - id: electronics_game_controller_chunk
+    query_type: text_chunk
+    q: "游戏手柄的小节如何描述按钮和控制用途？"
+    expect_any: [electronics]
+    expect_chunk_any: [electronics.game_controller.text]
+  - id: electronics_microphone_asset
+    query_type: asset
+    q: "检索带网格拾音头的麦克风图片。"
+    expect_any: [electronics]
+    expect_asset_any: [electronics.microphone.image]
+  - id: electronics_microphone_chunk
+    query_type: text_chunk
+    q: "麦克风的小节介绍了哪些录音和结构特征？"
+    expect_any: [electronics]
+    expect_chunk_any: [electronics.microphone.text]
+  - id: household_sofa_asset
+    query_type: asset
+    q: "Find the sofa with cushions and armrests."
+    expect_any: [household]
+    expect_asset_any: [household.sofa.image]
+  - id: household_sofa_chunk
+    query_type: text_chunk
+    q: "沙发的小节如何描述坐垫和客厅用途？"
+    expect_any: [household]
+    expect_chunk_any: [household.sofa.text]
+  - id: household_table_lamp_asset
+    query_type: asset
+    q: "检索带灯罩和底座的台灯图片。"
+    expect_any: [household]
+    expect_asset_any: [household.table_lamp.image]
+  - id: household_table_lamp_chunk
+    query_type: text_chunk
+    q: "台灯的小节介绍了哪些照明和结构特征？"
+    expect_any: [household]
+    expect_chunk_any: [household.table_lamp.text]
+  - id: household_bed_asset
+    query_type: asset
+    q: "Find the bed with pillows and headboard."
+    expect_any: [household]
+    expect_asset_any: [household.bed.image]
+  - id: household_bed_chunk
+    query_type: text_chunk
+    q: "床的小节如何描述睡眠用途和组成？"
+    expect_any: [household]
+    expect_chunk_any: [household.bed.text]
+  - id: household_refrigerator_asset
+    query_type: asset
+    q: "检索带门把手的冰箱图片。"
+    expect_any: [household]
+    expect_asset_any: [household.refrigerator.image]
+  - id: household_refrigerator_chunk
+    query_type: text_chunk
+    q: "冰箱的小节介绍了哪些低温保存用途？"
+    expect_any: [household]
+    expect_chunk_any: [household.refrigerator.text]
+  - id: household_washing_machine_asset
+    query_type: asset
+    q: "Find the washing machine with a round front door."
+    expect_any: [household]
+    expect_asset_any: [household.washing_machine.image]
+  - id: household_washing_machine_chunk
+    query_type: text_chunk
+    q: "洗衣机的小节如何描述清洗用途和舱门？"
+    expect_any: [household]
+    expect_chunk_any: [household.washing_machine.text]
+  - id: household_microwave_asset
+    query_type: asset
+    q: "检索带透明门窗的微波炉图片。"
+    expect_any: [household]
+    expect_asset_any: [household.microwave.image]
+  - id: household_microwave_chunk
+    query_type: text_chunk
+    q: "微波炉的小节介绍了哪些加热和面板特征？"
+    expect_any: [household]
+    expect_chunk_any: [household.microwave.text]
+  - id: household_vacuum_cleaner_asset
+    query_type: asset
+    q: "Find the vacuum cleaner with hose and floor head."
+    expect_any: [household]
+    expect_asset_any: [household.vacuum_cleaner.image]
+  - id: household_vacuum_cleaner_chunk
+    query_type: text_chunk
+    q: "吸尘器的小节如何描述清洁用途和吸头？"
+    expect_any: [household]
+    expect_chunk_any: [household.vacuum_cleaner.text]
+  - id: household_electric_kettle_asset
+    query_type: asset
+    q: "检索带壶嘴和把手的电水壶图片。"
+    expect_any: [household]
+    expect_asset_any: [household.electric_kettle.image]
+  - id: household_electric_kettle_chunk
+    query_type: text_chunk
+    q: "电水壶的小节介绍了哪些烧水和壶体特征？"
+    expect_any: [household]
+    expect_chunk_any: [household.electric_kettle.text]
+  - id: household_air_conditioner_asset
+    query_type: asset
+    q: "Find the wall air conditioner with a long vent."
+    expect_any: [household]
+    expect_asset_any: [household.air_conditioner.image]
+  - id: household_air_conditioner_chunk
+    query_type: text_chunk
+    q: "空调的小节如何描述温度调节和出风口？"
+    expect_any: [household]
+    expect_chunk_any: [household.air_conditioner.text]
+  - id: household_dining_table_asset
+    query_type: asset
+    q: "检索带桌面和桌腿的餐桌图片。"
+    expect_any: [household]
+    expect_asset_any: [household.dining_table.image]
+  - id: household_dining_table_chunk
+    query_type: text_chunk
+    q: "餐桌的小节介绍了哪些用餐用途和结构？"
+    expect_any: [household]
+    expect_chunk_any: [household.dining_table.text]
+  - id: clothing_t_shirt_asset
+    query_type: asset
+    q: "Find the T-shirt with short sleeves and round neck."
+    expect_any: [clothing]
+    expect_asset_any: [clothing.t_shirt.image]
+  - id: clothing_t_shirt_chunk
+    query_type: text_chunk
+    q: "T 恤的小节如何描述短袖和休闲用途？"
+    expect_any: [clothing]
+    expect_chunk_any: [clothing.t_shirt.text]
+  - id: clothing_jacket_asset
+    query_type: asset
+    q: "检索带拉链的夹克图片。"
+    expect_any: [clothing]
+    expect_asset_any: [clothing.jacket.image]
+  - id: clothing_jacket_chunk
+    query_type: text_chunk
+    q: "夹克的小节介绍了哪些保暖和外套特征？"
+    expect_any: [clothing]
+    expect_chunk_any: [clothing.jacket.text]
+  - id: clothing_running_shoe_asset
+    query_type: asset
+    q: "Find the running shoe with laces and thick sole."
+    expect_any: [clothing]
+    expect_asset_any: [clothing.running_shoe.image]
+  - id: clothing_running_shoe_chunk
+    query_type: text_chunk
+    q: "运动鞋的小节如何描述鞋底和运动用途？"
+    expect_any: [clothing]
+    expect_chunk_any: [clothing.running_shoe.text]
+  - id: clothing_hat_asset
+    query_type: asset
+    q: "检索带帽檐的帽子图片。"
+    expect_any: [clothing]
+    expect_asset_any: [clothing.hat.image]
+  - id: clothing_hat_chunk
+    query_type: text_chunk
+    q: "帽子的小节介绍了哪些遮阳和配饰用途？"
+    expect_any: [clothing]
+    expect_chunk_any: [clothing.hat.text]
+  - id: clothing_backpack_asset
+    query_type: asset
+    q: "Find the backpack with shoulder straps and zipper pockets."
+    expect_any: [clothing]
+    expect_asset_any: [clothing.backpack.image]
+  - id: clothing_backpack_chunk
+    query_type: text_chunk
+    q: "背包的小节如何描述收纳和肩带？"
+    expect_any: [clothing]
+    expect_chunk_any: [clothing.backpack.text]
+  - id: clothing_eyeglasses_asset
+    query_type: asset
+    q: "检索带两个镜片和镜腿的眼镜图片。"
+    expect_any: [clothing]
+    expect_asset_any: [clothing.eyeglasses.image]
+  - id: clothing_eyeglasses_chunk
+    query_type: text_chunk
+    q: "眼镜的小节介绍了哪些镜片和镜框特征？"
+    expect_any: [clothing]
+    expect_chunk_any: [clothing.eyeglasses.text]
+  - id: clothing_wristwatch_asset
+    query_type: asset
+    q: "Find the wristwatch with a round face and strap."
+    expect_any: [clothing]
+    expect_asset_any: [clothing.wristwatch.image]
+  - id: clothing_wristwatch_chunk
+    query_type: text_chunk
+    q: "手表的小节如何描述计时和配饰用途？"
+    expect_any: [clothing]
+    expect_chunk_any: [clothing.wristwatch.text]
+  - id: clothing_umbrella_asset
+    query_type: asset
+    q: "检索展开伞面和手柄的雨伞图片。"
+    expect_any: [clothing]
+    expect_asset_any: [clothing.umbrella.image]
+  - id: clothing_umbrella_chunk
+    query_type: text_chunk
+    q: "雨伞的小节介绍了哪些遮雨和结构特征？"
+    expect_any: [clothing]
+    expect_chunk_any: [clothing.umbrella.text]
+  - id: clothing_dress_asset
+    query_type: asset
+    q: "Find the dress with a flared skirt."
+    expect_any: [clothing]
+    expect_asset_any: [clothing.dress.image]
+  - id: clothing_dress_chunk
+    query_type: text_chunk
+    q: "连衣裙的小节如何描述裙摆和穿着场景？"
+    expect_any: [clothing]
+    expect_chunk_any: [clothing.dress.text]
+  - id: clothing_scarf_asset
+    query_type: asset
+    q: "检索长条柔软围巾图片。"
+    expect_any: [clothing]
+    expect_asset_any: [clothing.scarf.image]
+  - id: clothing_scarf_chunk
+    query_type: text_chunk
+    q: "围巾的小节介绍了哪些保暖和材质特征？"
+    expect_any: [clothing]
+    expect_chunk_any: [clothing.scarf.text]
+  - id: medical_stethoscope_asset
+    query_type: asset
+    q: "Find the stethoscope with earpieces and round chest piece."
+    expect_any: [medical]
+    expect_asset_any: [medical.stethoscope.image]
+  - id: medical_stethoscope_chunk
+    query_type: text_chunk
+    q: "听诊器的小节如何描述临床检查用途？"
+    expect_any: [medical]
+    expect_chunk_any: [medical.stethoscope.text]
+  - id: medical_syringe_asset
+    query_type: asset
+    q: "检索透明针筒和细针头的注射器图片。"
+    expect_any: [medical]
+    expect_asset_any: [medical.syringe.image]
+  - id: medical_syringe_chunk
+    query_type: text_chunk
+    q: "注射器的小节介绍了哪些液体注入结构？"
+    expect_any: [medical]
+    expect_chunk_any: [medical.syringe.text]
+  - id: medical_thermometer_asset
+    query_type: asset
+    q: "Find the digital thermometer with a small display."
+    expect_any: [medical]
+    expect_asset_any: [medical.thermometer.image]
+  - id: medical_thermometer_chunk
+    query_type: text_chunk
+    q: "体温计的小节如何描述测温用途和探头？"
+    expect_any: [medical]
+    expect_chunk_any: [medical.thermometer.text]
+  - id: medical_bandage_asset
+    query_type: asset
+    q: "检索白色卷状绷带图片。"
+    expect_any: [medical]
+    expect_asset_any: [medical.bandage.image]
+  - id: medical_bandage_chunk
+    query_type: text_chunk
+    q: "绷带的小节介绍了哪些包扎用途和形态？"
+    expect_any: [medical]
+    expect_chunk_any: [medical.bandage.text]
+  - id: medical_medicine_bottle_asset
+    query_type: asset
+    q: "Find the medicine bottle with cap and pills."
+    expect_any: [medical]
+    expect_asset_any: [medical.medicine_bottle.image]
+  - id: medical_medicine_bottle_chunk
+    query_type: text_chunk
+    q: "药瓶的小节如何描述储存药物用途？"
+    expect_any: [medical]
+    expect_chunk_any: [medical.medicine_bottle.text]
+  - id: medical_first_aid_kit_asset
+    query_type: asset
+    q: "检索带医疗十字的急救箱图片。"
+    expect_any: [medical]
+    expect_asset_any: [medical.first_aid_kit.image]
+  - id: medical_first_aid_kit_chunk
+    query_type: text_chunk
+    q: "急救箱的小节介绍了哪些应急用途？"
+    expect_any: [medical]
+    expect_chunk_any: [medical.first_aid_kit.text]
+  - id: medical_wheelchair_asset
+    query_type: asset
+    q: "Find the wheelchair with large wheels and seat."
+    expect_any: [medical]
+    expect_asset_any: [medical.wheelchair.image]
+  - id: medical_wheelchair_chunk
+    query_type: text_chunk
+    q: "轮椅的小节如何描述移动辅助功能？"
+    expect_any: [medical]
+    expect_chunk_any: [medical.wheelchair.text]
+  - id: medical_face_mask_asset
+    query_type: asset
+    q: "检索带耳带和褶皱的口罩图片。"
+    expect_any: [medical]
+    expect_asset_any: [medical.face_mask.image]
+  - id: medical_face_mask_chunk
+    query_type: text_chunk
+    q: "口罩的小节介绍了哪些防护和佩戴结构？"
+    expect_any: [medical]
+    expect_chunk_any: [medical.face_mask.text]
+  - id: medical_blood_pressure_monitor_asset
+    query_type: asset
+    q: "Find the blood pressure monitor with cuff and display."
+    expect_any: [medical]
+    expect_asset_any: [medical.blood_pressure_monitor.image]
+  - id: medical_blood_pressure_monitor_chunk
+    query_type: text_chunk
+    q: "血压计的小节如何描述袖带和测量用途？"
+    expect_any: [medical]
+    expect_chunk_any: [medical.blood_pressure_monitor.text]
+  - id: medical_microscope_asset
+    query_type: asset
+    q: "检索带目镜和载物台的显微镜图片。"
+    expect_any: [medical]
+    expect_asset_any: [medical.microscope.image]
+  - id: medical_microscope_chunk
+    query_type: text_chunk
+    q: "显微镜的小节介绍了哪些观察和光学部件？"
+    expect_any: [medical]
+    expect_chunk_any: [medical.microscope.text]
+  - id: sports_soccer_ball_asset
+    query_type: asset
+    q: "Find the soccer ball with black and white panels."
+    expect_any: [sports]
+    expect_asset_any: [sports.soccer_ball.image]
+  - id: sports_soccer_ball_chunk
+    query_type: text_chunk
+    q: "足球的小节如何描述拼块纹理和运动用途？"
+    expect_any: [sports]
+    expect_chunk_any: [sports.soccer_ball.text]
+  - id: sports_basketball_asset
+    query_type: asset
+    q: "检索橙色篮球和黑色弧线图片。"
+    expect_any: [sports]
+    expect_asset_any: [sports.basketball.image]
+  - id: sports_basketball_chunk
+    query_type: text_chunk
+    q: "篮球的小节介绍了哪些线条和比赛用途？"
+    expect_any: [sports]
+    expect_chunk_any: [sports.basketball.text]
+  - id: sports_tennis_racket_asset
+    query_type: asset
+    q: "Find the tennis racket with strings and handle."
+    expect_any: [sports]
+    expect_asset_any: [sports.tennis_racket.image]
+  - id: sports_tennis_racket_chunk
+    query_type: text_chunk
+    q: "网球拍的小节如何描述拍框和网线？"
+    expect_any: [sports]
+    expect_chunk_any: [sports.tennis_racket.text]
+  - id: sports_skateboard_asset
+    query_type: asset
+    q: "检索带四个小轮的滑板图片。"
+    expect_any: [sports]
+    expect_asset_any: [sports.skateboard.image]
+  - id: sports_skateboard_chunk
+    query_type: text_chunk
+    q: "滑板的小节介绍了哪些板面和滑行用途？"
+    expect_any: [sports]
+    expect_chunk_any: [sports.skateboard.text]
+  - id: sports_dumbbell_asset
+    query_type: asset
+    q: "Find the dumbbell with weights on both ends."
+    expect_any: [sports]
+    expect_asset_any: [sports.dumbbell.image]
+  - id: sports_dumbbell_chunk
+    query_type: text_chunk
+    q: "哑铃的小节如何描述力量训练和配重？"
+    expect_any: [sports]
+    expect_chunk_any: [sports.dumbbell.text]
+  - id: sports_yoga_mat_asset
+    query_type: asset
+    q: "检索卷起的瑜伽垫图片。"
+    expect_any: [sports]
+    expect_asset_any: [sports.yoga_mat.image]
+  - id: sports_yoga_mat_chunk
+    query_type: text_chunk
+    q: "瑜伽垫的小节介绍了哪些地面训练用途？"
+    expect_any: [sports]
+    expect_chunk_any: [sports.yoga_mat.text]
+  - id: sports_boxing_gloves_asset
+    query_type: asset
+    q: "Find the pair of red boxing gloves."
+    expect_any: [sports]
+    expect_asset_any: [sports.boxing_gloves.image]
+  - id: sports_boxing_gloves_chunk
+    query_type: text_chunk
+    q: "拳击手套的小节如何描述保护和腕带？"
+    expect_any: [sports]
+    expect_chunk_any: [sports.boxing_gloves.text]
+  - id: sports_swimming_goggles_asset
+    query_type: asset
+    q: "检索带透明镜片的游泳镜图片。"
+    expect_any: [sports]
+    expect_asset_any: [sports.swimming_goggles.image]
+  - id: sports_swimming_goggles_chunk
+    query_type: text_chunk
+    q: "游泳镜的小节介绍了哪些水下视野和结构？"
+    expect_any: [sports]
+    expect_chunk_any: [sports.swimming_goggles.text]
+  - id: sports_baseball_glove_asset
+    query_type: asset
+    q: "Find the brown baseball glove with stitching."
+    expect_any: [sports]
+    expect_asset_any: [sports.baseball_glove.image]
+  - id: sports_baseball_glove_chunk
+    query_type: text_chunk
+    q: "棒球手套的小节如何描述接球和缝线？"
+    expect_any: [sports]
+    expect_chunk_any: [sports.baseball_glove.text]
+  - id: sports_bicycle_helmet_asset
+    query_type: asset
+    q: "检索带通风孔的自行车头盔图片。"
+    expect_any: [sports]
+    expect_asset_any: [sports.bicycle_helmet.image]
+  - id: sports_bicycle_helmet_chunk
+    query_type: text_chunk
+    q: "自行车头盔的小节介绍了哪些保护结构？"
+    expect_any: [sports]
+    expect_chunk_any: [sports.bicycle_helmet.text]
+  - id: instruments_piano_asset
+    query_type: asset
+    q: "Find the piano keyboard with black and white keys."
+    expect_any: [instruments]
+    expect_asset_any: [instruments.piano.image]
+  - id: instruments_piano_chunk
+    query_type: text_chunk
+    q: "钢琴的小节如何描述琴键和演奏用途？"
+    expect_any: [instruments]
+    expect_chunk_any: [instruments.piano.text]
+  - id: instruments_guitar_asset
+    query_type: asset
+    q: "检索带圆形音孔的木吉他图片。"
+    expect_any: [instruments]
+    expect_asset_any: [instruments.guitar.image]
+  - id: instruments_guitar_chunk
+    query_type: text_chunk
+    q: "吉他的小节介绍了哪些弦和共鸣箱特征？"
+    expect_any: [instruments]
+    expect_chunk_any: [instruments.guitar.text]
+  - id: instruments_violin_asset
+    query_type: asset
+    q: "Find the violin with bow and strings."
+    expect_any: [instruments]
+    expect_asset_any: [instruments.violin.image]
+  - id: instruments_violin_chunk
+    query_type: text_chunk
+    q: "小提琴的小节如何描述琴弓和高音特点？"
+    expect_any: [instruments]
+    expect_chunk_any: [instruments.violin.text]
+  - id: instruments_drum_kit_asset
+    query_type: asset
+    q: "检索包含鼓面和镲片的架子鼓图片。"
+    expect_any: [instruments]
+    expect_asset_any: [instruments.drum_kit.image]
+  - id: instruments_drum_kit_chunk
+    query_type: text_chunk
+    q: "架子鼓的小节介绍了哪些节奏和组件？"
+    expect_any: [instruments]
+    expect_chunk_any: [instruments.drum_kit.text]
+  - id: instruments_trumpet_asset
+    query_type: asset
+    q: "Find the trumpet with bell and valves."
+    expect_any: [instruments]
+    expect_asset_any: [instruments.trumpet.image]
+  - id: instruments_trumpet_chunk
+    query_type: text_chunk
+    q: "小号的小节如何描述喇叭口和活塞？"
+    expect_any: [instruments]
+    expect_chunk_any: [instruments.trumpet.text]
+  - id: instruments_saxophone_asset
+    query_type: asset
+    q: "检索弯曲金色萨克斯图片。"
+    expect_any: [instruments]
+    expect_asset_any: [instruments.saxophone.image]
+  - id: instruments_saxophone_chunk
+    query_type: text_chunk
+    q: "萨克斯的小节介绍了哪些弯管和按键特征？"
+    expect_any: [instruments]
+    expect_chunk_any: [instruments.saxophone.text]
+  - id: instruments_flute_asset
+    query_type: asset
+    q: "Find the silver flute with a row of keys."
+    expect_any: [instruments]
+    expect_asset_any: [instruments.flute.image]
+  - id: instruments_flute_chunk
+    query_type: text_chunk
+    q: "长笛的小节如何描述横吹和按键？"
+    expect_any: [instruments]
+    expect_chunk_any: [instruments.flute.text]
+  - id: instruments_cello_asset
+    query_type: asset
+    q: "检索带长琴颈的大提琴图片。"
+    expect_any: [instruments]
+    expect_asset_any: [instruments.cello.image]
+  - id: instruments_cello_chunk
+    query_type: text_chunk
+    q: "大提琴的小节介绍了哪些低音和琴身特征？"
+    expect_any: [instruments]
+    expect_chunk_any: [instruments.cello.text]
+  - id: instruments_harmonica_asset
+    query_type: asset
+    q: "Find the harmonica with a row of holes."
+    expect_any: [instruments]
+    expect_asset_any: [instruments.harmonica.image]
+  - id: instruments_harmonica_chunk
+    query_type: text_chunk
+    q: "口琴的小节如何描述便携和音孔？"
+    expect_any: [instruments]
+    expect_chunk_any: [instruments.harmonica.text]
+  - id: instruments_tambourine_asset
+    query_type: asset
+    q: "检索带金属小镲片的手鼓图片。"
+    expect_any: [instruments]
+    expect_asset_any: [instruments.tambourine.image]
+  - id: instruments_tambourine_chunk
+    query_type: text_chunk
+    q: "手鼓的小节介绍了哪些节奏和框架特征？"
+    expect_any: [instruments]
+    expect_chunk_any: [instruments.tambourine.text]
+  - id: office_notebook_asset
+    query_type: asset
+    q: "Find the notebook with pages and cover."
+    expect_any: [office]
+    expect_asset_any: [office.notebook.image]
+  - id: office_notebook_chunk
+    query_type: text_chunk
+    q: "笔记本的小节如何描述记录用途和纸页？"
+    expect_any: [office]
+    expect_chunk_any: [office.notebook.text]
+  - id: office_fountain_pen_asset
+    query_type: asset
+    q: "检索带金属笔尖的钢笔图片。"
+    expect_any: [office]
+    expect_asset_any: [office.fountain_pen.image]
+  - id: office_fountain_pen_chunk
+    query_type: text_chunk
+    q: "钢笔的小节介绍了哪些书写和笔尖特征？"
+    expect_any: [office]
+    expect_chunk_any: [office.fountain_pen.text]
+  - id: office_file_folder_asset
+    query_type: asset
+    q: "Find the file folder with a tab."
+    expect_any: [office]
+    expect_asset_any: [office.file_folder.image]
+  - id: office_file_folder_chunk
+    query_type: text_chunk
+    q: "文件夹的小节如何描述文件收纳用途？"
+    expect_any: [office]
+    expect_chunk_any: [office.file_folder.text]
+  - id: office_stapler_asset
+    query_type: asset
+    q: "检索订书机和金属出钉口图片。"
+    expect_any: [office]
+    expect_asset_any: [office.stapler.image]
+  - id: office_stapler_chunk
+    query_type: text_chunk
+    q: "订书机的小节介绍了哪些装订结构？"
+    expect_any: [office]
+    expect_chunk_any: [office.stapler.text]
+  - id: office_paper_clips_asset
+    query_type: asset
+    q: "Find the paper clips with looped metal wire."
+    expect_any: [office]
+    expect_asset_any: [office.paper_clips.image]
+  - id: office_paper_clips_chunk
+    query_type: text_chunk
+    q: "回形针的小节如何描述固定纸张和线形结构？"
+    expect_any: [office]
+    expect_chunk_any: [office.paper_clips.text]
+  - id: office_calculator_asset
+    query_type: asset
+    q: "检索带显示屏和按键的计算器图片。"
+    expect_any: [office]
+    expect_asset_any: [office.calculator.image]
+  - id: office_calculator_chunk
+    query_type: text_chunk
+    q: "计算器的小节介绍了哪些显示和计算用途？"
+    expect_any: [office]
+    expect_chunk_any: [office.calculator.text]
+  - id: office_whiteboard_asset
+    query_type: asset
+    q: "Find the blank whiteboard with frame."
+    expect_any: [office]
+    expect_asset_any: [office.whiteboard.image]
+  - id: office_whiteboard_chunk
+    query_type: text_chunk
+    q: "白板的小节如何描述会议和书写用途？"
+    expect_any: [office]
+    expect_chunk_any: [office.whiteboard.text]
+  - id: office_sticky_notes_asset
+    query_type: asset
+    q: "检索彩色便签纸图片。"
+    expect_any: [office]
+    expect_asset_any: [office.sticky_notes.image]
+  - id: office_sticky_notes_chunk
+    query_type: text_chunk
+    q: "便签的小节介绍了哪些提醒和纸片特征？"
+    expect_any: [office]
+    expect_chunk_any: [office.sticky_notes.text]
+  - id: office_clipboard_asset
+    query_type: asset
+    q: "Find the clipboard with a metal clip."
+    expect_any: [office]
+    expect_asset_any: [office.clipboard.image]
+  - id: office_clipboard_chunk
+    query_type: text_chunk
+    q: "剪贴板的小节如何描述夹纸和记录用途？"
+    expect_any: [office]
+    expect_chunk_any: [office.clipboard.text]
+  - id: office_desk_calendar_asset
+    query_type: asset
+    q: "检索立式台历图片。"
+    expect_any: [office]
+    expect_asset_any: [office.desk_calendar.image]
+  - id: office_desk_calendar_chunk
+    query_type: text_chunk
+    q: "台历的小节介绍了哪些日期和日程用途？"
+    expect_any: [office]
+    expect_chunk_any: [office.desk_calendar.text]
+  - id: scenes_beach_asset
+    query_type: asset
+    q: "Find the beach scene with ocean and sand."
+    expect_any: [scenes]
+    expect_asset_any: [scenes.beach.image]
+  - id: scenes_beach_chunk
+    query_type: text_chunk
+    q: "海滩的小节如何描述海水和沙滩？"
+    expect_any: [scenes]
+    expect_chunk_any: [scenes.beach.text]
+  - id: scenes_snowy_mountain_asset
+    query_type: asset
+    q: "检索白色雪冠和山峰的雪山图片。"
+    expect_any: [scenes]
+    expect_asset_any: [scenes.snowy_mountain.image]
+  - id: scenes_snowy_mountain_chunk
+    query_type: text_chunk
+    q: "雪山的小节介绍了哪些高海拔和积雪特征？"
+    expect_any: [scenes]
+    expect_chunk_any: [scenes.snowy_mountain.text]
+  - id: scenes_forest_asset
+    query_type: asset
+    q: "Find the forest scene with many trees."
+    expect_any: [scenes]
+    expect_asset_any: [scenes.forest.image]
+  - id: scenes_forest_chunk
+    query_type: text_chunk
+    q: "森林的小节如何描述树木和植被层次？"
+    expect_any: [scenes]
+    expect_chunk_any: [scenes.forest.text]
+  - id: scenes_desert_asset
+    query_type: asset
+    q: "检索黄色沙丘和开阔天空的沙漠图片。"
+    expect_any: [scenes]
+    expect_asset_any: [scenes.desert.image]
+  - id: scenes_desert_chunk
+    query_type: text_chunk
+    q: "沙漠的小节介绍了哪些干旱和沙丘特征？"
+    expect_any: [scenes]
+    expect_chunk_any: [scenes.desert.text]
+  - id: scenes_city_night_asset
+    query_type: asset
+    q: "Find the city night skyline with building lights."
+    expect_any: [scenes]
+    expect_asset_any: [scenes.city_night.image]
+  - id: scenes_city_night_chunk
+    query_type: text_chunk
+    q: "城市夜景的小节如何描述灯光和天际线？"
+    expect_any: [scenes]
+    expect_chunk_any: [scenes.city_night.text]
+  - id: scenes_rainy_street_asset
+    query_type: asset
+    q: "检索湿润反光路面的雨天街道图片。"
+    expect_any: [scenes]
+    expect_asset_any: [scenes.rainy_street.image]
+  - id: scenes_rainy_street_chunk
+    query_type: text_chunk
+    q: "雨天街道的小节介绍了哪些天气和反光特征？"
+    expect_any: [scenes]
+    expect_chunk_any: [scenes.rainy_street.text]
+  - id: scenes_sunset_asset
+    query_type: asset
+    q: "Find the sunset landscape with orange sky."
+    expect_any: [scenes]
+    expect_asset_any: [scenes.sunset.image]
+  - id: scenes_sunset_chunk
+    query_type: text_chunk
+    q: "日落的小节如何描述暖色天空和地平线？"
+    expect_any: [scenes]
+    expect_chunk_any: [scenes.sunset.text]
+  - id: scenes_farmland_asset
+    query_type: asset
+    q: "检索整齐作物行列的农田图片。"
+    expect_any: [scenes]
+    expect_asset_any: [scenes.farmland.image]
+  - id: scenes_farmland_chunk
+    query_type: text_chunk
+    q: "农田的小节介绍了哪些作物行列和农业特征？"
+    expect_any: [scenes]
+    expect_chunk_any: [scenes.farmland.text]
+  - id: scenes_library_asset
+    query_type: asset
+    q: "Find the library interior with rows of bookshelves."
+    expect_any: [scenes]
+    expect_asset_any: [scenes.library.image]
+  - id: scenes_library_chunk
+    query_type: text_chunk
+    q: "图书馆的小节如何描述书架和阅读空间？"
+    expect_any: [scenes]
+    expect_chunk_any: [scenes.library.text]
+  - id: scenes_kitchen_asset
+    query_type: asset
+    q: "检索带橱柜和台面的厨房图片。"
+    expect_any: [scenes]
+    expect_asset_any: [scenes.kitchen.image]
+  - id: scenes_kitchen_chunk
+    query_type: text_chunk
+    q: "厨房的小节介绍了哪些烹饪和室内结构？"
+    expect_any: [scenes]
+    expect_chunk_any: [scenes.kitchen.text]

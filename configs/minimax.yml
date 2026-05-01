@@ -1,0 +1,18 @@
+provider:
+  llm: anthropic
+  llm_model: MiniMax-M2.7
+  llm_base_url: https://api.minimaxi.com/anthropic
+  timeout_seconds: 120
+  sdk_max_retries: 2
+
+retry_policy:
+  max_attempts: 6
+  initial_backoff_seconds: 2
+  max_backoff_seconds: 60
+  jitter: true
+  timeout_seconds: 120
+
+runtime:
+  concurrency: 2
+  rate_limit_slowdown_after: 3
+

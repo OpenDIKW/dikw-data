@@ -1,0 +1,9 @@
+name: synthetic-diverse-v1
+description: >
+  Diverse synthetic retrieval dataset covering Chinese history, world history,
+  science, medicine, law, finance, geography, and literature in Chinese and
+  English. Designed to broaden corpus variety beyond DIKW/RAG-specific docs.
+thresholds:
+  hit_at_3: 0.90
+  hit_at_10: 0.90
+  mrr: 0.80
