@@ -45,9 +45,10 @@ queries.
 Text datasets use query records like:
 
 ```yaml
-- id: zh_qin_unification_001
-  q: 秦统一六国后推行了哪些制度来加强中央集权？
-  expect_any: [chinese-history-qin-unification]
+queries:
+  - id: zh_qin_unification_001
+    q: 秦统一六国后推行了哪些制度来加强中央集权？
+    expect_any: [chinese-history-qin-unification]
 ```
 
 Fields:
@@ -55,6 +56,12 @@ Fields:
 - `id`: stable query identifier.
 - `q`: natural-language retrieval query.
 - `expect_any`: accepted document IDs for doc-level hit metrics.
+- `expect_none`: optional boolean for out-of-domain negative queries.
+
+The web review UI exports the same top-level `queries:` shape. For approved
+records it keeps the original query text and expected documents. For rewritten
+records it uses the edited `q` and edited `expect_any`. Rejected records are not
+exported.
 
 ## Multimodal Dataset Layout
 
@@ -128,17 +135,18 @@ Fields:
 ### Multimodal `queries.yaml`
 
 ```yaml
-- id: fruits_apple_asset_zh
-  query_type: asset
-  q: 哪张图片展示了红色圆形苹果和绿色叶片？
-  expect_any: [fruits]
-  expect_asset_any: [fruits.apple.image]
+queries:
+  - id: fruits_apple_asset_zh
+    query_type: asset
+    q: 哪张图片展示了红色圆形苹果和绿色叶片？
+    expect_any: [fruits]
+    expect_asset_any: [fruits.apple.image]
 
-- id: fruits_apple_chunk_zh
-  query_type: text_chunk
-  q: 苹果的小节介绍了哪些视觉特征？
-  expect_any: [fruits]
-  expect_chunk_any: [fruits.apple.text]
+  - id: fruits_apple_chunk_zh
+    query_type: text_chunk
+    q: 苹果的小节介绍了哪些视觉特征？
+    expect_any: [fruits]
+    expect_chunk_any: [fruits.apple.text]
 ```
 
 Fields:

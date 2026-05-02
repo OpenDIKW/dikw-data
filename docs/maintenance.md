@@ -78,8 +78,23 @@ Open:
 http://127.0.0.1:8000
 ```
 
-The UI previews corpus files and shows LLM audit status where an audit database
-exists. It is intended for local review and should not be exposed publicly.
+The UI is local-only and should not be exposed publicly. It supports:
+
+- browsing datasets and corpus Markdown,
+- rendering local Markdown image references,
+- inspecting LLM audit status from `generated/<dataset>/audit.sqlite`,
+- loading candidates from `generated/<dataset>/candidates.jsonl` or
+  `generated/<dataset>/<dataset>.jsonl`,
+- saving approve/reject/rewrite decisions in `generated/<dataset>/review.sqlite`,
+- exporting approved and rewritten candidates to `datasets/<dataset>/queries.yaml`.
+
+Open a dataset, then choose **Review candidates**. The export step overwrites
+the dataset's `queries.yaml` only after every exported `expect_any` target
+resolves to a corpus document stem. Rejected candidates stay only in the local
+review database.
+
+The web UI does not call MiniMax. Regeneration and LLM review still happen
+through the CLI scripts.
 
 ## Corpus Quality Workflow
 
