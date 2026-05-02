@@ -83,3 +83,35 @@ def test_validate_rejects_unknown_asset_ids_chunk(tmp_path: Path) -> None:
     errors = validate(dataset)
 
     assert "references missing asset target: fruits.missing.image" in "\n".join(errors)
+
+
+def test_validate_rejects_missing_query_id(tmp_path: Path) -> None:
+    dataset = write_base_dataset(tmp_path, "    asset_id: fruits.apple.image\n")
+    (dataset / "queries.yaml").write_text(
+        "queries:\n"
+        "  - q: test\n"
+        "    expect_any: [doc]\n",
+        encoding="utf-8",
+    )
+
+    errors = validate(dataset)
+
+    assert "query #1 has empty id" in "\n".join(errors)
+
+
+def test_validate_rejects_duplicate_query_id(tmp_path: Path) -> None:
+    dataset = write_base_dataset(tmp_path, "    asset_id: fruits.apple.image\n")
+    (dataset / "queries.yaml").write_text(
+        "queries:\n"
+        "  - id: q1\n"
+        "    q: test one\n"
+        "    expect_any: [doc]\n"
+        "  - id: q1\n"
+        "    q: test two\n"
+        "    expect_any: [doc]\n",
+        encoding="utf-8",
+    )
+
+    errors = validate(dataset)
+
+    assert "duplicate query id: q1" in "\n".join(errors)

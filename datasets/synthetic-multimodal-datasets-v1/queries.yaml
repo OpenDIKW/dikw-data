@@ -2209,24 +2209,24 @@ queries:
   - electronics.laptop.image
   - office.calculator.image
   - instruments.piano.image
-- id: groups_protective_wear_comparison_chunk
+- id: groups_protective_items_comparison_chunk
   query_type: text_chunk
   q: 哪个小节对比口罩、骑行头盔和雨伞的防护方式？
   expect_any:
   - visual-comparisons
   expect_chunk_any:
-  - groups.protective_wear_comparison.text
+  - groups.protective_items_comparison.text
   expect_asset_any:
   - medical.face_mask.image
   - sports.bicycle_helmet.image
   - clothing.umbrella.image
-- id: groups_protective_wear_comparison_asset_group
+- id: groups_protective_items_comparison_asset_group
   query_type: asset_group
   q: 检索口罩、自行车头盔和雨伞组成的防护用品图片组。
   expect_any:
   - visual-comparisons
   expect_chunk_any:
-  - groups.protective_wear_comparison.text
+  - groups.protective_items_comparison.text
   expect_asset_any:
   - medical.face_mask.image
   - sports.bicycle_helmet.image
@@ -2603,7 +2603,7 @@ queries:
   - office.file_folder.image
 - id: groups_rainy_street_protection_chunk
   query_type: text_chunk
-  q: 哪个小节描述雨天街道、雨伞和口罩的出行防护关系？
+  q: 哪个小节描述雨天街道、雨伞和夹克的出行防护关系？
   expect_any:
   - scene-object-groups
   expect_chunk_any:
@@ -2611,10 +2611,10 @@ queries:
   expect_asset_any:
   - scenes.rainy_street.image
   - clothing.umbrella.image
-  - medical.face_mask.image
+  - clothing.jacket.image
 - id: groups_rainy_street_protection_asset_group
   query_type: asset_group
-  q: 检索雨天街道、雨伞和口罩三张防护场景图片。
+  q: 检索雨天街道、雨伞和夹克三张防护场景图片。
   expect_any:
   - scene-object-groups
   expect_chunk_any:
@@ -2622,7 +2622,7 @@ queries:
   expect_asset_any:
   - scenes.rainy_street.image
   - clothing.umbrella.image
-  - medical.face_mask.image
+  - clothing.jacket.image
 - id: groups_beach_summer_items_chunk
   query_type: text_chunk
   q: 哪个小节把海滩、西瓜、游泳镜和帽子组成夏季场景？
@@ -2649,7 +2649,7 @@ queries:
   - clothing.hat.image
 - id: groups_snowy_mountain_wear_chunk
   query_type: text_chunk
-  q: 哪个小节把雪山、夹克、围巾和头盔关联为寒冷户外装备？
+  q: 哪个小节把雪山、夹克、围巾和帽子关联为寒冷户外装备？
   expect_any:
   - scene-object-groups
   expect_chunk_any:
@@ -2658,10 +2658,10 @@ queries:
   - scenes.snowy_mountain.image
   - clothing.jacket.image
   - clothing.scarf.image
-  - sports.bicycle_helmet.image
+  - clothing.hat.image
 - id: groups_snowy_mountain_wear_asset_group
   query_type: asset_group
-  q: 检索雪山、夹克、围巾和头盔四张寒冷户外图片。
+  q: 检索雪山、夹克、围巾和帽子四张寒冷户外图片。
   expect_any:
   - scene-object-groups
   expect_chunk_any:
@@ -2670,7 +2670,7 @@ queries:
   - scenes.snowy_mountain.image
   - clothing.jacket.image
   - clothing.scarf.image
-  - sports.bicycle_helmet.image
+  - clothing.hat.image
 - id: groups_office_meeting_scene_chunk
   query_type: text_chunk
   q: 哪个小节描述白板、剪贴板、台历和笔记本电脑组成的会议场景？
@@ -2743,7 +2743,7 @@ queries:
   - electronics.drone.image
 - id: groups_desert_survival_objects_chunk
   query_type: text_chunk
-  q: 哪个小节把沙漠、帽子、背包和电水壶关联为户外补给场景？
+  q: 哪个小节把沙漠、帽子、背包和急救箱关联为户外补给场景？
   expect_any:
   - scene-object-groups
   expect_chunk_any:
@@ -2752,10 +2752,10 @@ queries:
   - scenes.desert.image
   - clothing.hat.image
   - clothing.backpack.image
-  - household.electric_kettle.image
+  - medical.first_aid_kit.image
 - id: groups_desert_survival_objects_asset_group
   query_type: asset_group
-  q: 检索沙漠、帽子、背包和电水壶四张户外补给图片。
+  q: 检索沙漠、帽子、背包和急救箱四张户外补给图片。
   expect_any:
   - scene-object-groups
   expect_chunk_any:
@@ -2764,7 +2764,7 @@ queries:
   - scenes.desert.image
   - clothing.hat.image
   - clothing.backpack.image
-  - household.electric_kettle.image
+  - medical.first_aid_kit.image
 - id: groups_living_room_scene_chunk
   query_type: text_chunk
   q: 哪个小节描述沙发、台灯、路由器和游戏手柄组成的客厅生活场景？

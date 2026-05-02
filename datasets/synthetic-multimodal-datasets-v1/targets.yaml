@@ -1540,10 +1540,10 @@ chunks:
   - electronics.laptop.image
   - office.calculator.image
   - instruments.piano.image
-- id: groups.protective_wear_comparison.text
+- id: groups.protective_items_comparison.text
   doc: visual-comparisons
-  heading: 防护穿戴物对比 / Protective Wear Comparison
-  anchor: groups.protective_wear_comparison
+  heading: 防护用品对比 / Protective Item Comparison
+  anchor: groups.protective_items_comparison
   asset_ids:
   - medical.face_mask.image
   - sports.bicycle_helmet.image
@@ -1692,7 +1692,7 @@ chunks:
   asset_ids:
   - scenes.rainy_street.image
   - clothing.umbrella.image
-  - medical.face_mask.image
+  - clothing.jacket.image
 - id: groups.beach_summer_items.text
   doc: scene-object-groups
   heading: 海滩与夏季物品 / Beach and Summer Items
@@ -1710,7 +1710,7 @@ chunks:
   - scenes.snowy_mountain.image
   - clothing.jacket.image
   - clothing.scarf.image
-  - sports.bicycle_helmet.image
+  - clothing.hat.image
 - id: groups.office_meeting_scene.text
   doc: scene-object-groups
   heading: 办公会议场景 / Office Meeting Scene
@@ -1745,7 +1745,7 @@ chunks:
   - scenes.desert.image
   - clothing.hat.image
   - clothing.backpack.image
-  - household.electric_kettle.image
+  - medical.first_aid_kit.image
 - id: groups.living_room_scene.text
   doc: scene-object-groups
   heading: 客厅生活场景 / Living Room Scene

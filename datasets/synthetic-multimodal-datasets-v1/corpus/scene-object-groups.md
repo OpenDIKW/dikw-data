@@ -51,11 +51,11 @@ Target: groups.rainy_street_protection
 
 ![雨天街道与防雨用品 / Rainy Street and Rain Gear](./images/clothing/umbrella.png)
 
-![雨天街道与防雨用品 / Rainy Street and Rain Gear](./images/medical/face_mask.png)
+![雨天街道与防雨用品 / Rainy Street and Rain Gear](./images/clothing/jacket.png)
 
-这一组将雨天街道与个人防护用品关联。
+这一组将雨天街道与防雨出行用品关联。
 
-雨天街道表现湿润反光路面，雨伞用于遮雨，口罩用于口鼻防护，组合语义覆盖天气和出行防护。
+雨天街道表现湿润反光路面，雨伞用于遮雨，夹克提供外层遮挡与保暖，组合语义覆盖天气和出行防护。
 
 ## 海滩与夏季物品 / Beach and Summer Items
 
@@ -83,11 +83,11 @@ Target: groups.snowy_mountain_wear
 
 ![雪山与保暖穿戴 / Snowy Mountain and Warm Wear](./images/clothing/scarf.png)
 
-![雪山与保暖穿戴 / Snowy Mountain and Warm Wear](./images/sports/bicycle_helmet.png)
+![雪山与保暖穿戴 / Snowy Mountain and Warm Wear](./images/clothing/hat.png)
 
 这一组将寒冷自然场景和保暖防护穿戴关联。
 
-雪山强调寒冷和积雪，夹克与围巾对应保暖，头盔表达户外运动防护。
+雪山强调寒冷和积雪，夹克、围巾和帽子共同表达保暖穿戴。
 
 ## 办公会议场景 / Office Meeting Scene
 
@@ -145,11 +145,11 @@ Target: groups.desert_survival_objects
 
 ![沙漠与户外补给 / Desert and Outdoor Supplies](./images/clothing/backpack.png)
 
-![沙漠与户外补给 / Desert and Outdoor Supplies](./images/household/electric_kettle.png)
+![沙漠与户外补给 / Desert and Outdoor Supplies](./images/medical/first_aid_kit.png)
 
 这一组将干旱场景和户外补给物品关联。
 
-沙漠表现干旱和强光，帽子用于遮阳，背包携带物品，电水壶代表补水和热饮准备的生活用品。
+沙漠表现干旱和强光，帽子用于遮阳，背包携带物品，急救箱代表户外应急补给。
 
 ## 客厅生活场景 / Living Room Scene
 

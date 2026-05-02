@@ -274,11 +274,19 @@ def validate(dataset_dir: Path) -> list[str]:
         if not isinstance(queries, list) or not queries:
             errors.append("queries.yaml must contain non-empty queries list")
         else:
+            seen_ids: set[str] = set()
             seen: set[str] = set()
             for index, query in enumerate(queries, start=1):
                 if not isinstance(query, dict):
                     errors.append(f"query #{index} must be a mapping")
                     continue
+                query_id = query.get("id")
+                if not isinstance(query_id, str) or not query_id.strip():
+                    errors.append(f"query #{index} has empty id")
+                elif query_id in seen_ids:
+                    errors.append(f"duplicate query id: {query_id}")
+                else:
+                    seen_ids.add(query_id)
                 q = query.get("q")
                 if not isinstance(q, str) or not q.strip():
                     errors.append(f"query #{index} has empty q")

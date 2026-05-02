@@ -1,57 +1,85 @@
 queries:
-  - q: "唐朝的建立者是谁，建国过程中的核心政治基础是什么？"
+  - id: v2_tang_founding_zh
+    q: "唐朝的建立者是谁，建国过程中的核心政治基础是什么？"
     expect_any: [chinese-history-tang-founding]
-  - q: "王安石变法试图解决哪些财政和社会问题，为什么引发争议？"
+  - id: v2_wang_anshi_reform_zh
+    q: "王安石变法试图解决哪些财政和社会问题，为什么引发争议？"
     expect_any: [chinese-history-wang-anshi-reform]
-  - q: "What changed when factory production replaced household production during the Industrial Revolution?"
+  - id: v2_industrial_revolution_factory_en
+    q: "What changed when factory production replaced household production during the Industrial Revolution?"
     expect_any: [world-history-industrial-revolution]
-  - q: "How did the French Revolution challenge older ideas of political legitimacy?"
+  - id: v2_french_revolution_legitimacy_en
+    q: "How did the French Revolution challenge older ideas of political legitimacy?"
     expect_any: [world-history-french-revolution]
-  - q: "为什么板块边界附近更容易发生地震和火山活动？"
+  - id: v2_plate_tectonics_boundaries_zh
+    q: "为什么板块边界附近更容易发生地震和火山活动？"
     expect_any: [science-plate-tectonics]
-  - q: "What role does chlorophyll play in photosynthesis?"
+  - id: v2_photosynthesis_chlorophyll_en
+    q: "What role does chlorophyll play in photosynthesis?"
     expect_any: [science-photosynthesis]
-  - q: "疫苗为什么能帮助人体形成免疫记忆？"
+  - id: v2_vaccination_memory_zh
+    q: "疫苗为什么能帮助人体形成免疫记忆？"
     expect_any: [medicine-vaccination-immunity]
-  - q: "Why does unnecessary antibiotic use increase resistance?"
+  - id: v2_antibiotic_resistance_en
+    q: "Why does unnecessary antibiotic use increase resistance?"
     expect_any: [medicine-antibiotic-resistance]
-  - q: "合同成立为什么通常需要要约和承诺？"
+  - id: v2_contract_offer_acceptance_zh
+    q: "合同成立为什么通常需要要约和承诺？"
     expect_any: [law-contract-offer-acceptance]
-  - q: "What factors are commonly considered in fair use analysis?"
+  - id: v2_fair_use_factors_en
+    q: "What factors are commonly considered in fair use analysis?"
     expect_any: [law-copyright-fair-use]
-  - q: "复利为什么会放大长期投资收益？"
+  - id: v2_compound_interest_zh
+    q: "复利为什么会放大长期投资收益？"
     expect_any: [finance-compound-interest]
-  - q: "Why can rising inflation reduce the price of existing bonds?"
+  - id: v2_inflation_bonds_en
+    q: "Why can rising inflation reduce the price of existing bonds?"
     expect_any: [finance-inflation-bonds]
-  - q: "季风为什么会导致明显的雨季和旱季？"
+  - id: v2_monsoon_climate_zh
+    q: "季风为什么会导致明显的雨季和旱季？"
     expect_any: [geography-monsoon-climate]
-  - q: "How do river deltas form?"
+  - id: v2_river_deltas_en
+    q: "How do river deltas form?"
     expect_any: [geography-river-deltas]
-  - q: "《红楼梦》如何通过贾府表现家族兴衰？"
+  - id: v2_dream_red_chamber_zh
+    q: "《红楼梦》如何通过贾府表现家族兴衰？"
     expect_any: [literature-dream-red-chamber]
-  - q: "How does Macbeth portray the danger of unchecked ambition?"
+  - id: v2_macbeth_ambition_en
+    q: "How does Macbeth portray the danger of unchecked ambition?"
     expect_any: [literature-shakespeare-macbeth]
-  - q: "秦朝统一后为什么推行郡县制，它与分封制有什么不同？"
+  - id: v2_qin_county_system_zh
+    q: "秦朝统一后为什么推行郡县制，它与分封制有什么不同？"
     expect_any: [chinese-history-qin-unification]
-  - q: "鸦片战争为什么常被视为中国近代史的开端？"
+  - id: v2_opium_war_modern_history_zh
+    q: "鸦片战争为什么常被视为中国近代史的开端？"
     expect_any: [chinese-history-opium-war]
-  - q: "How did the Roman Republic try to prevent one person from holding too much power?"
+  - id: v2_roman_republic_power_checks_en
+    q: "How did the Roman Republic try to prevent one person from holding too much power?"
     expect_any: [world-history-roman-republic]
-  - q: "What was the main goal of containment during the Cold War?"
+  - id: v2_cold_war_containment_en
+    q: "What was the main goal of containment during the Cold War?"
     expect_any: [world-history-cold-war-containment]
-  - q: "公钥密码学如何支持数字签名和身份验证？"
+  - id: v2_public_key_signatures_zh
+    q: "公钥密码学如何支持数字签名和身份验证？"
     expect_any: [technology-public-key-cryptography]
-  - q: "Why can an index make database reads faster but writes slower?"
+  - id: v2_database_indexes_reads_writes_en
+    q: "Why can an index make database reads faster but writes slower?"
     expect_any: [technology-database-indexes]
-  - q: "供给和需求如何共同影响市场价格？"
+  - id: v2_supply_demand_prices_zh
+    q: "供给和需求如何共同影响市场价格？"
     expect_any: [economics-supply-demand]
-  - q: "Why can externalities cause market outcomes to be inefficient?"
+  - id: v2_externalities_market_inefficiency_en
+    q: "Why can externalities cause market outcomes to be inefficient?"
     expect_any: [economics-externalities]
-  - q: "How do I configure a Docker bridge network?"
+  - id: v2_negative_docker_network_en
+    q: "How do I configure a Docker bridge network?"
     expect_none: true
-  - q: "今天北京的天气怎么样？"
+  - id: v2_negative_beijing_weather_zh
+    q: "今天北京的天气怎么样？"
     expect_none: true
-  - q: "What is the best recipe for sourdough bread?"
+  - id: v2_negative_sourdough_recipe_en
+    q: "What is the best recipe for sourdough bread?"
     expect_none: true
-  - q: "如何修理自行车变速器？"
+  - id: v2_negative_bicycle_derailleur_zh
+    q: "如何修理自行车变速器？"
     expect_none: true

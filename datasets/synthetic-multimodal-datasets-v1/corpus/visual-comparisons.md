@@ -81,15 +81,15 @@ Target: groups.keyboard_input_devices
 
 笔记本电脑结合屏幕和键盘，计算器有数字按键和小屏幕，钢琴键盘以黑白琴键形成长条重复结构。
 
-## 防护穿戴物对比 / Protective Wear Comparison
+## 防护用品对比 / Protective Item Comparison
 
-Target: groups.protective_wear_comparison
+Target: groups.protective_items_comparison
 
-![防护穿戴物对比 / Protective Wear Comparison](./images/medical/face_mask.png)
+![防护用品对比 / Protective Item Comparison](./images/medical/face_mask.png)
 
-![防护穿戴物对比 / Protective Wear Comparison](./images/sports/bicycle_helmet.png)
+![防护用品对比 / Protective Item Comparison](./images/sports/bicycle_helmet.png)
 
-![防护穿戴物对比 / Protective Wear Comparison](./images/clothing/umbrella.png)
+![防护用品对比 / Protective Item Comparison](./images/clothing/umbrella.png)
 
 这一组比较不同防护用品的形态。
 
