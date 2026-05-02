@@ -299,6 +299,7 @@ def collect_review_targets(dataset_dir: Path) -> list[ReviewTarget]:
                         "query": query,
                         "query_role": "negative" if query.get("expect_none") is True else "positive",
                         "known_corpus_docs": sorted(docs),
+                        "expected_doc_contexts": _expected_doc_contexts(query, docs),
                         "review_note": (
                             "expect_none=true means this is an intentional out-of-domain negative query."
                             if query.get("expect_none") is True
@@ -493,6 +494,8 @@ def _build_tasks(dataset: str, targets: list[ReviewTarget], group_size: int = 8)
                 "contains negative expect_none queries.\n"
                 "- targets.yaml is optional for text_doc_level datasets; require target "
                 "metadata only for multimodal datasets.\n"
+                "- query targets include expected_doc_contexts for expect_any documents; "
+                "use those snippets to verify query-document alignment.\n"
                 "- Judge topic coverage from the explicit corpus_docs and positive "
                 "expect_any document lists, not by guessing from summary counts.\n\n"
                 f"Dataset: {dataset}\n"
@@ -604,6 +607,30 @@ def _query_summary(queries: list[dict[str, Any]], corpus_docs: set[str]) -> dict
         "missing_expect_any_docs": sorted(missing_docs),
         "positive_expect_any_docs": sorted(positive_docs),
     }
+
+
+def _expected_doc_contexts(query: dict[str, Any], docs: dict[str, str]) -> list[dict[str, Any]]:
+    if query.get("expect_none") is True:
+        return []
+    expect_any = query.get("expect_any") or []
+    if not isinstance(expect_any, list):
+        return []
+    contexts: list[dict[str, Any]] = []
+    for doc in expect_any:
+        doc_stem = str(doc)
+        text = docs.get(doc_stem)
+        if text is None:
+            contexts.append({"doc": doc_stem, "exists": False, "headings": [], "text": ""})
+            continue
+        contexts.append(
+            {
+                "doc": doc_stem,
+                "exists": True,
+                "headings": HEADING_REF.findall(text),
+                "text": _truncate(text, 1800),
+            }
+        )
+    return contexts
 
 
 def _dataset_mode(docs: dict[str, str], has_targets_yaml: bool) -> str:

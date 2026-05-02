@@ -145,6 +145,36 @@ def test_collect_review_targets_summarizes_negative_queries_for_dataset_review(t
     assert "optional" in dataset_target.payload["targets_yaml_note"]
 
 
+def test_collect_review_targets_adds_expected_doc_context_to_positive_queries(tmp_path: Path) -> None:
+    dataset = tmp_path / "datasets" / "demo"
+    corpus = dataset / "corpus"
+    corpus.mkdir(parents=True)
+    (corpus / "alpha.md").write_text(
+        "# Alpha\n\n## Main Point\n\nAlpha explains a specific retrieval fact.",
+        encoding="utf-8",
+    )
+    (dataset / "queries.yaml").write_text(
+        "queries:\n"
+        "  - id: q1\n"
+        "    q: What retrieval fact does Alpha explain?\n"
+        "    expect_any: [alpha]\n",
+        encoding="utf-8",
+    )
+
+    by_id = {target.target_id: target for target in collect_review_targets(dataset)}
+
+    query_payload = by_id["q1"].payload
+    assert query_payload["query_role"] == "positive"
+    assert query_payload["expected_doc_contexts"] == [
+        {
+            "doc": "alpha",
+            "exists": True,
+            "headings": ["Main Point"],
+            "text": "# Alpha\n\n## Main Point\n\nAlpha explains a specific retrieval fact.",
+        }
+    ]
+
+
 def test_quality_review_prompt_explains_expect_none_and_text_targets_yaml() -> None:
     task, _ = _build_tasks(
         "demo",
@@ -159,6 +189,7 @@ def test_quality_review_prompt_explains_expect_none_and_text_targets_yaml() -> N
 
     assert "expect_none=true marks an intentional negative query" in task.user
     assert "targets.yaml is optional for text_doc_level datasets" in task.user
+    assert "query targets include expected_doc_contexts" in task.user
 
 
 def test_normalize_review_items_accepts_items_wrapper_and_clamps_score() -> None:
