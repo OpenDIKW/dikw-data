@@ -74,6 +74,32 @@ def test_dataset_pages_show_corpus_and_audit_status(tmp_path: Path) -> None:
     assert "rate limited" in audit.text
 
 
+def test_dataset_page_counts_languages_from_frontmatter(tmp_path: Path) -> None:
+    dataset = tmp_path / "datasets" / "demo"
+    corpus = dataset / "corpus"
+    corpus.mkdir(parents=True)
+    (dataset / "dataset.yaml").write_text("name: demo\nthresholds: {}\n", encoding="utf-8")
+    (corpus / "chinese-history.md").write_text(
+        "---\nlanguage: zh\n---\n\n# 中文文档\n",
+        encoding="utf-8",
+    )
+    (corpus / "world-history.md").write_text(
+        "---\nlanguage: en\n---\n\n# English Document\n",
+        encoding="utf-8",
+    )
+    (corpus / "gallery.md").write_text(
+        "---\nlanguage: zh-CN\n---\n\n# 多图文档\n",
+        encoding="utf-8",
+    )
+    client = TestClient(create_app(tmp_path))
+
+    response = client.get("/datasets/demo")
+
+    assert response.status_code == 200
+    assert "Chinese: 2" in response.text
+    assert "English: 1" in response.text
+
+
 def test_corpus_preview_renders_local_images_and_blocks_traversal(tmp_path: Path) -> None:
     dataset = make_dataset(tmp_path)
     image_dir = dataset / "corpus" / "images" / "fruits"

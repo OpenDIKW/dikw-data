@@ -18,6 +18,7 @@ from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse
 
 ROOT = Path(__file__).resolve().parents[1]
 IMAGE_REF = re.compile(r"!\[([^\]]*)\]\(([^)\n]+)\)")
+LANGUAGE_LINE = re.compile(r"^language:\s*([^\r\n]+)", re.MULTILINE)
 
 
 @dataclass(frozen=True)
@@ -50,8 +51,9 @@ def create_app(root: Path = ROOT) -> FastAPI:
         dataset_path = _dataset_path(datasets, dataset)
         corpus_dir = dataset_path / "corpus"
         docs = sorted(corpus_dir.glob("*.md")) if corpus_dir.is_dir() else []
-        zh = sum(1 for p in docs if p.name.startswith("zh-"))
-        en = sum(1 for p in docs if p.name.startswith("en-"))
+        language_counts = _language_counts(docs)
+        zh = language_counts["zh"]
+        en = language_counts["en"]
         audit_counts = _audit_counts(generated, dataset)
         counts = "".join(
             f"<tr><td>{html.escape(status)}</td><td>{count}</td></tr>"
@@ -482,6 +484,32 @@ def _render_markdown(dataset: str, text: str) -> str:
         else:
             rendered.append(f"<p>{html.escape(line)}</p>")
     return "\n".join(rendered)
+
+
+def _language_counts(paths: list[Path]) -> dict[str, int]:
+    counts = {"zh": 0, "en": 0}
+    for path in paths:
+        language = _document_language(path)
+        if language.startswith("zh"):
+            counts["zh"] += 1
+        elif language.startswith("en"):
+            counts["en"] += 1
+    return counts
+
+
+def _document_language(path: Path) -> str:
+    try:
+        text = path.read_text(encoding="utf-8")
+    except OSError:
+        text = ""
+    match = LANGUAGE_LINE.search(text)
+    if match:
+        return match.group(1).strip().lower()
+    if path.name.startswith("zh-"):
+        return "zh"
+    if path.name.startswith("en-"):
+        return "en"
+    return ""
 
 
 def _dataset_path(datasets: Path, dataset: str) -> Path:
