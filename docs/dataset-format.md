@@ -171,6 +171,31 @@ Multi-image chunks may use `query_type: asset_group` and list several
 `expect_asset_any` values. Current doc-level runners still consume `expect_any`;
 future multimodal runners should use the asset and chunk target fields.
 
+## Local Quality Review State
+
+The Web **LLM Quality Review** workflow does not change the official dataset
+schema. It creates local review batches under:
+
+```text
+generated/<dataset>/quality_review.sqlite
+```
+
+Each review item records:
+
+- `target_type`: `dataset`, `corpus_doc`, `query`, `target_chunk`, or
+  `target_asset`.
+- `target_id`: the corpus stem, query ID, or target ID being reviewed.
+- `decision`: `pass`, `warn`, or `fail`.
+- `score`: 0-100 quality score.
+- `reason`: concise explanation.
+- `suggested_fix`: concrete repair suggestion.
+- `risk_flags`: zero or more quality risks such as `ambiguous_query`,
+  `weak_visual_grounding`, `target_mismatch`, `duplicate`,
+  `stale_or_invalid_fact`, or `schema_issue`.
+
+Because this file is local review state, keep it out of Git. Promote only
+manually accepted fixes into `datasets/`.
+
 ## Validation
 
 Run:

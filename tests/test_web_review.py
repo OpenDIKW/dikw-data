@@ -7,6 +7,7 @@ from pathlib import Path
 import yaml
 from fastapi.testclient import TestClient
 
+from dikw_data.quality_review import QualityReviewItem, QualityReviewStore
 from web.app import create_app
 
 
@@ -67,6 +68,8 @@ def test_dataset_pages_show_corpus_and_audit_status(tmp_path: Path) -> None:
     assert "alpha.md" in dataset.text
     assert "failed" in dataset.text
     assert "Review candidates" in dataset.text
+    assert "LLM Generation Audit" in dataset.text
+    assert "LLM Quality Review" in dataset.text
 
     audit = client.get("/datasets/demo/audit")
     assert audit.status_code == 200
@@ -237,3 +240,60 @@ def test_export_rejects_missing_expected_docs_without_overwriting(tmp_path: Path
     assert exported.status_code == 200
     assert "references missing stem: missing" in exported.text
     assert queries_path.read_text(encoding="utf-8") == "queries: []\n"
+
+
+def test_quality_review_run_creates_batch_and_displays_items(tmp_path: Path) -> None:
+    make_dataset(tmp_path)
+
+    def fake_runner(dataset: str, dataset_path: Path, generated: Path, retry_failed: bool) -> None:
+        assert dataset == "demo"
+        assert dataset_path.name == "demo"
+        assert retry_failed is False
+        store = QualityReviewStore(dataset, generated)
+        batch_id = store.start_batch()
+        store.add_items(
+            batch_id,
+            [
+                QualityReviewItem(
+                    target_type="corpus_doc",
+                    target_id="alpha",
+                    decision="warn",
+                    score=72,
+                    reason="Document is usable but thin.",
+                    suggested_fix="Add more concrete retrieval facts.",
+                    risk_flags=["ambiguous_query"],
+                )
+            ],
+        )
+        store.finish_batch(batch_id)
+
+    client = TestClient(create_app(tmp_path, quality_review_runner=fake_runner))
+
+    response = client.post("/datasets/demo/quality-review/run")
+
+    assert response.status_code == 200
+    page = client.get("/datasets/demo/quality-review?decision=warn")
+    assert page.status_code == 200
+    assert "corpus_doc" in page.text
+    assert "alpha" in page.text
+    assert "warn" in page.text
+    assert "Document is usable but thin." in page.text
+    assert "Add more concrete retrieval facts." in page.text
+
+
+def test_quality_review_run_does_not_duplicate_running_batch(tmp_path: Path) -> None:
+    make_dataset(tmp_path)
+    QualityReviewStore("demo", tmp_path / "generated").start_batch()
+    calls = 0
+
+    def fake_runner(dataset: str, dataset_path: Path, generated: Path, retry_failed: bool) -> None:
+        nonlocal calls
+        calls += 1
+
+    client = TestClient(create_app(tmp_path, quality_review_runner=fake_runner))
+
+    response = client.post("/datasets/demo/quality-review/run")
+
+    assert response.status_code == 200
+    assert calls == 0
+    assert "already running" in response.text

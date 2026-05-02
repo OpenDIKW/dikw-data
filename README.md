@@ -110,9 +110,18 @@ http://127.0.0.1:8000
 ```
 
 The review UI can preview corpus Markdown, render local Markdown images, inspect
-LLM audit status, review generated query candidates, persist approve/reject/
-rewrite decisions in `generated/<dataset>/review.sqlite`, and export approved
-items into `datasets/<dataset>/queries.yaml`.
+LLM generation audit status, run LLM quality review, review generated query
+candidates, persist approve/reject/rewrite decisions in
+`generated/<dataset>/review.sqlite`, and export approved items into
+`datasets/<dataset>/queries.yaml`.
+
+The web UI has two separate audit views:
+
+- **LLM Generation Audit** reads MiniMax call status from
+  `generated/<dataset>/audit.sqlite`.
+- **LLM Quality Review** asks MiniMax to review corpus, queries, and target
+  metadata, then writes review batches to
+  `generated/<dataset>/quality_review.sqlite`.
 
 Generation and maintenance workflows are documented in
 [`docs/maintenance.md`](docs/maintenance.md).

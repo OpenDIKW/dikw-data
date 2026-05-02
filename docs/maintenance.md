@@ -82,19 +82,37 @@ The UI is local-only and should not be exposed publicly. It supports:
 
 - browsing datasets and corpus Markdown,
 - rendering local Markdown image references,
-- inspecting LLM audit status from `generated/<dataset>/audit.sqlite`,
+- inspecting LLM generation audit status from `generated/<dataset>/audit.sqlite`,
+- running LLM quality review and reading
+  `generated/<dataset>/quality_review.sqlite`,
 - loading candidates from `generated/<dataset>/candidates.jsonl` or
   `generated/<dataset>/<dataset>.jsonl`,
 - saving approve/reject/rewrite decisions in `generated/<dataset>/review.sqlite`,
 - exporting approved and rewritten candidates to `datasets/<dataset>/queries.yaml`.
+
+The dataset page separates two concepts:
+
+- **LLM Generation Audit** is the task-level MiniMax call log used by corpus,
+  candidate, and reviewer generation scripts.
+- **LLM Quality Review** is content QA over dataset files. It checks corpus
+  clarity, query retrievability, expected document references, and, for
+  multimodal datasets, target metadata relationships. Version one is
+  metadata-only: it sends Markdown text, headings, target IDs, image paths, and
+  alt text, but not image bytes.
+
+Open a dataset, choose **Quality review**, then use **Run quality review**.
+Only one running batch is allowed per dataset. Use **Retry failed items** to
+create a new batch for targets that failed the latest review. Results are
+advisory; manually decide whether to edit corpus, `targets.yaml`, or
+`queries.yaml`.
 
 Open a dataset, then choose **Review candidates**. The export step overwrites
 the dataset's `queries.yaml` only after every exported `expect_any` target
 resolves to a corpus document stem. Rejected candidates stay only in the local
 review database.
 
-The web UI does not call MiniMax. Regeneration and LLM review still happen
-through the CLI scripts.
+The candidate regeneration flow still happens through CLI scripts. The web UI
+only calls MiniMax for Quality Review.
 
 ## Corpus Quality Workflow
 
@@ -154,6 +172,7 @@ Do not commit these:
 - `.pytest_cache/`
 - `__pycache__/`
 - `generated/`
+- `generated/<dataset>/quality_review.sqlite`
 - `reports/`
 
 Before pushing:

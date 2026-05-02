@@ -8,12 +8,14 @@ import sqlite3
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 from urllib.parse import parse_qs, quote
 
 import yaml
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import BackgroundTasks, FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse
+
+from dikw_data.quality_review import QualityReviewStore, run_quality_review
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -29,10 +31,18 @@ class Candidate:
     raw: dict[str, Any]
 
 
-def create_app(root: Path = ROOT) -> FastAPI:
+QualityReviewRunner = Callable[[str, Path, Path, bool], None]
+
+
+def create_app(
+    root: Path = ROOT,
+    *,
+    quality_review_runner: QualityReviewRunner | None = None,
+) -> FastAPI:
     root = root.resolve()
     datasets = root / "datasets"
     generated = root / "generated"
+    runner = quality_review_runner or _run_quality_review
     app = FastAPI(title="dikw-data review")
 
     @app.get("/", response_class=HTMLResponse)
@@ -61,6 +71,7 @@ def create_app(root: Path = ROOT) -> FastAPI:
         )
         if not counts:
             counts = '<tr><td colspan="2">No audit database.</td></tr>'
+        quality_summary = _quality_review_summary(generated, dataset)
         doc_rows = "\n".join(
             "<tr>"
             f"<td>{html.escape(p.name)}</td>"
@@ -73,7 +84,8 @@ def create_app(root: Path = ROOT) -> FastAPI:
         <h1>{html.escape(dataset)}</h1>
         <p>
           <a href="/">All datasets</a> ·
-          <a href="/datasets/{html.escape(dataset)}/audit">Audit log</a> ·
+          <a href="/datasets/{html.escape(dataset)}/audit">Generation audit</a> ·
+          <a href="/datasets/{html.escape(dataset)}/quality-review">Quality review</a> ·
           <a href="/datasets/{html.escape(dataset)}/review">Review candidates</a>
         </p>
         <section>
@@ -85,11 +97,15 @@ def create_app(root: Path = ROOT) -> FastAPI:
           </table>
         </section>
         <section>
-          <h2>LLM Audit</h2>
+          <h2>LLM Generation Audit</h2>
           <table>
             <thead><tr><th>Status</th><th>Count</th></tr></thead>
             <tbody>{counts}</tbody>
           </table>
+        </section>
+        <section>
+          <h2>LLM Quality Review</h2>
+          {quality_summary}
         </section>
         """
         return page(dataset, body)
@@ -143,13 +159,67 @@ def create_app(root: Path = ROOT) -> FastAPI:
             rendered = '<tr><td colspan="5">No audit rows.</td></tr>'
         body = f"""
         <p><a href="/datasets/{html.escape(dataset)}">Back</a></p>
-        <h1>{html.escape(dataset)} audit</h1>
+        <h1>{html.escape(dataset)} generation audit</h1>
         <table>
           <thead><tr><th>Stage</th><th>Status</th><th>Attempts</th><th>Task</th><th>Error</th></tr></thead>
           <tbody>{rendered}</tbody>
         </table>
         """
         return page(f"{dataset} audit", body)
+
+    @app.get("/datasets/{dataset}/quality-review", response_class=HTMLResponse)
+    def quality_review_view(
+        dataset: str,
+        decision: str | None = None,
+        message: str | None = None,
+        error: str | None = None,
+    ) -> str:
+        _dataset_path(datasets, dataset)
+        return _quality_review_page(
+            datasets,
+            generated,
+            dataset,
+            decision=decision,
+            message=message,
+            error=error,
+        )
+
+    @app.post("/datasets/{dataset}/quality-review/run", response_class=HTMLResponse)
+    def quality_review_run(dataset: str, background_tasks: BackgroundTasks):
+        dataset_path = _dataset_path(datasets, dataset)
+        store = QualityReviewStore(dataset, generated)
+        if store.running_batch() is not None:
+            return _quality_review_page(
+                datasets,
+                generated,
+                dataset,
+                message="Quality review is already running.",
+            )
+        background_tasks.add_task(runner, dataset, dataset_path, generated, False)
+        return RedirectResponse(
+            f"/datasets/{quote(dataset)}/quality-review?message=Quality%20review%20started.",
+            status_code=303,
+        )
+
+    @app.post("/datasets/{dataset}/quality-review/retry-failed", response_class=HTMLResponse)
+    def quality_review_retry_failed(
+        dataset: str,
+        background_tasks: BackgroundTasks,
+    ):
+        dataset_path = _dataset_path(datasets, dataset)
+        store = QualityReviewStore(dataset, generated)
+        if store.running_batch() is not None:
+            return _quality_review_page(
+                datasets,
+                generated,
+                dataset,
+                message="Quality review is already running.",
+            )
+        background_tasks.add_task(runner, dataset, dataset_path, generated, True)
+        return RedirectResponse(
+            f"/datasets/{quote(dataset)}/quality-review?message=Failed%20quality%20items%20queued.",
+            status_code=303,
+        )
 
     @app.get("/datasets/{dataset}/review", response_class=HTMLResponse)
     def review_view(dataset: str, message: str | None = None, error: str | None = None) -> str:
@@ -188,6 +258,10 @@ def create_app(root: Path = ROOT) -> FastAPI:
         )
 
     return app
+
+
+def _run_quality_review(dataset: str, dataset_path: Path, generated: Path, retry_failed: bool) -> None:
+    run_quality_review(dataset, dataset_path, generated, retry_failed=retry_failed)
 
 
 class ReviewStore:
@@ -413,6 +487,83 @@ def _review_page(
     return page(f"{dataset} review", body)
 
 
+def _quality_review_page(
+    datasets: Path,
+    generated: Path,
+    dataset: str,
+    *,
+    decision: str | None = None,
+    message: str | None = None,
+    error: str | None = None,
+) -> str:
+    _dataset_path(datasets, dataset)
+    if decision not in {None, "pass", "warn", "fail"}:
+        decision = None
+    store = QualityReviewStore(dataset, generated)
+    latest = store.latest_batch()
+    batch_id = str(latest["batch_id"]) if latest else ""
+    stats = store.stats(batch_id) if batch_id else {"pass": 0, "warn": 0, "fail": 0}
+    rows = store.items(batch_id, decision=decision) if batch_id else []
+    rendered_rows = "\n".join(_quality_item_row(row) for row in rows)
+    if not rendered_rows:
+        rendered_rows = '<tr><td colspan="7">No quality review items found.</td></tr>'
+    status = "No quality review batch yet."
+    if latest:
+        status = (
+            f"Batch {html.escape(batch_id)} · {html.escape(str(latest['status']))} · "
+            f"pass {stats['pass']} · warn {stats['warn']} · fail {stats['fail']}"
+        )
+        if latest.get("error"):
+            status += f" · {html.escape(str(latest['error']))}"
+    active_filter = html.escape(decision or "all")
+    notice = f'<p class="notice">{html.escape(message)}</p>' if message else ""
+    failure = f'<p class="error">{html.escape(error)}</p>' if error else ""
+    body = f"""
+    <p><a href="/datasets/{html.escape(dataset)}">Back</a></p>
+    <h1>{html.escape(dataset)} quality review</h1>
+    {notice}
+    {failure}
+    <p>{status}</p>
+    <form method="post" action="/datasets/{html.escape(dataset)}/quality-review/run">
+      <button type="submit">Run quality review</button>
+    </form>
+    <form method="post" action="/datasets/{html.escape(dataset)}/quality-review/retry-failed">
+      <button type="submit">Retry failed items</button>
+    </form>
+    <p>
+      Filter: {active_filter} ·
+      <a href="/datasets/{html.escape(dataset)}/quality-review">all</a> ·
+      <a href="/datasets/{html.escape(dataset)}/quality-review?decision=pass">pass</a> ·
+      <a href="/datasets/{html.escape(dataset)}/quality-review?decision=warn">warn</a> ·
+      <a href="/datasets/{html.escape(dataset)}/quality-review?decision=fail">fail</a>
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Decision</th><th>Score</th><th>Target type</th><th>Target ID</th>
+          <th>Risk flags</th><th>Reason</th><th>Suggested fix</th>
+        </tr>
+      </thead>
+      <tbody>{rendered_rows}</tbody>
+    </table>
+    """
+    return page(f"{dataset} quality review", body)
+
+
+def _quality_item_row(row: dict[str, Any]) -> str:
+    return (
+        "<tr>"
+        f"<td>{html.escape(str(row['decision']))}</td>"
+        f"<td>{html.escape(str(row['score']))}</td>"
+        f"<td>{html.escape(str(row['target_type']))}</td>"
+        f"<td>{html.escape(str(row['target_id']))}</td>"
+        f"<td>{html.escape(', '.join(str(flag) for flag in row.get('risk_flags', [])))}</td>"
+        f"<td>{html.escape(str(row['reason']))}</td>"
+        f"<td>{html.escape(str(row['suggested_fix']))}</td>"
+        "</tr>"
+    )
+
+
 def _candidate_row(
     dataset: str,
     candidate: Candidate,
@@ -551,6 +702,28 @@ def _audit_rows(generated: Path, dataset: str) -> list[dict[str, Any]]:
             """
         ).fetchall()
     return [dict(row) for row in rows]
+
+
+def _quality_review_summary(generated: Path, dataset: str) -> str:
+    db = generated / dataset / "quality_review.sqlite"
+    if not db.is_file():
+        return (
+            '<p>No quality review batch.</p>'
+            f'<p><a href="/datasets/{html.escape(dataset)}/quality-review">Open quality review</a></p>'
+        )
+    store = QualityReviewStore(dataset, generated)
+    latest = store.latest_batch()
+    if latest is None:
+        return (
+            '<p>No quality review batch.</p>'
+            f'<p><a href="/datasets/{html.escape(dataset)}/quality-review">Open quality review</a></p>'
+        )
+    stats = store.stats(str(latest["batch_id"]))
+    return (
+        f"<p>Status: {html.escape(str(latest['status']))} · "
+        f"pass {stats['pass']} · warn {stats['warn']} · fail {stats['fail']}</p>"
+        f'<p><a href="/datasets/{html.escape(dataset)}/quality-review">Open quality review</a></p>'
+    )
 
 
 def _coerce_string_list(value: Any) -> list[str]:
