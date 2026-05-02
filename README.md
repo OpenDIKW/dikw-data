@@ -60,8 +60,8 @@ Current versioned datasets:
   Chinese history, world history, science, medicine, law, finance, geography,
   literature, economics, and technology.
 - `synthetic-multimodal-datasets-v1`: multimodal dataset with Markdown text,
-  local PNG image assets, asset-level targets, chunk-level targets, and
-  compatible doc-level query fields.
+  local PNG image assets, asset-level targets, single-image and multi-image
+  chunk targets, and compatible doc-level query fields.
 
 Dataset details and file formats are documented in
 [`docs/dataset-format.md`](docs/dataset-format.md).

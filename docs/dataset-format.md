@@ -120,6 +120,15 @@ chunks:
     heading: 苹果 / Apple
     anchor: fruits.apple
     asset_id: fruits.apple.image
+
+  - id: groups.citrus_comparison.text
+    doc: visual-comparisons
+    heading: 柑橘类水果对比 / Citrus Comparison
+    anchor: groups.citrus_comparison
+    asset_ids:
+      - fruits.orange.image
+      - fruits.lemon.image
+      - fruits.mango.image
 ```
 
 Fields:
@@ -130,7 +139,9 @@ Fields:
 - `assets[].heading`: section heading containing the image.
 - `chunks[].id`: stable text-section target ID.
 - `chunks[].anchor`: stable marker inside the Markdown section.
-- `chunks[].asset_id`: related image asset target.
+- `chunks[].asset_id`: related image asset target for a single-image chunk.
+- `chunks[].asset_ids`: related image asset targets for a multi-image chunk.
+  A chunk must use either `asset_id` or `asset_ids`, but not both.
 
 ### Multimodal `queries.yaml`
 
@@ -155,6 +166,10 @@ Fields:
 - `expect_any`: doc-level compatibility target for current `dikw-core`.
 - `expect_asset_any`: accepted image asset IDs.
 - `expect_chunk_any`: accepted text chunk IDs.
+
+Multi-image chunks may use `query_type: asset_group` and list several
+`expect_asset_any` values. Current doc-level runners still consume `expect_any`;
+future multimodal runners should use the asset and chunk target fields.
 
 ## Validation
 

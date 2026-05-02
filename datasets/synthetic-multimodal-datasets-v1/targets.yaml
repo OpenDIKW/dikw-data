@@ -1,1502 +1,1757 @@
 assets:
-  - id: fruits.apple.image
-    doc: fruits
-    path: images/fruits/apple.png
-    heading: "苹果 / Apple"
-    anchor: fruits.apple
-  - id: fruits.banana.image
-    doc: fruits
-    path: images/fruits/banana.png
-    heading: "香蕉 / Banana"
-    anchor: fruits.banana
-  - id: fruits.orange.image
-    doc: fruits
-    path: images/fruits/orange.png
-    heading: "橙子 / Orange"
-    anchor: fruits.orange
-  - id: fruits.strawberry.image
-    doc: fruits
-    path: images/fruits/strawberry.png
-    heading: "草莓 / Strawberry"
-    anchor: fruits.strawberry
-  - id: fruits.grape.image
-    doc: fruits
-    path: images/fruits/grape.png
-    heading: "葡萄 / Grape"
-    anchor: fruits.grape
-  - id: fruits.watermelon.image
-    doc: fruits
-    path: images/fruits/watermelon.png
-    heading: "西瓜 / Watermelon"
-    anchor: fruits.watermelon
-  - id: fruits.pineapple.image
-    doc: fruits
-    path: images/fruits/pineapple.png
-    heading: "菠萝 / Pineapple"
-    anchor: fruits.pineapple
-  - id: fruits.kiwi.image
-    doc: fruits
-    path: images/fruits/kiwi.png
-    heading: "猕猴桃 / Kiwi"
-    anchor: fruits.kiwi
-  - id: fruits.mango.image
-    doc: fruits
-    path: images/fruits/mango.png
-    heading: "芒果 / Mango"
-    anchor: fruits.mango
-  - id: fruits.lemon.image
-    doc: fruits
-    path: images/fruits/lemon.png
-    heading: "柠檬 / Lemon"
-    anchor: fruits.lemon
-  - id: animals.cat.image
-    doc: animals
-    path: images/animals/cat.png
-    heading: "猫 / Cat"
-    anchor: animals.cat
-  - id: animals.dog.image
-    doc: animals
-    path: images/animals/dog.png
-    heading: "狗 / Dog"
-    anchor: animals.dog
-  - id: animals.rabbit.image
-    doc: animals
-    path: images/animals/rabbit.png
-    heading: "兔子 / Rabbit"
-    anchor: animals.rabbit
-  - id: animals.panda.image
-    doc: animals
-    path: images/animals/panda.png
-    heading: "熊猫 / Panda"
-    anchor: animals.panda
-  - id: animals.elephant.image
-    doc: animals
-    path: images/animals/elephant.png
-    heading: "大象 / Elephant"
-    anchor: animals.elephant
-  - id: animals.lion.image
-    doc: animals
-    path: images/animals/lion.png
-    heading: "狮子 / Lion"
-    anchor: animals.lion
-  - id: animals.penguin.image
-    doc: animals
-    path: images/animals/penguin.png
-    heading: "企鹅 / Penguin"
-    anchor: animals.penguin
-  - id: animals.owl.image
-    doc: animals
-    path: images/animals/owl.png
-    heading: "猫头鹰 / Owl"
-    anchor: animals.owl
-  - id: animals.fox.image
-    doc: animals
-    path: images/animals/fox.png
-    heading: "狐狸 / Fox"
-    anchor: animals.fox
-  - id: animals.turtle.image
-    doc: animals
-    path: images/animals/turtle.png
-    heading: "乌龟 / Turtle"
-    anchor: animals.turtle
-  - id: vehicles.car.image
-    doc: vehicles
-    path: images/vehicles/car.png
-    heading: "汽车 / Car"
-    anchor: vehicles.car
-  - id: vehicles.bus.image
-    doc: vehicles
-    path: images/vehicles/bus.png
-    heading: "公交车 / Bus"
-    anchor: vehicles.bus
-  - id: vehicles.train.image
-    doc: vehicles
-    path: images/vehicles/train.png
-    heading: "火车 / Train"
-    anchor: vehicles.train
-  - id: vehicles.airplane.image
-    doc: vehicles
-    path: images/vehicles/airplane.png
-    heading: "飞机 / Airplane"
-    anchor: vehicles.airplane
-  - id: vehicles.ship.image
-    doc: vehicles
-    path: images/vehicles/ship.png
-    heading: "轮船 / Ship"
-    anchor: vehicles.ship
-  - id: vehicles.bicycle.image
-    doc: vehicles
-    path: images/vehicles/bicycle.png
-    heading: "自行车 / Bicycle"
-    anchor: vehicles.bicycle
-  - id: vehicles.motorcycle.image
-    doc: vehicles
-    path: images/vehicles/motorcycle.png
-    heading: "摩托车 / Motorcycle"
-    anchor: vehicles.motorcycle
-  - id: vehicles.ambulance.image
-    doc: vehicles
-    path: images/vehicles/ambulance.png
-    heading: "救护车 / Ambulance"
-    anchor: vehicles.ambulance
-  - id: vehicles.fire_truck.image
-    doc: vehicles
-    path: images/vehicles/fire_truck.png
-    heading: "消防车 / Fire Truck"
-    anchor: vehicles.fire_truck
-  - id: vehicles.subway.image
-    doc: vehicles
-    path: images/vehicles/subway.png
-    heading: "地铁 / Subway"
-    anchor: vehicles.subway
-  - id: plants.rose.image
-    doc: plants
-    path: images/plants/rose.png
-    heading: "玫瑰 / Rose"
-    anchor: plants.rose
-  - id: plants.sunflower.image
-    doc: plants
-    path: images/plants/sunflower.png
-    heading: "向日葵 / Sunflower"
-    anchor: plants.sunflower
-  - id: plants.bamboo.image
-    doc: plants
-    path: images/plants/bamboo.png
-    heading: "竹子 / Bamboo"
-    anchor: plants.bamboo
-  - id: plants.cactus.image
-    doc: plants
-    path: images/plants/cactus.png
-    heading: "仙人掌 / Cactus"
-    anchor: plants.cactus
-  - id: plants.pine_tree.image
-    doc: plants
-    path: images/plants/pine_tree.png
-    heading: "松树 / Pine Tree"
-    anchor: plants.pine_tree
-  - id: plants.lotus.image
-    doc: plants
-    path: images/plants/lotus.png
-    heading: "荷花 / Lotus"
-    anchor: plants.lotus
-  - id: plants.maple.image
-    doc: plants
-    path: images/plants/maple.png
-    heading: "枫树 / Maple"
-    anchor: plants.maple
-  - id: plants.tulip.image
-    doc: plants
-    path: images/plants/tulip.png
-    heading: "郁金香 / Tulip"
-    anchor: plants.tulip
-  - id: plants.fern.image
-    doc: plants
-    path: images/plants/fern.png
-    heading: "蕨类 / Fern"
-    anchor: plants.fern
-  - id: plants.rice.image
-    doc: plants
-    path: images/plants/rice.png
-    heading: "稻谷 / Rice"
-    anchor: plants.rice
-  - id: tools.hammer.image
-    doc: tools
-    path: images/tools/hammer.png
-    heading: "锤子 / Hammer"
-    anchor: tools.hammer
-  - id: tools.wrench.image
-    doc: tools
-    path: images/tools/wrench.png
-    heading: "扳手 / Wrench"
-    anchor: tools.wrench
-  - id: tools.screwdriver.image
-    doc: tools
-    path: images/tools/screwdriver.png
-    heading: "螺丝刀 / Screwdriver"
-    anchor: tools.screwdriver
-  - id: tools.pliers.image
-    doc: tools
-    path: images/tools/pliers.png
-    heading: "钳子 / Pliers"
-    anchor: tools.pliers
-  - id: tools.scissors.image
-    doc: tools
-    path: images/tools/scissors.png
-    heading: "剪刀 / Scissors"
-    anchor: tools.scissors
-  - id: tools.tape_measure.image
-    doc: tools
-    path: images/tools/tape_measure.png
-    heading: "卷尺 / Tape Measure"
-    anchor: tools.tape_measure
-  - id: tools.drill.image
-    doc: tools
-    path: images/tools/drill.png
-    heading: "电钻 / Drill"
-    anchor: tools.drill
-  - id: tools.brush.image
-    doc: tools
-    path: images/tools/brush.png
-    heading: "刷子 / Brush"
-    anchor: tools.brush
-  - id: tools.shovel.image
-    doc: tools
-    path: images/tools/shovel.png
-    heading: "铲子 / Shovel"
-    anchor: tools.shovel
-  - id: tools.flashlight.image
-    doc: tools
-    path: images/tools/flashlight.png
-    heading: "手电筒 / Flashlight"
-    anchor: tools.flashlight
-  - id: foods.bread.image
-    doc: foods
-    path: images/foods/bread.png
-    heading: "面包 / Bread"
-    anchor: foods.bread
-  - id: foods.pizza.image
-    doc: foods
-    path: images/foods/pizza.png
-    heading: "披萨 / Pizza"
-    anchor: foods.pizza
-  - id: foods.sushi.image
-    doc: foods
-    path: images/foods/sushi.png
-    heading: "寿司 / Sushi"
-    anchor: foods.sushi
-  - id: foods.dumpling.image
-    doc: foods
-    path: images/foods/dumpling.png
-    heading: "饺子 / Dumpling"
-    anchor: foods.dumpling
-  - id: foods.burger.image
-    doc: foods
-    path: images/foods/burger.png
-    heading: "汉堡 / Burger"
-    anchor: foods.burger
-  - id: foods.salad.image
-    doc: foods
-    path: images/foods/salad.png
-    heading: "沙拉 / Salad"
-    anchor: foods.salad
-  - id: foods.noodles.image
-    doc: foods
-    path: images/foods/noodles.png
-    heading: "面条 / Noodles"
-    anchor: foods.noodles
-  - id: foods.cake.image
-    doc: foods
-    path: images/foods/cake.png
-    heading: "蛋糕 / Cake"
-    anchor: foods.cake
-  - id: foods.rice.image
-    doc: foods
-    path: images/foods/rice.png
-    heading: "米饭 / Rice"
-    anchor: foods.rice
-  - id: foods.soup.image
-    doc: foods
-    path: images/foods/soup.png
-    heading: "汤 / Soup"
-    anchor: foods.soup
-  - id: landmarks.great_wall.image
-    doc: landmarks
-    path: images/landmarks/great_wall.png
-    heading: "长城 / Great Wall"
-    anchor: landmarks.great_wall
-  - id: landmarks.eiffel_tower.image
-    doc: landmarks
-    path: images/landmarks/eiffel_tower.png
-    heading: "埃菲尔铁塔 / Eiffel Tower"
-    anchor: landmarks.eiffel_tower
-  - id: landmarks.pyramid.image
-    doc: landmarks
-    path: images/landmarks/pyramid.png
-    heading: "金字塔 / Pyramid"
-    anchor: landmarks.pyramid
-  - id: landmarks.statue_of_liberty.image
-    doc: landmarks
-    path: images/landmarks/statue_of_liberty.png
-    heading: "自由女神像 / Statue of Liberty"
-    anchor: landmarks.statue_of_liberty
-  - id: landmarks.taj_mahal.image
-    doc: landmarks
-    path: images/landmarks/taj_mahal.png
-    heading: "泰姬陵 / Taj Mahal"
-    anchor: landmarks.taj_mahal
-  - id: landmarks.sydney_opera.image
-    doc: landmarks
-    path: images/landmarks/sydney_opera.png
-    heading: "悉尼歌剧院 / Sydney Opera House"
-    anchor: landmarks.sydney_opera
-  - id: landmarks.forbidden_city.image
-    doc: landmarks
-    path: images/landmarks/forbidden_city.png
-    heading: "故宫 / Forbidden City"
-    anchor: landmarks.forbidden_city
-  - id: landmarks.colosseum.image
-    doc: landmarks
-    path: images/landmarks/colosseum.png
-    heading: "罗马斗兽场 / Colosseum"
-    anchor: landmarks.colosseum
-  - id: landmarks.tower_bridge.image
-    doc: landmarks
-    path: images/landmarks/tower_bridge.png
-    heading: "伦敦塔桥 / Tower Bridge"
-    anchor: landmarks.tower_bridge
-  - id: landmarks.mount_fuji.image
-    doc: landmarks
-    path: images/landmarks/mount_fuji.png
-    heading: "富士山 / Mount Fuji"
-    anchor: landmarks.mount_fuji
-  - id: electronics.smartphone.image
-    doc: electronics
-    path: images/electronics/smartphone.png
-    heading: "手机 / Smartphone"
-    anchor: electronics.smartphone
-  - id: electronics.laptop.image
-    doc: electronics
-    path: images/electronics/laptop.png
-    heading: "笔记本电脑 / Laptop"
-    anchor: electronics.laptop
-  - id: electronics.camera.image
-    doc: electronics
-    path: images/electronics/camera.png
-    heading: "相机 / Camera"
-    anchor: electronics.camera
-  - id: electronics.headphones.image
-    doc: electronics
-    path: images/electronics/headphones.png
-    heading: "耳机 / Headphones"
-    anchor: electronics.headphones
-  - id: electronics.smartwatch.image
-    doc: electronics
-    path: images/electronics/smartwatch.png
-    heading: "智能手表 / Smartwatch"
-    anchor: electronics.smartwatch
-  - id: electronics.router.image
-    doc: electronics
-    path: images/electronics/router.png
-    heading: "路由器 / Router"
-    anchor: electronics.router
-  - id: electronics.printer.image
-    doc: electronics
-    path: images/electronics/printer.png
-    heading: "打印机 / Printer"
-    anchor: electronics.printer
-  - id: electronics.drone.image
-    doc: electronics
-    path: images/electronics/drone.png
-    heading: "无人机 / Drone"
-    anchor: electronics.drone
-  - id: electronics.game_controller.image
-    doc: electronics
-    path: images/electronics/game_controller.png
-    heading: "游戏手柄 / Game Controller"
-    anchor: electronics.game_controller
-  - id: electronics.microphone.image
-    doc: electronics
-    path: images/electronics/microphone.png
-    heading: "麦克风 / Microphone"
-    anchor: electronics.microphone
-  - id: household.sofa.image
-    doc: household
-    path: images/household/sofa.png
-    heading: "沙发 / Sofa"
-    anchor: household.sofa
-  - id: household.table_lamp.image
-    doc: household
-    path: images/household/table_lamp.png
-    heading: "台灯 / Table Lamp"
-    anchor: household.table_lamp
-  - id: household.bed.image
-    doc: household
-    path: images/household/bed.png
-    heading: "床 / Bed"
-    anchor: household.bed
-  - id: household.refrigerator.image
-    doc: household
-    path: images/household/refrigerator.png
-    heading: "冰箱 / Refrigerator"
-    anchor: household.refrigerator
-  - id: household.washing_machine.image
-    doc: household
-    path: images/household/washing_machine.png
-    heading: "洗衣机 / Washing Machine"
-    anchor: household.washing_machine
-  - id: household.microwave.image
-    doc: household
-    path: images/household/microwave.png
-    heading: "微波炉 / Microwave Oven"
-    anchor: household.microwave
-  - id: household.vacuum_cleaner.image
-    doc: household
-    path: images/household/vacuum_cleaner.png
-    heading: "吸尘器 / Vacuum Cleaner"
-    anchor: household.vacuum_cleaner
-  - id: household.electric_kettle.image
-    doc: household
-    path: images/household/electric_kettle.png
-    heading: "电水壶 / Electric Kettle"
-    anchor: household.electric_kettle
-  - id: household.air_conditioner.image
-    doc: household
-    path: images/household/air_conditioner.png
-    heading: "空调 / Air Conditioner"
-    anchor: household.air_conditioner
-  - id: household.dining_table.image
-    doc: household
-    path: images/household/dining_table.png
-    heading: "餐桌 / Dining Table"
-    anchor: household.dining_table
-  - id: clothing.t_shirt.image
-    doc: clothing
-    path: images/clothing/t_shirt.png
-    heading: "T 恤 / T-shirt"
-    anchor: clothing.t_shirt
-  - id: clothing.jacket.image
-    doc: clothing
-    path: images/clothing/jacket.png
-    heading: "夹克 / Jacket"
-    anchor: clothing.jacket
-  - id: clothing.running_shoe.image
-    doc: clothing
-    path: images/clothing/running_shoe.png
-    heading: "运动鞋 / Running Shoe"
-    anchor: clothing.running_shoe
-  - id: clothing.hat.image
-    doc: clothing
-    path: images/clothing/hat.png
-    heading: "帽子 / Hat"
-    anchor: clothing.hat
-  - id: clothing.backpack.image
-    doc: clothing
-    path: images/clothing/backpack.png
-    heading: "背包 / Backpack"
-    anchor: clothing.backpack
-  - id: clothing.eyeglasses.image
-    doc: clothing
-    path: images/clothing/eyeglasses.png
-    heading: "眼镜 / Eyeglasses"
-    anchor: clothing.eyeglasses
-  - id: clothing.wristwatch.image
-    doc: clothing
-    path: images/clothing/wristwatch.png
-    heading: "手表 / Wristwatch"
-    anchor: clothing.wristwatch
-  - id: clothing.umbrella.image
-    doc: clothing
-    path: images/clothing/umbrella.png
-    heading: "雨伞 / Umbrella"
-    anchor: clothing.umbrella
-  - id: clothing.dress.image
-    doc: clothing
-    path: images/clothing/dress.png
-    heading: "连衣裙 / Dress"
-    anchor: clothing.dress
-  - id: clothing.scarf.image
-    doc: clothing
-    path: images/clothing/scarf.png
-    heading: "围巾 / Scarf"
-    anchor: clothing.scarf
-  - id: medical.stethoscope.image
-    doc: medical
-    path: images/medical/stethoscope.png
-    heading: "听诊器 / Stethoscope"
-    anchor: medical.stethoscope
-  - id: medical.syringe.image
-    doc: medical
-    path: images/medical/syringe.png
-    heading: "注射器 / Syringe"
-    anchor: medical.syringe
-  - id: medical.thermometer.image
-    doc: medical
-    path: images/medical/thermometer.png
-    heading: "体温计 / Digital Thermometer"
-    anchor: medical.thermometer
-  - id: medical.bandage.image
-    doc: medical
-    path: images/medical/bandage.png
-    heading: "绷带 / Bandage Roll"
-    anchor: medical.bandage
-  - id: medical.medicine_bottle.image
-    doc: medical
-    path: images/medical/medicine_bottle.png
-    heading: "药瓶 / Medicine Bottle"
-    anchor: medical.medicine_bottle
-  - id: medical.first_aid_kit.image
-    doc: medical
-    path: images/medical/first_aid_kit.png
-    heading: "急救箱 / First Aid Kit"
-    anchor: medical.first_aid_kit
-  - id: medical.wheelchair.image
-    doc: medical
-    path: images/medical/wheelchair.png
-    heading: "轮椅 / Wheelchair"
-    anchor: medical.wheelchair
-  - id: medical.face_mask.image
-    doc: medical
-    path: images/medical/face_mask.png
-    heading: "口罩 / Surgical Face Mask"
-    anchor: medical.face_mask
-  - id: medical.blood_pressure_monitor.image
-    doc: medical
-    path: images/medical/blood_pressure_monitor.png
-    heading: "血压计 / Blood Pressure Monitor"
-    anchor: medical.blood_pressure_monitor
-  - id: medical.microscope.image
-    doc: medical
-    path: images/medical/microscope.png
-    heading: "显微镜 / Microscope"
-    anchor: medical.microscope
-  - id: sports.soccer_ball.image
-    doc: sports
-    path: images/sports/soccer_ball.png
-    heading: "足球 / Soccer Ball"
-    anchor: sports.soccer_ball
-  - id: sports.basketball.image
-    doc: sports
-    path: images/sports/basketball.png
-    heading: "篮球 / Basketball"
-    anchor: sports.basketball
-  - id: sports.tennis_racket.image
-    doc: sports
-    path: images/sports/tennis_racket.png
-    heading: "网球拍 / Tennis Racket"
-    anchor: sports.tennis_racket
-  - id: sports.skateboard.image
-    doc: sports
-    path: images/sports/skateboard.png
-    heading: "滑板 / Skateboard"
-    anchor: sports.skateboard
-  - id: sports.dumbbell.image
-    doc: sports
-    path: images/sports/dumbbell.png
-    heading: "哑铃 / Dumbbell"
-    anchor: sports.dumbbell
-  - id: sports.yoga_mat.image
-    doc: sports
-    path: images/sports/yoga_mat.png
-    heading: "瑜伽垫 / Yoga Mat"
-    anchor: sports.yoga_mat
-  - id: sports.boxing_gloves.image
-    doc: sports
-    path: images/sports/boxing_gloves.png
-    heading: "拳击手套 / Boxing Gloves"
-    anchor: sports.boxing_gloves
-  - id: sports.swimming_goggles.image
-    doc: sports
-    path: images/sports/swimming_goggles.png
-    heading: "游泳镜 / Swimming Goggles"
-    anchor: sports.swimming_goggles
-  - id: sports.baseball_glove.image
-    doc: sports
-    path: images/sports/baseball_glove.png
-    heading: "棒球手套 / Baseball Glove"
-    anchor: sports.baseball_glove
-  - id: sports.bicycle_helmet.image
-    doc: sports
-    path: images/sports/bicycle_helmet.png
-    heading: "自行车头盔 / Bicycle Helmet"
-    anchor: sports.bicycle_helmet
-  - id: instruments.piano.image
-    doc: instruments
-    path: images/instruments/piano.png
-    heading: "钢琴 / Piano Keyboard"
-    anchor: instruments.piano
-  - id: instruments.guitar.image
-    doc: instruments
-    path: images/instruments/guitar.png
-    heading: "吉他 / Acoustic Guitar"
-    anchor: instruments.guitar
-  - id: instruments.violin.image
-    doc: instruments
-    path: images/instruments/violin.png
-    heading: "小提琴 / Violin"
-    anchor: instruments.violin
-  - id: instruments.drum_kit.image
-    doc: instruments
-    path: images/instruments/drum_kit.png
-    heading: "架子鼓 / Drum Kit"
-    anchor: instruments.drum_kit
-  - id: instruments.trumpet.image
-    doc: instruments
-    path: images/instruments/trumpet.png
-    heading: "小号 / Trumpet"
-    anchor: instruments.trumpet
-  - id: instruments.saxophone.image
-    doc: instruments
-    path: images/instruments/saxophone.png
-    heading: "萨克斯 / Saxophone"
-    anchor: instruments.saxophone
-  - id: instruments.flute.image
-    doc: instruments
-    path: images/instruments/flute.png
-    heading: "长笛 / Flute"
-    anchor: instruments.flute
-  - id: instruments.cello.image
-    doc: instruments
-    path: images/instruments/cello.png
-    heading: "大提琴 / Cello"
-    anchor: instruments.cello
-  - id: instruments.harmonica.image
-    doc: instruments
-    path: images/instruments/harmonica.png
-    heading: "口琴 / Harmonica"
-    anchor: instruments.harmonica
-  - id: instruments.tambourine.image
-    doc: instruments
-    path: images/instruments/tambourine.png
-    heading: "手鼓 / Tambourine"
-    anchor: instruments.tambourine
-  - id: office.notebook.image
-    doc: office
-    path: images/office/notebook.png
-    heading: "笔记本 / Notebook"
-    anchor: office.notebook
-  - id: office.fountain_pen.image
-    doc: office
-    path: images/office/fountain_pen.png
-    heading: "钢笔 / Fountain Pen"
-    anchor: office.fountain_pen
-  - id: office.file_folder.image
-    doc: office
-    path: images/office/file_folder.png
-    heading: "文件夹 / File Folder"
-    anchor: office.file_folder
-  - id: office.stapler.image
-    doc: office
-    path: images/office/stapler.png
-    heading: "订书机 / Stapler"
-    anchor: office.stapler
-  - id: office.paper_clips.image
-    doc: office
-    path: images/office/paper_clips.png
-    heading: "回形针 / Paper Clips"
-    anchor: office.paper_clips
-  - id: office.calculator.image
-    doc: office
-    path: images/office/calculator.png
-    heading: "计算器 / Calculator"
-    anchor: office.calculator
-  - id: office.whiteboard.image
-    doc: office
-    path: images/office/whiteboard.png
-    heading: "白板 / Whiteboard"
-    anchor: office.whiteboard
-  - id: office.sticky_notes.image
-    doc: office
-    path: images/office/sticky_notes.png
-    heading: "便签 / Sticky Notes"
-    anchor: office.sticky_notes
-  - id: office.clipboard.image
-    doc: office
-    path: images/office/clipboard.png
-    heading: "剪贴板 / Clipboard"
-    anchor: office.clipboard
-  - id: office.desk_calendar.image
-    doc: office
-    path: images/office/desk_calendar.png
-    heading: "台历 / Desk Calendar"
-    anchor: office.desk_calendar
-  - id: scenes.beach.image
-    doc: scenes
-    path: images/scenes/beach.png
-    heading: "海滩 / Beach"
-    anchor: scenes.beach
-  - id: scenes.snowy_mountain.image
-    doc: scenes
-    path: images/scenes/snowy_mountain.png
-    heading: "雪山 / Snowy Mountain"
-    anchor: scenes.snowy_mountain
-  - id: scenes.forest.image
-    doc: scenes
-    path: images/scenes/forest.png
-    heading: "森林 / Forest"
-    anchor: scenes.forest
-  - id: scenes.desert.image
-    doc: scenes
-    path: images/scenes/desert.png
-    heading: "沙漠 / Desert"
-    anchor: scenes.desert
-  - id: scenes.city_night.image
-    doc: scenes
-    path: images/scenes/city_night.png
-    heading: "城市夜景 / City Night Skyline"
-    anchor: scenes.city_night
-  - id: scenes.rainy_street.image
-    doc: scenes
-    path: images/scenes/rainy_street.png
-    heading: "雨天街道 / Rainy Street"
-    anchor: scenes.rainy_street
-  - id: scenes.sunset.image
-    doc: scenes
-    path: images/scenes/sunset.png
-    heading: "日落 / Sunset Landscape"
-    anchor: scenes.sunset
-  - id: scenes.farmland.image
-    doc: scenes
-    path: images/scenes/farmland.png
-    heading: "农田 / Farmland"
-    anchor: scenes.farmland
-  - id: scenes.library.image
-    doc: scenes
-    path: images/scenes/library.png
-    heading: "图书馆 / Library Interior"
-    anchor: scenes.library
-  - id: scenes.kitchen.image
-    doc: scenes
-    path: images/scenes/kitchen.png
-    heading: "厨房 / Kitchen Interior"
-    anchor: scenes.kitchen
+- id: fruits.apple.image
+  doc: fruits
+  path: images/fruits/apple.png
+  heading: 苹果 / Apple
+  anchor: fruits.apple
+- id: fruits.banana.image
+  doc: fruits
+  path: images/fruits/banana.png
+  heading: 香蕉 / Banana
+  anchor: fruits.banana
+- id: fruits.orange.image
+  doc: fruits
+  path: images/fruits/orange.png
+  heading: 橙子 / Orange
+  anchor: fruits.orange
+- id: fruits.strawberry.image
+  doc: fruits
+  path: images/fruits/strawberry.png
+  heading: 草莓 / Strawberry
+  anchor: fruits.strawberry
+- id: fruits.grape.image
+  doc: fruits
+  path: images/fruits/grape.png
+  heading: 葡萄 / Grape
+  anchor: fruits.grape
+- id: fruits.watermelon.image
+  doc: fruits
+  path: images/fruits/watermelon.png
+  heading: 西瓜 / Watermelon
+  anchor: fruits.watermelon
+- id: fruits.pineapple.image
+  doc: fruits
+  path: images/fruits/pineapple.png
+  heading: 菠萝 / Pineapple
+  anchor: fruits.pineapple
+- id: fruits.kiwi.image
+  doc: fruits
+  path: images/fruits/kiwi.png
+  heading: 猕猴桃 / Kiwi
+  anchor: fruits.kiwi
+- id: fruits.mango.image
+  doc: fruits
+  path: images/fruits/mango.png
+  heading: 芒果 / Mango
+  anchor: fruits.mango
+- id: fruits.lemon.image
+  doc: fruits
+  path: images/fruits/lemon.png
+  heading: 柠檬 / Lemon
+  anchor: fruits.lemon
+- id: animals.cat.image
+  doc: animals
+  path: images/animals/cat.png
+  heading: 猫 / Cat
+  anchor: animals.cat
+- id: animals.dog.image
+  doc: animals
+  path: images/animals/dog.png
+  heading: 狗 / Dog
+  anchor: animals.dog
+- id: animals.rabbit.image
+  doc: animals
+  path: images/animals/rabbit.png
+  heading: 兔子 / Rabbit
+  anchor: animals.rabbit
+- id: animals.panda.image
+  doc: animals
+  path: images/animals/panda.png
+  heading: 熊猫 / Panda
+  anchor: animals.panda
+- id: animals.elephant.image
+  doc: animals
+  path: images/animals/elephant.png
+  heading: 大象 / Elephant
+  anchor: animals.elephant
+- id: animals.lion.image
+  doc: animals
+  path: images/animals/lion.png
+  heading: 狮子 / Lion
+  anchor: animals.lion
+- id: animals.penguin.image
+  doc: animals
+  path: images/animals/penguin.png
+  heading: 企鹅 / Penguin
+  anchor: animals.penguin
+- id: animals.owl.image
+  doc: animals
+  path: images/animals/owl.png
+  heading: 猫头鹰 / Owl
+  anchor: animals.owl
+- id: animals.fox.image
+  doc: animals
+  path: images/animals/fox.png
+  heading: 狐狸 / Fox
+  anchor: animals.fox
+- id: animals.turtle.image
+  doc: animals
+  path: images/animals/turtle.png
+  heading: 乌龟 / Turtle
+  anchor: animals.turtle
+- id: vehicles.car.image
+  doc: vehicles
+  path: images/vehicles/car.png
+  heading: 汽车 / Car
+  anchor: vehicles.car
+- id: vehicles.bus.image
+  doc: vehicles
+  path: images/vehicles/bus.png
+  heading: 公交车 / Bus
+  anchor: vehicles.bus
+- id: vehicles.train.image
+  doc: vehicles
+  path: images/vehicles/train.png
+  heading: 火车 / Train
+  anchor: vehicles.train
+- id: vehicles.airplane.image
+  doc: vehicles
+  path: images/vehicles/airplane.png
+  heading: 飞机 / Airplane
+  anchor: vehicles.airplane
+- id: vehicles.ship.image
+  doc: vehicles
+  path: images/vehicles/ship.png
+  heading: 轮船 / Ship
+  anchor: vehicles.ship
+- id: vehicles.bicycle.image
+  doc: vehicles
+  path: images/vehicles/bicycle.png
+  heading: 自行车 / Bicycle
+  anchor: vehicles.bicycle
+- id: vehicles.motorcycle.image
+  doc: vehicles
+  path: images/vehicles/motorcycle.png
+  heading: 摩托车 / Motorcycle
+  anchor: vehicles.motorcycle
+- id: vehicles.ambulance.image
+  doc: vehicles
+  path: images/vehicles/ambulance.png
+  heading: 救护车 / Ambulance
+  anchor: vehicles.ambulance
+- id: vehicles.fire_truck.image
+  doc: vehicles
+  path: images/vehicles/fire_truck.png
+  heading: 消防车 / Fire Truck
+  anchor: vehicles.fire_truck
+- id: vehicles.subway.image
+  doc: vehicles
+  path: images/vehicles/subway.png
+  heading: 地铁 / Subway
+  anchor: vehicles.subway
+- id: plants.rose.image
+  doc: plants
+  path: images/plants/rose.png
+  heading: 玫瑰 / Rose
+  anchor: plants.rose
+- id: plants.sunflower.image
+  doc: plants
+  path: images/plants/sunflower.png
+  heading: 向日葵 / Sunflower
+  anchor: plants.sunflower
+- id: plants.bamboo.image
+  doc: plants
+  path: images/plants/bamboo.png
+  heading: 竹子 / Bamboo
+  anchor: plants.bamboo
+- id: plants.cactus.image
+  doc: plants
+  path: images/plants/cactus.png
+  heading: 仙人掌 / Cactus
+  anchor: plants.cactus
+- id: plants.pine_tree.image
+  doc: plants
+  path: images/plants/pine_tree.png
+  heading: 松树 / Pine Tree
+  anchor: plants.pine_tree
+- id: plants.lotus.image
+  doc: plants
+  path: images/plants/lotus.png
+  heading: 荷花 / Lotus
+  anchor: plants.lotus
+- id: plants.maple.image
+  doc: plants
+  path: images/plants/maple.png
+  heading: 枫树 / Maple
+  anchor: plants.maple
+- id: plants.tulip.image
+  doc: plants
+  path: images/plants/tulip.png
+  heading: 郁金香 / Tulip
+  anchor: plants.tulip
+- id: plants.fern.image
+  doc: plants
+  path: images/plants/fern.png
+  heading: 蕨类 / Fern
+  anchor: plants.fern
+- id: plants.rice.image
+  doc: plants
+  path: images/plants/rice.png
+  heading: 稻谷 / Rice
+  anchor: plants.rice
+- id: tools.hammer.image
+  doc: tools
+  path: images/tools/hammer.png
+  heading: 锤子 / Hammer
+  anchor: tools.hammer
+- id: tools.wrench.image
+  doc: tools
+  path: images/tools/wrench.png
+  heading: 扳手 / Wrench
+  anchor: tools.wrench
+- id: tools.screwdriver.image
+  doc: tools
+  path: images/tools/screwdriver.png
+  heading: 螺丝刀 / Screwdriver
+  anchor: tools.screwdriver
+- id: tools.pliers.image
+  doc: tools
+  path: images/tools/pliers.png
+  heading: 钳子 / Pliers
+  anchor: tools.pliers
+- id: tools.scissors.image
+  doc: tools
+  path: images/tools/scissors.png
+  heading: 剪刀 / Scissors
+  anchor: tools.scissors
+- id: tools.tape_measure.image
+  doc: tools
+  path: images/tools/tape_measure.png
+  heading: 卷尺 / Tape Measure
+  anchor: tools.tape_measure
+- id: tools.drill.image
+  doc: tools
+  path: images/tools/drill.png
+  heading: 电钻 / Drill
+  anchor: tools.drill
+- id: tools.brush.image
+  doc: tools
+  path: images/tools/brush.png
+  heading: 刷子 / Brush
+  anchor: tools.brush
+- id: tools.shovel.image
+  doc: tools
+  path: images/tools/shovel.png
+  heading: 铲子 / Shovel
+  anchor: tools.shovel
+- id: tools.flashlight.image
+  doc: tools
+  path: images/tools/flashlight.png
+  heading: 手电筒 / Flashlight
+  anchor: tools.flashlight
+- id: foods.bread.image
+  doc: foods
+  path: images/foods/bread.png
+  heading: 面包 / Bread
+  anchor: foods.bread
+- id: foods.pizza.image
+  doc: foods
+  path: images/foods/pizza.png
+  heading: 披萨 / Pizza
+  anchor: foods.pizza
+- id: foods.sushi.image
+  doc: foods
+  path: images/foods/sushi.png
+  heading: 寿司 / Sushi
+  anchor: foods.sushi
+- id: foods.dumpling.image
+  doc: foods
+  path: images/foods/dumpling.png
+  heading: 饺子 / Dumpling
+  anchor: foods.dumpling
+- id: foods.burger.image
+  doc: foods
+  path: images/foods/burger.png
+  heading: 汉堡 / Burger
+  anchor: foods.burger
+- id: foods.salad.image
+  doc: foods
+  path: images/foods/salad.png
+  heading: 沙拉 / Salad
+  anchor: foods.salad
+- id: foods.noodles.image
+  doc: foods
+  path: images/foods/noodles.png
+  heading: 面条 / Noodles
+  anchor: foods.noodles
+- id: foods.cake.image
+  doc: foods
+  path: images/foods/cake.png
+  heading: 蛋糕 / Cake
+  anchor: foods.cake
+- id: foods.rice.image
+  doc: foods
+  path: images/foods/rice.png
+  heading: 米饭 / Rice
+  anchor: foods.rice
+- id: foods.soup.image
+  doc: foods
+  path: images/foods/soup.png
+  heading: 汤 / Soup
+  anchor: foods.soup
+- id: landmarks.great_wall.image
+  doc: landmarks
+  path: images/landmarks/great_wall.png
+  heading: 长城 / Great Wall
+  anchor: landmarks.great_wall
+- id: landmarks.eiffel_tower.image
+  doc: landmarks
+  path: images/landmarks/eiffel_tower.png
+  heading: 埃菲尔铁塔 / Eiffel Tower
+  anchor: landmarks.eiffel_tower
+- id: landmarks.pyramid.image
+  doc: landmarks
+  path: images/landmarks/pyramid.png
+  heading: 金字塔 / Pyramid
+  anchor: landmarks.pyramid
+- id: landmarks.statue_of_liberty.image
+  doc: landmarks
+  path: images/landmarks/statue_of_liberty.png
+  heading: 自由女神像 / Statue of Liberty
+  anchor: landmarks.statue_of_liberty
+- id: landmarks.taj_mahal.image
+  doc: landmarks
+  path: images/landmarks/taj_mahal.png
+  heading: 泰姬陵 / Taj Mahal
+  anchor: landmarks.taj_mahal
+- id: landmarks.sydney_opera.image
+  doc: landmarks
+  path: images/landmarks/sydney_opera.png
+  heading: 悉尼歌剧院 / Sydney Opera House
+  anchor: landmarks.sydney_opera
+- id: landmarks.forbidden_city.image
+  doc: landmarks
+  path: images/landmarks/forbidden_city.png
+  heading: 故宫 / Forbidden City
+  anchor: landmarks.forbidden_city
+- id: landmarks.colosseum.image
+  doc: landmarks
+  path: images/landmarks/colosseum.png
+  heading: 罗马斗兽场 / Colosseum
+  anchor: landmarks.colosseum
+- id: landmarks.tower_bridge.image
+  doc: landmarks
+  path: images/landmarks/tower_bridge.png
+  heading: 伦敦塔桥 / Tower Bridge
+  anchor: landmarks.tower_bridge
+- id: landmarks.mount_fuji.image
+  doc: landmarks
+  path: images/landmarks/mount_fuji.png
+  heading: 富士山 / Mount Fuji
+  anchor: landmarks.mount_fuji
+- id: electronics.smartphone.image
+  doc: electronics
+  path: images/electronics/smartphone.png
+  heading: 手机 / Smartphone
+  anchor: electronics.smartphone
+- id: electronics.laptop.image
+  doc: electronics
+  path: images/electronics/laptop.png
+  heading: 笔记本电脑 / Laptop
+  anchor: electronics.laptop
+- id: electronics.camera.image
+  doc: electronics
+  path: images/electronics/camera.png
+  heading: 相机 / Camera
+  anchor: electronics.camera
+- id: electronics.headphones.image
+  doc: electronics
+  path: images/electronics/headphones.png
+  heading: 耳机 / Headphones
+  anchor: electronics.headphones
+- id: electronics.smartwatch.image
+  doc: electronics
+  path: images/electronics/smartwatch.png
+  heading: 智能手表 / Smartwatch
+  anchor: electronics.smartwatch
+- id: electronics.router.image
+  doc: electronics
+  path: images/electronics/router.png
+  heading: 路由器 / Router
+  anchor: electronics.router
+- id: electronics.printer.image
+  doc: electronics
+  path: images/electronics/printer.png
+  heading: 打印机 / Printer
+  anchor: electronics.printer
+- id: electronics.drone.image
+  doc: electronics
+  path: images/electronics/drone.png
+  heading: 无人机 / Drone
+  anchor: electronics.drone
+- id: electronics.game_controller.image
+  doc: electronics
+  path: images/electronics/game_controller.png
+  heading: 游戏手柄 / Game Controller
+  anchor: electronics.game_controller
+- id: electronics.microphone.image
+  doc: electronics
+  path: images/electronics/microphone.png
+  heading: 麦克风 / Microphone
+  anchor: electronics.microphone
+- id: household.sofa.image
+  doc: household
+  path: images/household/sofa.png
+  heading: 沙发 / Sofa
+  anchor: household.sofa
+- id: household.table_lamp.image
+  doc: household
+  path: images/household/table_lamp.png
+  heading: 台灯 / Table Lamp
+  anchor: household.table_lamp
+- id: household.bed.image
+  doc: household
+  path: images/household/bed.png
+  heading: 床 / Bed
+  anchor: household.bed
+- id: household.refrigerator.image
+  doc: household
+  path: images/household/refrigerator.png
+  heading: 冰箱 / Refrigerator
+  anchor: household.refrigerator
+- id: household.washing_machine.image
+  doc: household
+  path: images/household/washing_machine.png
+  heading: 洗衣机 / Washing Machine
+  anchor: household.washing_machine
+- id: household.microwave.image
+  doc: household
+  path: images/household/microwave.png
+  heading: 微波炉 / Microwave Oven
+  anchor: household.microwave
+- id: household.vacuum_cleaner.image
+  doc: household
+  path: images/household/vacuum_cleaner.png
+  heading: 吸尘器 / Vacuum Cleaner
+  anchor: household.vacuum_cleaner
+- id: household.electric_kettle.image
+  doc: household
+  path: images/household/electric_kettle.png
+  heading: 电水壶 / Electric Kettle
+  anchor: household.electric_kettle
+- id: household.air_conditioner.image
+  doc: household
+  path: images/household/air_conditioner.png
+  heading: 空调 / Air Conditioner
+  anchor: household.air_conditioner
+- id: household.dining_table.image
+  doc: household
+  path: images/household/dining_table.png
+  heading: 餐桌 / Dining Table
+  anchor: household.dining_table
+- id: clothing.t_shirt.image
+  doc: clothing
+  path: images/clothing/t_shirt.png
+  heading: T 恤 / T-shirt
+  anchor: clothing.t_shirt
+- id: clothing.jacket.image
+  doc: clothing
+  path: images/clothing/jacket.png
+  heading: 夹克 / Jacket
+  anchor: clothing.jacket
+- id: clothing.running_shoe.image
+  doc: clothing
+  path: images/clothing/running_shoe.png
+  heading: 运动鞋 / Running Shoe
+  anchor: clothing.running_shoe
+- id: clothing.hat.image
+  doc: clothing
+  path: images/clothing/hat.png
+  heading: 帽子 / Hat
+  anchor: clothing.hat
+- id: clothing.backpack.image
+  doc: clothing
+  path: images/clothing/backpack.png
+  heading: 背包 / Backpack
+  anchor: clothing.backpack
+- id: clothing.eyeglasses.image
+  doc: clothing
+  path: images/clothing/eyeglasses.png
+  heading: 眼镜 / Eyeglasses
+  anchor: clothing.eyeglasses
+- id: clothing.wristwatch.image
+  doc: clothing
+  path: images/clothing/wristwatch.png
+  heading: 手表 / Wristwatch
+  anchor: clothing.wristwatch
+- id: clothing.umbrella.image
+  doc: clothing
+  path: images/clothing/umbrella.png
+  heading: 雨伞 / Umbrella
+  anchor: clothing.umbrella
+- id: clothing.dress.image
+  doc: clothing
+  path: images/clothing/dress.png
+  heading: 连衣裙 / Dress
+  anchor: clothing.dress
+- id: clothing.scarf.image
+  doc: clothing
+  path: images/clothing/scarf.png
+  heading: 围巾 / Scarf
+  anchor: clothing.scarf
+- id: medical.stethoscope.image
+  doc: medical
+  path: images/medical/stethoscope.png
+  heading: 听诊器 / Stethoscope
+  anchor: medical.stethoscope
+- id: medical.syringe.image
+  doc: medical
+  path: images/medical/syringe.png
+  heading: 注射器 / Syringe
+  anchor: medical.syringe
+- id: medical.thermometer.image
+  doc: medical
+  path: images/medical/thermometer.png
+  heading: 体温计 / Digital Thermometer
+  anchor: medical.thermometer
+- id: medical.bandage.image
+  doc: medical
+  path: images/medical/bandage.png
+  heading: 绷带 / Bandage Roll
+  anchor: medical.bandage
+- id: medical.medicine_bottle.image
+  doc: medical
+  path: images/medical/medicine_bottle.png
+  heading: 药瓶 / Medicine Bottle
+  anchor: medical.medicine_bottle
+- id: medical.first_aid_kit.image
+  doc: medical
+  path: images/medical/first_aid_kit.png
+  heading: 急救箱 / First Aid Kit
+  anchor: medical.first_aid_kit
+- id: medical.wheelchair.image
+  doc: medical
+  path: images/medical/wheelchair.png
+  heading: 轮椅 / Wheelchair
+  anchor: medical.wheelchair
+- id: medical.face_mask.image
+  doc: medical
+  path: images/medical/face_mask.png
+  heading: 口罩 / Surgical Face Mask
+  anchor: medical.face_mask
+- id: medical.blood_pressure_monitor.image
+  doc: medical
+  path: images/medical/blood_pressure_monitor.png
+  heading: 血压计 / Blood Pressure Monitor
+  anchor: medical.blood_pressure_monitor
+- id: medical.microscope.image
+  doc: medical
+  path: images/medical/microscope.png
+  heading: 显微镜 / Microscope
+  anchor: medical.microscope
+- id: sports.soccer_ball.image
+  doc: sports
+  path: images/sports/soccer_ball.png
+  heading: 足球 / Soccer Ball
+  anchor: sports.soccer_ball
+- id: sports.basketball.image
+  doc: sports
+  path: images/sports/basketball.png
+  heading: 篮球 / Basketball
+  anchor: sports.basketball
+- id: sports.tennis_racket.image
+  doc: sports
+  path: images/sports/tennis_racket.png
+  heading: 网球拍 / Tennis Racket
+  anchor: sports.tennis_racket
+- id: sports.skateboard.image
+  doc: sports
+  path: images/sports/skateboard.png
+  heading: 滑板 / Skateboard
+  anchor: sports.skateboard
+- id: sports.dumbbell.image
+  doc: sports
+  path: images/sports/dumbbell.png
+  heading: 哑铃 / Dumbbell
+  anchor: sports.dumbbell
+- id: sports.yoga_mat.image
+  doc: sports
+  path: images/sports/yoga_mat.png
+  heading: 瑜伽垫 / Yoga Mat
+  anchor: sports.yoga_mat
+- id: sports.boxing_gloves.image
+  doc: sports
+  path: images/sports/boxing_gloves.png
+  heading: 拳击手套 / Boxing Gloves
+  anchor: sports.boxing_gloves
+- id: sports.swimming_goggles.image
+  doc: sports
+  path: images/sports/swimming_goggles.png
+  heading: 游泳镜 / Swimming Goggles
+  anchor: sports.swimming_goggles
+- id: sports.baseball_glove.image
+  doc: sports
+  path: images/sports/baseball_glove.png
+  heading: 棒球手套 / Baseball Glove
+  anchor: sports.baseball_glove
+- id: sports.bicycle_helmet.image
+  doc: sports
+  path: images/sports/bicycle_helmet.png
+  heading: 自行车头盔 / Bicycle Helmet
+  anchor: sports.bicycle_helmet
+- id: instruments.piano.image
+  doc: instruments
+  path: images/instruments/piano.png
+  heading: 钢琴 / Piano Keyboard
+  anchor: instruments.piano
+- id: instruments.guitar.image
+  doc: instruments
+  path: images/instruments/guitar.png
+  heading: 吉他 / Acoustic Guitar
+  anchor: instruments.guitar
+- id: instruments.violin.image
+  doc: instruments
+  path: images/instruments/violin.png
+  heading: 小提琴 / Violin
+  anchor: instruments.violin
+- id: instruments.drum_kit.image
+  doc: instruments
+  path: images/instruments/drum_kit.png
+  heading: 架子鼓 / Drum Kit
+  anchor: instruments.drum_kit
+- id: instruments.trumpet.image
+  doc: instruments
+  path: images/instruments/trumpet.png
+  heading: 小号 / Trumpet
+  anchor: instruments.trumpet
+- id: instruments.saxophone.image
+  doc: instruments
+  path: images/instruments/saxophone.png
+  heading: 萨克斯 / Saxophone
+  anchor: instruments.saxophone
+- id: instruments.flute.image
+  doc: instruments
+  path: images/instruments/flute.png
+  heading: 长笛 / Flute
+  anchor: instruments.flute
+- id: instruments.cello.image
+  doc: instruments
+  path: images/instruments/cello.png
+  heading: 大提琴 / Cello
+  anchor: instruments.cello
+- id: instruments.harmonica.image
+  doc: instruments
+  path: images/instruments/harmonica.png
+  heading: 口琴 / Harmonica
+  anchor: instruments.harmonica
+- id: instruments.tambourine.image
+  doc: instruments
+  path: images/instruments/tambourine.png
+  heading: 手鼓 / Tambourine
+  anchor: instruments.tambourine
+- id: office.notebook.image
+  doc: office
+  path: images/office/notebook.png
+  heading: 笔记本 / Notebook
+  anchor: office.notebook
+- id: office.fountain_pen.image
+  doc: office
+  path: images/office/fountain_pen.png
+  heading: 钢笔 / Fountain Pen
+  anchor: office.fountain_pen
+- id: office.file_folder.image
+  doc: office
+  path: images/office/file_folder.png
+  heading: 文件夹 / File Folder
+  anchor: office.file_folder
+- id: office.stapler.image
+  doc: office
+  path: images/office/stapler.png
+  heading: 订书机 / Stapler
+  anchor: office.stapler
+- id: office.paper_clips.image
+  doc: office
+  path: images/office/paper_clips.png
+  heading: 回形针 / Paper Clips
+  anchor: office.paper_clips
+- id: office.calculator.image
+  doc: office
+  path: images/office/calculator.png
+  heading: 计算器 / Calculator
+  anchor: office.calculator
+- id: office.whiteboard.image
+  doc: office
+  path: images/office/whiteboard.png
+  heading: 白板 / Whiteboard
+  anchor: office.whiteboard
+- id: office.sticky_notes.image
+  doc: office
+  path: images/office/sticky_notes.png
+  heading: 便签 / Sticky Notes
+  anchor: office.sticky_notes
+- id: office.clipboard.image
+  doc: office
+  path: images/office/clipboard.png
+  heading: 剪贴板 / Clipboard
+  anchor: office.clipboard
+- id: office.desk_calendar.image
+  doc: office
+  path: images/office/desk_calendar.png
+  heading: 台历 / Desk Calendar
+  anchor: office.desk_calendar
+- id: scenes.beach.image
+  doc: scenes
+  path: images/scenes/beach.png
+  heading: 海滩 / Beach
+  anchor: scenes.beach
+- id: scenes.snowy_mountain.image
+  doc: scenes
+  path: images/scenes/snowy_mountain.png
+  heading: 雪山 / Snowy Mountain
+  anchor: scenes.snowy_mountain
+- id: scenes.forest.image
+  doc: scenes
+  path: images/scenes/forest.png
+  heading: 森林 / Forest
+  anchor: scenes.forest
+- id: scenes.desert.image
+  doc: scenes
+  path: images/scenes/desert.png
+  heading: 沙漠 / Desert
+  anchor: scenes.desert
+- id: scenes.city_night.image
+  doc: scenes
+  path: images/scenes/city_night.png
+  heading: 城市夜景 / City Night Skyline
+  anchor: scenes.city_night
+- id: scenes.rainy_street.image
+  doc: scenes
+  path: images/scenes/rainy_street.png
+  heading: 雨天街道 / Rainy Street
+  anchor: scenes.rainy_street
+- id: scenes.sunset.image
+  doc: scenes
+  path: images/scenes/sunset.png
+  heading: 日落 / Sunset Landscape
+  anchor: scenes.sunset
+- id: scenes.farmland.image
+  doc: scenes
+  path: images/scenes/farmland.png
+  heading: 农田 / Farmland
+  anchor: scenes.farmland
+- id: scenes.library.image
+  doc: scenes
+  path: images/scenes/library.png
+  heading: 图书馆 / Library Interior
+  anchor: scenes.library
+- id: scenes.kitchen.image
+  doc: scenes
+  path: images/scenes/kitchen.png
+  heading: 厨房 / Kitchen Interior
+  anchor: scenes.kitchen
 chunks:
-  - id: fruits.apple.text
-    doc: fruits
-    heading: "苹果 / Apple"
-    anchor: fruits.apple
-    asset_id: fruits.apple.image
-  - id: fruits.banana.text
-    doc: fruits
-    heading: "香蕉 / Banana"
-    anchor: fruits.banana
-    asset_id: fruits.banana.image
-  - id: fruits.orange.text
-    doc: fruits
-    heading: "橙子 / Orange"
-    anchor: fruits.orange
-    asset_id: fruits.orange.image
-  - id: fruits.strawberry.text
-    doc: fruits
-    heading: "草莓 / Strawberry"
-    anchor: fruits.strawberry
-    asset_id: fruits.strawberry.image
-  - id: fruits.grape.text
-    doc: fruits
-    heading: "葡萄 / Grape"
-    anchor: fruits.grape
-    asset_id: fruits.grape.image
-  - id: fruits.watermelon.text
-    doc: fruits
-    heading: "西瓜 / Watermelon"
-    anchor: fruits.watermelon
-    asset_id: fruits.watermelon.image
-  - id: fruits.pineapple.text
-    doc: fruits
-    heading: "菠萝 / Pineapple"
-    anchor: fruits.pineapple
-    asset_id: fruits.pineapple.image
-  - id: fruits.kiwi.text
-    doc: fruits
-    heading: "猕猴桃 / Kiwi"
-    anchor: fruits.kiwi
-    asset_id: fruits.kiwi.image
-  - id: fruits.mango.text
-    doc: fruits
-    heading: "芒果 / Mango"
-    anchor: fruits.mango
-    asset_id: fruits.mango.image
-  - id: fruits.lemon.text
-    doc: fruits
-    heading: "柠檬 / Lemon"
-    anchor: fruits.lemon
-    asset_id: fruits.lemon.image
-  - id: animals.cat.text
-    doc: animals
-    heading: "猫 / Cat"
-    anchor: animals.cat
-    asset_id: animals.cat.image
-  - id: animals.dog.text
-    doc: animals
-    heading: "狗 / Dog"
-    anchor: animals.dog
-    asset_id: animals.dog.image
-  - id: animals.rabbit.text
-    doc: animals
-    heading: "兔子 / Rabbit"
-    anchor: animals.rabbit
-    asset_id: animals.rabbit.image
-  - id: animals.panda.text
-    doc: animals
-    heading: "熊猫 / Panda"
-    anchor: animals.panda
-    asset_id: animals.panda.image
-  - id: animals.elephant.text
-    doc: animals
-    heading: "大象 / Elephant"
-    anchor: animals.elephant
-    asset_id: animals.elephant.image
-  - id: animals.lion.text
-    doc: animals
-    heading: "狮子 / Lion"
-    anchor: animals.lion
-    asset_id: animals.lion.image
-  - id: animals.penguin.text
-    doc: animals
-    heading: "企鹅 / Penguin"
-    anchor: animals.penguin
-    asset_id: animals.penguin.image
-  - id: animals.owl.text
-    doc: animals
-    heading: "猫头鹰 / Owl"
-    anchor: animals.owl
-    asset_id: animals.owl.image
-  - id: animals.fox.text
-    doc: animals
-    heading: "狐狸 / Fox"
-    anchor: animals.fox
-    asset_id: animals.fox.image
-  - id: animals.turtle.text
-    doc: animals
-    heading: "乌龟 / Turtle"
-    anchor: animals.turtle
-    asset_id: animals.turtle.image
-  - id: vehicles.car.text
-    doc: vehicles
-    heading: "汽车 / Car"
-    anchor: vehicles.car
-    asset_id: vehicles.car.image
-  - id: vehicles.bus.text
-    doc: vehicles
-    heading: "公交车 / Bus"
-    anchor: vehicles.bus
-    asset_id: vehicles.bus.image
-  - id: vehicles.train.text
-    doc: vehicles
-    heading: "火车 / Train"
-    anchor: vehicles.train
-    asset_id: vehicles.train.image
-  - id: vehicles.airplane.text
-    doc: vehicles
-    heading: "飞机 / Airplane"
-    anchor: vehicles.airplane
-    asset_id: vehicles.airplane.image
-  - id: vehicles.ship.text
-    doc: vehicles
-    heading: "轮船 / Ship"
-    anchor: vehicles.ship
-    asset_id: vehicles.ship.image
-  - id: vehicles.bicycle.text
-    doc: vehicles
-    heading: "自行车 / Bicycle"
-    anchor: vehicles.bicycle
-    asset_id: vehicles.bicycle.image
-  - id: vehicles.motorcycle.text
-    doc: vehicles
-    heading: "摩托车 / Motorcycle"
-    anchor: vehicles.motorcycle
-    asset_id: vehicles.motorcycle.image
-  - id: vehicles.ambulance.text
-    doc: vehicles
-    heading: "救护车 / Ambulance"
-    anchor: vehicles.ambulance
-    asset_id: vehicles.ambulance.image
-  - id: vehicles.fire_truck.text
-    doc: vehicles
-    heading: "消防车 / Fire Truck"
-    anchor: vehicles.fire_truck
-    asset_id: vehicles.fire_truck.image
-  - id: vehicles.subway.text
-    doc: vehicles
-    heading: "地铁 / Subway"
-    anchor: vehicles.subway
-    asset_id: vehicles.subway.image
-  - id: plants.rose.text
-    doc: plants
-    heading: "玫瑰 / Rose"
-    anchor: plants.rose
-    asset_id: plants.rose.image
-  - id: plants.sunflower.text
-    doc: plants
-    heading: "向日葵 / Sunflower"
-    anchor: plants.sunflower
-    asset_id: plants.sunflower.image
-  - id: plants.bamboo.text
-    doc: plants
-    heading: "竹子 / Bamboo"
-    anchor: plants.bamboo
-    asset_id: plants.bamboo.image
-  - id: plants.cactus.text
-    doc: plants
-    heading: "仙人掌 / Cactus"
-    anchor: plants.cactus
-    asset_id: plants.cactus.image
-  - id: plants.pine_tree.text
-    doc: plants
-    heading: "松树 / Pine Tree"
-    anchor: plants.pine_tree
-    asset_id: plants.pine_tree.image
-  - id: plants.lotus.text
-    doc: plants
-    heading: "荷花 / Lotus"
-    anchor: plants.lotus
-    asset_id: plants.lotus.image
-  - id: plants.maple.text
-    doc: plants
-    heading: "枫树 / Maple"
-    anchor: plants.maple
-    asset_id: plants.maple.image
-  - id: plants.tulip.text
-    doc: plants
-    heading: "郁金香 / Tulip"
-    anchor: plants.tulip
-    asset_id: plants.tulip.image
-  - id: plants.fern.text
-    doc: plants
-    heading: "蕨类 / Fern"
-    anchor: plants.fern
-    asset_id: plants.fern.image
-  - id: plants.rice.text
-    doc: plants
-    heading: "稻谷 / Rice"
-    anchor: plants.rice
-    asset_id: plants.rice.image
-  - id: tools.hammer.text
-    doc: tools
-    heading: "锤子 / Hammer"
-    anchor: tools.hammer
-    asset_id: tools.hammer.image
-  - id: tools.wrench.text
-    doc: tools
-    heading: "扳手 / Wrench"
-    anchor: tools.wrench
-    asset_id: tools.wrench.image
-  - id: tools.screwdriver.text
-    doc: tools
-    heading: "螺丝刀 / Screwdriver"
-    anchor: tools.screwdriver
-    asset_id: tools.screwdriver.image
-  - id: tools.pliers.text
-    doc: tools
-    heading: "钳子 / Pliers"
-    anchor: tools.pliers
-    asset_id: tools.pliers.image
-  - id: tools.scissors.text
-    doc: tools
-    heading: "剪刀 / Scissors"
-    anchor: tools.scissors
-    asset_id: tools.scissors.image
-  - id: tools.tape_measure.text
-    doc: tools
-    heading: "卷尺 / Tape Measure"
-    anchor: tools.tape_measure
-    asset_id: tools.tape_measure.image
-  - id: tools.drill.text
-    doc: tools
-    heading: "电钻 / Drill"
-    anchor: tools.drill
-    asset_id: tools.drill.image
-  - id: tools.brush.text
-    doc: tools
-    heading: "刷子 / Brush"
-    anchor: tools.brush
-    asset_id: tools.brush.image
-  - id: tools.shovel.text
-    doc: tools
-    heading: "铲子 / Shovel"
-    anchor: tools.shovel
-    asset_id: tools.shovel.image
-  - id: tools.flashlight.text
-    doc: tools
-    heading: "手电筒 / Flashlight"
-    anchor: tools.flashlight
-    asset_id: tools.flashlight.image
-  - id: foods.bread.text
-    doc: foods
-    heading: "面包 / Bread"
-    anchor: foods.bread
-    asset_id: foods.bread.image
-  - id: foods.pizza.text
-    doc: foods
-    heading: "披萨 / Pizza"
-    anchor: foods.pizza
-    asset_id: foods.pizza.image
-  - id: foods.sushi.text
-    doc: foods
-    heading: "寿司 / Sushi"
-    anchor: foods.sushi
-    asset_id: foods.sushi.image
-  - id: foods.dumpling.text
-    doc: foods
-    heading: "饺子 / Dumpling"
-    anchor: foods.dumpling
-    asset_id: foods.dumpling.image
-  - id: foods.burger.text
-    doc: foods
-    heading: "汉堡 / Burger"
-    anchor: foods.burger
-    asset_id: foods.burger.image
-  - id: foods.salad.text
-    doc: foods
-    heading: "沙拉 / Salad"
-    anchor: foods.salad
-    asset_id: foods.salad.image
-  - id: foods.noodles.text
-    doc: foods
-    heading: "面条 / Noodles"
-    anchor: foods.noodles
-    asset_id: foods.noodles.image
-  - id: foods.cake.text
-    doc: foods
-    heading: "蛋糕 / Cake"
-    anchor: foods.cake
-    asset_id: foods.cake.image
-  - id: foods.rice.text
-    doc: foods
-    heading: "米饭 / Rice"
-    anchor: foods.rice
-    asset_id: foods.rice.image
-  - id: foods.soup.text
-    doc: foods
-    heading: "汤 / Soup"
-    anchor: foods.soup
-    asset_id: foods.soup.image
-  - id: landmarks.great_wall.text
-    doc: landmarks
-    heading: "长城 / Great Wall"
-    anchor: landmarks.great_wall
-    asset_id: landmarks.great_wall.image
-  - id: landmarks.eiffel_tower.text
-    doc: landmarks
-    heading: "埃菲尔铁塔 / Eiffel Tower"
-    anchor: landmarks.eiffel_tower
-    asset_id: landmarks.eiffel_tower.image
-  - id: landmarks.pyramid.text
-    doc: landmarks
-    heading: "金字塔 / Pyramid"
-    anchor: landmarks.pyramid
-    asset_id: landmarks.pyramid.image
-  - id: landmarks.statue_of_liberty.text
-    doc: landmarks
-    heading: "自由女神像 / Statue of Liberty"
-    anchor: landmarks.statue_of_liberty
-    asset_id: landmarks.statue_of_liberty.image
-  - id: landmarks.taj_mahal.text
-    doc: landmarks
-    heading: "泰姬陵 / Taj Mahal"
-    anchor: landmarks.taj_mahal
-    asset_id: landmarks.taj_mahal.image
-  - id: landmarks.sydney_opera.text
-    doc: landmarks
-    heading: "悉尼歌剧院 / Sydney Opera House"
-    anchor: landmarks.sydney_opera
-    asset_id: landmarks.sydney_opera.image
-  - id: landmarks.forbidden_city.text
-    doc: landmarks
-    heading: "故宫 / Forbidden City"
-    anchor: landmarks.forbidden_city
-    asset_id: landmarks.forbidden_city.image
-  - id: landmarks.colosseum.text
-    doc: landmarks
-    heading: "罗马斗兽场 / Colosseum"
-    anchor: landmarks.colosseum
-    asset_id: landmarks.colosseum.image
-  - id: landmarks.tower_bridge.text
-    doc: landmarks
-    heading: "伦敦塔桥 / Tower Bridge"
-    anchor: landmarks.tower_bridge
-    asset_id: landmarks.tower_bridge.image
-  - id: landmarks.mount_fuji.text
-    doc: landmarks
-    heading: "富士山 / Mount Fuji"
-    anchor: landmarks.mount_fuji
-    asset_id: landmarks.mount_fuji.image
-  - id: electronics.smartphone.text
-    doc: electronics
-    heading: "手机 / Smartphone"
-    anchor: electronics.smartphone
-    asset_id: electronics.smartphone.image
-  - id: electronics.laptop.text
-    doc: electronics
-    heading: "笔记本电脑 / Laptop"
-    anchor: electronics.laptop
-    asset_id: electronics.laptop.image
-  - id: electronics.camera.text
-    doc: electronics
-    heading: "相机 / Camera"
-    anchor: electronics.camera
-    asset_id: electronics.camera.image
-  - id: electronics.headphones.text
-    doc: electronics
-    heading: "耳机 / Headphones"
-    anchor: electronics.headphones
-    asset_id: electronics.headphones.image
-  - id: electronics.smartwatch.text
-    doc: electronics
-    heading: "智能手表 / Smartwatch"
-    anchor: electronics.smartwatch
-    asset_id: electronics.smartwatch.image
-  - id: electronics.router.text
-    doc: electronics
-    heading: "路由器 / Router"
-    anchor: electronics.router
-    asset_id: electronics.router.image
-  - id: electronics.printer.text
-    doc: electronics
-    heading: "打印机 / Printer"
-    anchor: electronics.printer
-    asset_id: electronics.printer.image
-  - id: electronics.drone.text
-    doc: electronics
-    heading: "无人机 / Drone"
-    anchor: electronics.drone
-    asset_id: electronics.drone.image
-  - id: electronics.game_controller.text
-    doc: electronics
-    heading: "游戏手柄 / Game Controller"
-    anchor: electronics.game_controller
-    asset_id: electronics.game_controller.image
-  - id: electronics.microphone.text
-    doc: electronics
-    heading: "麦克风 / Microphone"
-    anchor: electronics.microphone
-    asset_id: electronics.microphone.image
-  - id: household.sofa.text
-    doc: household
-    heading: "沙发 / Sofa"
-    anchor: household.sofa
-    asset_id: household.sofa.image
-  - id: household.table_lamp.text
-    doc: household
-    heading: "台灯 / Table Lamp"
-    anchor: household.table_lamp
-    asset_id: household.table_lamp.image
-  - id: household.bed.text
-    doc: household
-    heading: "床 / Bed"
-    anchor: household.bed
-    asset_id: household.bed.image
-  - id: household.refrigerator.text
-    doc: household
-    heading: "冰箱 / Refrigerator"
-    anchor: household.refrigerator
-    asset_id: household.refrigerator.image
-  - id: household.washing_machine.text
-    doc: household
-    heading: "洗衣机 / Washing Machine"
-    anchor: household.washing_machine
-    asset_id: household.washing_machine.image
-  - id: household.microwave.text
-    doc: household
-    heading: "微波炉 / Microwave Oven"
-    anchor: household.microwave
-    asset_id: household.microwave.image
-  - id: household.vacuum_cleaner.text
-    doc: household
-    heading: "吸尘器 / Vacuum Cleaner"
-    anchor: household.vacuum_cleaner
-    asset_id: household.vacuum_cleaner.image
-  - id: household.electric_kettle.text
-    doc: household
-    heading: "电水壶 / Electric Kettle"
-    anchor: household.electric_kettle
-    asset_id: household.electric_kettle.image
-  - id: household.air_conditioner.text
-    doc: household
-    heading: "空调 / Air Conditioner"
-    anchor: household.air_conditioner
-    asset_id: household.air_conditioner.image
-  - id: household.dining_table.text
-    doc: household
-    heading: "餐桌 / Dining Table"
-    anchor: household.dining_table
-    asset_id: household.dining_table.image
-  - id: clothing.t_shirt.text
-    doc: clothing
-    heading: "T 恤 / T-shirt"
-    anchor: clothing.t_shirt
-    asset_id: clothing.t_shirt.image
-  - id: clothing.jacket.text
-    doc: clothing
-    heading: "夹克 / Jacket"
-    anchor: clothing.jacket
-    asset_id: clothing.jacket.image
-  - id: clothing.running_shoe.text
-    doc: clothing
-    heading: "运动鞋 / Running Shoe"
-    anchor: clothing.running_shoe
-    asset_id: clothing.running_shoe.image
-  - id: clothing.hat.text
-    doc: clothing
-    heading: "帽子 / Hat"
-    anchor: clothing.hat
-    asset_id: clothing.hat.image
-  - id: clothing.backpack.text
-    doc: clothing
-    heading: "背包 / Backpack"
-    anchor: clothing.backpack
-    asset_id: clothing.backpack.image
-  - id: clothing.eyeglasses.text
-    doc: clothing
-    heading: "眼镜 / Eyeglasses"
-    anchor: clothing.eyeglasses
-    asset_id: clothing.eyeglasses.image
-  - id: clothing.wristwatch.text
-    doc: clothing
-    heading: "手表 / Wristwatch"
-    anchor: clothing.wristwatch
-    asset_id: clothing.wristwatch.image
-  - id: clothing.umbrella.text
-    doc: clothing
-    heading: "雨伞 / Umbrella"
-    anchor: clothing.umbrella
-    asset_id: clothing.umbrella.image
-  - id: clothing.dress.text
-    doc: clothing
-    heading: "连衣裙 / Dress"
-    anchor: clothing.dress
-    asset_id: clothing.dress.image
-  - id: clothing.scarf.text
-    doc: clothing
-    heading: "围巾 / Scarf"
-    anchor: clothing.scarf
-    asset_id: clothing.scarf.image
-  - id: medical.stethoscope.text
-    doc: medical
-    heading: "听诊器 / Stethoscope"
-    anchor: medical.stethoscope
-    asset_id: medical.stethoscope.image
-  - id: medical.syringe.text
-    doc: medical
-    heading: "注射器 / Syringe"
-    anchor: medical.syringe
-    asset_id: medical.syringe.image
-  - id: medical.thermometer.text
-    doc: medical
-    heading: "体温计 / Digital Thermometer"
-    anchor: medical.thermometer
-    asset_id: medical.thermometer.image
-  - id: medical.bandage.text
-    doc: medical
-    heading: "绷带 / Bandage Roll"
-    anchor: medical.bandage
-    asset_id: medical.bandage.image
-  - id: medical.medicine_bottle.text
-    doc: medical
-    heading: "药瓶 / Medicine Bottle"
-    anchor: medical.medicine_bottle
-    asset_id: medical.medicine_bottle.image
-  - id: medical.first_aid_kit.text
-    doc: medical
-    heading: "急救箱 / First Aid Kit"
-    anchor: medical.first_aid_kit
-    asset_id: medical.first_aid_kit.image
-  - id: medical.wheelchair.text
-    doc: medical
-    heading: "轮椅 / Wheelchair"
-    anchor: medical.wheelchair
-    asset_id: medical.wheelchair.image
-  - id: medical.face_mask.text
-    doc: medical
-    heading: "口罩 / Surgical Face Mask"
-    anchor: medical.face_mask
-    asset_id: medical.face_mask.image
-  - id: medical.blood_pressure_monitor.text
-    doc: medical
-    heading: "血压计 / Blood Pressure Monitor"
-    anchor: medical.blood_pressure_monitor
-    asset_id: medical.blood_pressure_monitor.image
-  - id: medical.microscope.text
-    doc: medical
-    heading: "显微镜 / Microscope"
-    anchor: medical.microscope
-    asset_id: medical.microscope.image
-  - id: sports.soccer_ball.text
-    doc: sports
-    heading: "足球 / Soccer Ball"
-    anchor: sports.soccer_ball
-    asset_id: sports.soccer_ball.image
-  - id: sports.basketball.text
-    doc: sports
-    heading: "篮球 / Basketball"
-    anchor: sports.basketball
-    asset_id: sports.basketball.image
-  - id: sports.tennis_racket.text
-    doc: sports
-    heading: "网球拍 / Tennis Racket"
-    anchor: sports.tennis_racket
-    asset_id: sports.tennis_racket.image
-  - id: sports.skateboard.text
-    doc: sports
-    heading: "滑板 / Skateboard"
-    anchor: sports.skateboard
-    asset_id: sports.skateboard.image
-  - id: sports.dumbbell.text
-    doc: sports
-    heading: "哑铃 / Dumbbell"
-    anchor: sports.dumbbell
-    asset_id: sports.dumbbell.image
-  - id: sports.yoga_mat.text
-    doc: sports
-    heading: "瑜伽垫 / Yoga Mat"
-    anchor: sports.yoga_mat
-    asset_id: sports.yoga_mat.image
-  - id: sports.boxing_gloves.text
-    doc: sports
-    heading: "拳击手套 / Boxing Gloves"
-    anchor: sports.boxing_gloves
-    asset_id: sports.boxing_gloves.image
-  - id: sports.swimming_goggles.text
-    doc: sports
-    heading: "游泳镜 / Swimming Goggles"
-    anchor: sports.swimming_goggles
-    asset_id: sports.swimming_goggles.image
-  - id: sports.baseball_glove.text
-    doc: sports
-    heading: "棒球手套 / Baseball Glove"
-    anchor: sports.baseball_glove
-    asset_id: sports.baseball_glove.image
-  - id: sports.bicycle_helmet.text
-    doc: sports
-    heading: "自行车头盔 / Bicycle Helmet"
-    anchor: sports.bicycle_helmet
-    asset_id: sports.bicycle_helmet.image
-  - id: instruments.piano.text
-    doc: instruments
-    heading: "钢琴 / Piano Keyboard"
-    anchor: instruments.piano
-    asset_id: instruments.piano.image
-  - id: instruments.guitar.text
-    doc: instruments
-    heading: "吉他 / Acoustic Guitar"
-    anchor: instruments.guitar
-    asset_id: instruments.guitar.image
-  - id: instruments.violin.text
-    doc: instruments
-    heading: "小提琴 / Violin"
-    anchor: instruments.violin
-    asset_id: instruments.violin.image
-  - id: instruments.drum_kit.text
-    doc: instruments
-    heading: "架子鼓 / Drum Kit"
-    anchor: instruments.drum_kit
-    asset_id: instruments.drum_kit.image
-  - id: instruments.trumpet.text
-    doc: instruments
-    heading: "小号 / Trumpet"
-    anchor: instruments.trumpet
-    asset_id: instruments.trumpet.image
-  - id: instruments.saxophone.text
-    doc: instruments
-    heading: "萨克斯 / Saxophone"
-    anchor: instruments.saxophone
-    asset_id: instruments.saxophone.image
-  - id: instruments.flute.text
-    doc: instruments
-    heading: "长笛 / Flute"
-    anchor: instruments.flute
-    asset_id: instruments.flute.image
-  - id: instruments.cello.text
-    doc: instruments
-    heading: "大提琴 / Cello"
-    anchor: instruments.cello
-    asset_id: instruments.cello.image
-  - id: instruments.harmonica.text
-    doc: instruments
-    heading: "口琴 / Harmonica"
-    anchor: instruments.harmonica
-    asset_id: instruments.harmonica.image
-  - id: instruments.tambourine.text
-    doc: instruments
-    heading: "手鼓 / Tambourine"
-    anchor: instruments.tambourine
-    asset_id: instruments.tambourine.image
-  - id: office.notebook.text
-    doc: office
-    heading: "笔记本 / Notebook"
-    anchor: office.notebook
-    asset_id: office.notebook.image
-  - id: office.fountain_pen.text
-    doc: office
-    heading: "钢笔 / Fountain Pen"
-    anchor: office.fountain_pen
-    asset_id: office.fountain_pen.image
-  - id: office.file_folder.text
-    doc: office
-    heading: "文件夹 / File Folder"
-    anchor: office.file_folder
-    asset_id: office.file_folder.image
-  - id: office.stapler.text
-    doc: office
-    heading: "订书机 / Stapler"
-    anchor: office.stapler
-    asset_id: office.stapler.image
-  - id: office.paper_clips.text
-    doc: office
-    heading: "回形针 / Paper Clips"
-    anchor: office.paper_clips
-    asset_id: office.paper_clips.image
-  - id: office.calculator.text
-    doc: office
-    heading: "计算器 / Calculator"
-    anchor: office.calculator
-    asset_id: office.calculator.image
-  - id: office.whiteboard.text
-    doc: office
-    heading: "白板 / Whiteboard"
-    anchor: office.whiteboard
-    asset_id: office.whiteboard.image
-  - id: office.sticky_notes.text
-    doc: office
-    heading: "便签 / Sticky Notes"
-    anchor: office.sticky_notes
-    asset_id: office.sticky_notes.image
-  - id: office.clipboard.text
-    doc: office
-    heading: "剪贴板 / Clipboard"
-    anchor: office.clipboard
-    asset_id: office.clipboard.image
-  - id: office.desk_calendar.text
-    doc: office
-    heading: "台历 / Desk Calendar"
-    anchor: office.desk_calendar
-    asset_id: office.desk_calendar.image
-  - id: scenes.beach.text
-    doc: scenes
-    heading: "海滩 / Beach"
-    anchor: scenes.beach
-    asset_id: scenes.beach.image
-  - id: scenes.snowy_mountain.text
-    doc: scenes
-    heading: "雪山 / Snowy Mountain"
-    anchor: scenes.snowy_mountain
-    asset_id: scenes.snowy_mountain.image
-  - id: scenes.forest.text
-    doc: scenes
-    heading: "森林 / Forest"
-    anchor: scenes.forest
-    asset_id: scenes.forest.image
-  - id: scenes.desert.text
-    doc: scenes
-    heading: "沙漠 / Desert"
-    anchor: scenes.desert
-    asset_id: scenes.desert.image
-  - id: scenes.city_night.text
-    doc: scenes
-    heading: "城市夜景 / City Night Skyline"
-    anchor: scenes.city_night
-    asset_id: scenes.city_night.image
-  - id: scenes.rainy_street.text
-    doc: scenes
-    heading: "雨天街道 / Rainy Street"
-    anchor: scenes.rainy_street
-    asset_id: scenes.rainy_street.image
-  - id: scenes.sunset.text
-    doc: scenes
-    heading: "日落 / Sunset Landscape"
-    anchor: scenes.sunset
-    asset_id: scenes.sunset.image
-  - id: scenes.farmland.text
-    doc: scenes
-    heading: "农田 / Farmland"
-    anchor: scenes.farmland
-    asset_id: scenes.farmland.image
-  - id: scenes.library.text
-    doc: scenes
-    heading: "图书馆 / Library Interior"
-    anchor: scenes.library
-    asset_id: scenes.library.image
-  - id: scenes.kitchen.text
-    doc: scenes
-    heading: "厨房 / Kitchen Interior"
-    anchor: scenes.kitchen
-    asset_id: scenes.kitchen.image
+- id: fruits.apple.text
+  doc: fruits
+  heading: 苹果 / Apple
+  anchor: fruits.apple
+  asset_id: fruits.apple.image
+- id: fruits.banana.text
+  doc: fruits
+  heading: 香蕉 / Banana
+  anchor: fruits.banana
+  asset_id: fruits.banana.image
+- id: fruits.orange.text
+  doc: fruits
+  heading: 橙子 / Orange
+  anchor: fruits.orange
+  asset_id: fruits.orange.image
+- id: fruits.strawberry.text
+  doc: fruits
+  heading: 草莓 / Strawberry
+  anchor: fruits.strawberry
+  asset_id: fruits.strawberry.image
+- id: fruits.grape.text
+  doc: fruits
+  heading: 葡萄 / Grape
+  anchor: fruits.grape
+  asset_id: fruits.grape.image
+- id: fruits.watermelon.text
+  doc: fruits
+  heading: 西瓜 / Watermelon
+  anchor: fruits.watermelon
+  asset_id: fruits.watermelon.image
+- id: fruits.pineapple.text
+  doc: fruits
+  heading: 菠萝 / Pineapple
+  anchor: fruits.pineapple
+  asset_id: fruits.pineapple.image
+- id: fruits.kiwi.text
+  doc: fruits
+  heading: 猕猴桃 / Kiwi
+  anchor: fruits.kiwi
+  asset_id: fruits.kiwi.image
+- id: fruits.mango.text
+  doc: fruits
+  heading: 芒果 / Mango
+  anchor: fruits.mango
+  asset_id: fruits.mango.image
+- id: fruits.lemon.text
+  doc: fruits
+  heading: 柠檬 / Lemon
+  anchor: fruits.lemon
+  asset_id: fruits.lemon.image
+- id: animals.cat.text
+  doc: animals
+  heading: 猫 / Cat
+  anchor: animals.cat
+  asset_id: animals.cat.image
+- id: animals.dog.text
+  doc: animals
+  heading: 狗 / Dog
+  anchor: animals.dog
+  asset_id: animals.dog.image
+- id: animals.rabbit.text
+  doc: animals
+  heading: 兔子 / Rabbit
+  anchor: animals.rabbit
+  asset_id: animals.rabbit.image
+- id: animals.panda.text
+  doc: animals
+  heading: 熊猫 / Panda
+  anchor: animals.panda
+  asset_id: animals.panda.image
+- id: animals.elephant.text
+  doc: animals
+  heading: 大象 / Elephant
+  anchor: animals.elephant
+  asset_id: animals.elephant.image
+- id: animals.lion.text
+  doc: animals
+  heading: 狮子 / Lion
+  anchor: animals.lion
+  asset_id: animals.lion.image
+- id: animals.penguin.text
+  doc: animals
+  heading: 企鹅 / Penguin
+  anchor: animals.penguin
+  asset_id: animals.penguin.image
+- id: animals.owl.text
+  doc: animals
+  heading: 猫头鹰 / Owl
+  anchor: animals.owl
+  asset_id: animals.owl.image
+- id: animals.fox.text
+  doc: animals
+  heading: 狐狸 / Fox
+  anchor: animals.fox
+  asset_id: animals.fox.image
+- id: animals.turtle.text
+  doc: animals
+  heading: 乌龟 / Turtle
+  anchor: animals.turtle
+  asset_id: animals.turtle.image
+- id: vehicles.car.text
+  doc: vehicles
+  heading: 汽车 / Car
+  anchor: vehicles.car
+  asset_id: vehicles.car.image
+- id: vehicles.bus.text
+  doc: vehicles
+  heading: 公交车 / Bus
+  anchor: vehicles.bus
+  asset_id: vehicles.bus.image
+- id: vehicles.train.text
+  doc: vehicles
+  heading: 火车 / Train
+  anchor: vehicles.train
+  asset_id: vehicles.train.image
+- id: vehicles.airplane.text
+  doc: vehicles
+  heading: 飞机 / Airplane
+  anchor: vehicles.airplane
+  asset_id: vehicles.airplane.image
+- id: vehicles.ship.text
+  doc: vehicles
+  heading: 轮船 / Ship
+  anchor: vehicles.ship
+  asset_id: vehicles.ship.image
+- id: vehicles.bicycle.text
+  doc: vehicles
+  heading: 自行车 / Bicycle
+  anchor: vehicles.bicycle
+  asset_id: vehicles.bicycle.image
+- id: vehicles.motorcycle.text
+  doc: vehicles
+  heading: 摩托车 / Motorcycle
+  anchor: vehicles.motorcycle
+  asset_id: vehicles.motorcycle.image
+- id: vehicles.ambulance.text
+  doc: vehicles
+  heading: 救护车 / Ambulance
+  anchor: vehicles.ambulance
+  asset_id: vehicles.ambulance.image
+- id: vehicles.fire_truck.text
+  doc: vehicles
+  heading: 消防车 / Fire Truck
+  anchor: vehicles.fire_truck
+  asset_id: vehicles.fire_truck.image
+- id: vehicles.subway.text
+  doc: vehicles
+  heading: 地铁 / Subway
+  anchor: vehicles.subway
+  asset_id: vehicles.subway.image
+- id: plants.rose.text
+  doc: plants
+  heading: 玫瑰 / Rose
+  anchor: plants.rose
+  asset_id: plants.rose.image
+- id: plants.sunflower.text
+  doc: plants
+  heading: 向日葵 / Sunflower
+  anchor: plants.sunflower
+  asset_id: plants.sunflower.image
+- id: plants.bamboo.text
+  doc: plants
+  heading: 竹子 / Bamboo
+  anchor: plants.bamboo
+  asset_id: plants.bamboo.image
+- id: plants.cactus.text
+  doc: plants
+  heading: 仙人掌 / Cactus
+  anchor: plants.cactus
+  asset_id: plants.cactus.image
+- id: plants.pine_tree.text
+  doc: plants
+  heading: 松树 / Pine Tree
+  anchor: plants.pine_tree
+  asset_id: plants.pine_tree.image
+- id: plants.lotus.text
+  doc: plants
+  heading: 荷花 / Lotus
+  anchor: plants.lotus
+  asset_id: plants.lotus.image
+- id: plants.maple.text
+  doc: plants
+  heading: 枫树 / Maple
+  anchor: plants.maple
+  asset_id: plants.maple.image
+- id: plants.tulip.text
+  doc: plants
+  heading: 郁金香 / Tulip
+  anchor: plants.tulip
+  asset_id: plants.tulip.image
+- id: plants.fern.text
+  doc: plants
+  heading: 蕨类 / Fern
+  anchor: plants.fern
+  asset_id: plants.fern.image
+- id: plants.rice.text
+  doc: plants
+  heading: 稻谷 / Rice
+  anchor: plants.rice
+  asset_id: plants.rice.image
+- id: tools.hammer.text
+  doc: tools
+  heading: 锤子 / Hammer
+  anchor: tools.hammer
+  asset_id: tools.hammer.image
+- id: tools.wrench.text
+  doc: tools
+  heading: 扳手 / Wrench
+  anchor: tools.wrench
+  asset_id: tools.wrench.image
+- id: tools.screwdriver.text
+  doc: tools
+  heading: 螺丝刀 / Screwdriver
+  anchor: tools.screwdriver
+  asset_id: tools.screwdriver.image
+- id: tools.pliers.text
+  doc: tools
+  heading: 钳子 / Pliers
+  anchor: tools.pliers
+  asset_id: tools.pliers.image
+- id: tools.scissors.text
+  doc: tools
+  heading: 剪刀 / Scissors
+  anchor: tools.scissors
+  asset_id: tools.scissors.image
+- id: tools.tape_measure.text
+  doc: tools
+  heading: 卷尺 / Tape Measure
+  anchor: tools.tape_measure
+  asset_id: tools.tape_measure.image
+- id: tools.drill.text
+  doc: tools
+  heading: 电钻 / Drill
+  anchor: tools.drill
+  asset_id: tools.drill.image
+- id: tools.brush.text
+  doc: tools
+  heading: 刷子 / Brush
+  anchor: tools.brush
+  asset_id: tools.brush.image
+- id: tools.shovel.text
+  doc: tools
+  heading: 铲子 / Shovel
+  anchor: tools.shovel
+  asset_id: tools.shovel.image
+- id: tools.flashlight.text
+  doc: tools
+  heading: 手电筒 / Flashlight
+  anchor: tools.flashlight
+  asset_id: tools.flashlight.image
+- id: foods.bread.text
+  doc: foods
+  heading: 面包 / Bread
+  anchor: foods.bread
+  asset_id: foods.bread.image
+- id: foods.pizza.text
+  doc: foods
+  heading: 披萨 / Pizza
+  anchor: foods.pizza
+  asset_id: foods.pizza.image
+- id: foods.sushi.text
+  doc: foods
+  heading: 寿司 / Sushi
+  anchor: foods.sushi
+  asset_id: foods.sushi.image
+- id: foods.dumpling.text
+  doc: foods
+  heading: 饺子 / Dumpling
+  anchor: foods.dumpling
+  asset_id: foods.dumpling.image
+- id: foods.burger.text
+  doc: foods
+  heading: 汉堡 / Burger
+  anchor: foods.burger
+  asset_id: foods.burger.image
+- id: foods.salad.text
+  doc: foods
+  heading: 沙拉 / Salad
+  anchor: foods.salad
+  asset_id: foods.salad.image
+- id: foods.noodles.text
+  doc: foods
+  heading: 面条 / Noodles
+  anchor: foods.noodles
+  asset_id: foods.noodles.image
+- id: foods.cake.text
+  doc: foods
+  heading: 蛋糕 / Cake
+  anchor: foods.cake
+  asset_id: foods.cake.image
+- id: foods.rice.text
+  doc: foods
+  heading: 米饭 / Rice
+  anchor: foods.rice
+  asset_id: foods.rice.image
+- id: foods.soup.text
+  doc: foods
+  heading: 汤 / Soup
+  anchor: foods.soup
+  asset_id: foods.soup.image
+- id: landmarks.great_wall.text
+  doc: landmarks
+  heading: 长城 / Great Wall
+  anchor: landmarks.great_wall
+  asset_id: landmarks.great_wall.image
+- id: landmarks.eiffel_tower.text
+  doc: landmarks
+  heading: 埃菲尔铁塔 / Eiffel Tower
+  anchor: landmarks.eiffel_tower
+  asset_id: landmarks.eiffel_tower.image
+- id: landmarks.pyramid.text
+  doc: landmarks
+  heading: 金字塔 / Pyramid
+  anchor: landmarks.pyramid
+  asset_id: landmarks.pyramid.image
+- id: landmarks.statue_of_liberty.text
+  doc: landmarks
+  heading: 自由女神像 / Statue of Liberty
+  anchor: landmarks.statue_of_liberty
+  asset_id: landmarks.statue_of_liberty.image
+- id: landmarks.taj_mahal.text
+  doc: landmarks
+  heading: 泰姬陵 / Taj Mahal
+  anchor: landmarks.taj_mahal
+  asset_id: landmarks.taj_mahal.image
+- id: landmarks.sydney_opera.text
+  doc: landmarks
+  heading: 悉尼歌剧院 / Sydney Opera House
+  anchor: landmarks.sydney_opera
+  asset_id: landmarks.sydney_opera.image
+- id: landmarks.forbidden_city.text
+  doc: landmarks
+  heading: 故宫 / Forbidden City
+  anchor: landmarks.forbidden_city
+  asset_id: landmarks.forbidden_city.image
+- id: landmarks.colosseum.text
+  doc: landmarks
+  heading: 罗马斗兽场 / Colosseum
+  anchor: landmarks.colosseum
+  asset_id: landmarks.colosseum.image
+- id: landmarks.tower_bridge.text
+  doc: landmarks
+  heading: 伦敦塔桥 / Tower Bridge
+  anchor: landmarks.tower_bridge
+  asset_id: landmarks.tower_bridge.image
+- id: landmarks.mount_fuji.text
+  doc: landmarks
+  heading: 富士山 / Mount Fuji
+  anchor: landmarks.mount_fuji
+  asset_id: landmarks.mount_fuji.image
+- id: electronics.smartphone.text
+  doc: electronics
+  heading: 手机 / Smartphone
+  anchor: electronics.smartphone
+  asset_id: electronics.smartphone.image
+- id: electronics.laptop.text
+  doc: electronics
+  heading: 笔记本电脑 / Laptop
+  anchor: electronics.laptop
+  asset_id: electronics.laptop.image
+- id: electronics.camera.text
+  doc: electronics
+  heading: 相机 / Camera
+  anchor: electronics.camera
+  asset_id: electronics.camera.image
+- id: electronics.headphones.text
+  doc: electronics
+  heading: 耳机 / Headphones
+  anchor: electronics.headphones
+  asset_id: electronics.headphones.image
+- id: electronics.smartwatch.text
+  doc: electronics
+  heading: 智能手表 / Smartwatch
+  anchor: electronics.smartwatch
+  asset_id: electronics.smartwatch.image
+- id: electronics.router.text
+  doc: electronics
+  heading: 路由器 / Router
+  anchor: electronics.router
+  asset_id: electronics.router.image
+- id: electronics.printer.text
+  doc: electronics
+  heading: 打印机 / Printer
+  anchor: electronics.printer
+  asset_id: electronics.printer.image
+- id: electronics.drone.text
+  doc: electronics
+  heading: 无人机 / Drone
+  anchor: electronics.drone
+  asset_id: electronics.drone.image
+- id: electronics.game_controller.text
+  doc: electronics
+  heading: 游戏手柄 / Game Controller
+  anchor: electronics.game_controller
+  asset_id: electronics.game_controller.image
+- id: electronics.microphone.text
+  doc: electronics
+  heading: 麦克风 / Microphone
+  anchor: electronics.microphone
+  asset_id: electronics.microphone.image
+- id: household.sofa.text
+  doc: household
+  heading: 沙发 / Sofa
+  anchor: household.sofa
+  asset_id: household.sofa.image
+- id: household.table_lamp.text
+  doc: household
+  heading: 台灯 / Table Lamp
+  anchor: household.table_lamp
+  asset_id: household.table_lamp.image
+- id: household.bed.text
+  doc: household
+  heading: 床 / Bed
+  anchor: household.bed
+  asset_id: household.bed.image
+- id: household.refrigerator.text
+  doc: household
+  heading: 冰箱 / Refrigerator
+  anchor: household.refrigerator
+  asset_id: household.refrigerator.image
+- id: household.washing_machine.text
+  doc: household
+  heading: 洗衣机 / Washing Machine
+  anchor: household.washing_machine
+  asset_id: household.washing_machine.image
+- id: household.microwave.text
+  doc: household
+  heading: 微波炉 / Microwave Oven
+  anchor: household.microwave
+  asset_id: household.microwave.image
+- id: household.vacuum_cleaner.text
+  doc: household
+  heading: 吸尘器 / Vacuum Cleaner
+  anchor: household.vacuum_cleaner
+  asset_id: household.vacuum_cleaner.image
+- id: household.electric_kettle.text
+  doc: household
+  heading: 电水壶 / Electric Kettle
+  anchor: household.electric_kettle
+  asset_id: household.electric_kettle.image
+- id: household.air_conditioner.text
+  doc: household
+  heading: 空调 / Air Conditioner
+  anchor: household.air_conditioner
+  asset_id: household.air_conditioner.image
+- id: household.dining_table.text
+  doc: household
+  heading: 餐桌 / Dining Table
+  anchor: household.dining_table
+  asset_id: household.dining_table.image
+- id: clothing.t_shirt.text
+  doc: clothing
+  heading: T 恤 / T-shirt
+  anchor: clothing.t_shirt
+  asset_id: clothing.t_shirt.image
+- id: clothing.jacket.text
+  doc: clothing
+  heading: 夹克 / Jacket
+  anchor: clothing.jacket
+  asset_id: clothing.jacket.image
+- id: clothing.running_shoe.text
+  doc: clothing
+  heading: 运动鞋 / Running Shoe
+  anchor: clothing.running_shoe
+  asset_id: clothing.running_shoe.image
+- id: clothing.hat.text
+  doc: clothing
+  heading: 帽子 / Hat
+  anchor: clothing.hat
+  asset_id: clothing.hat.image
+- id: clothing.backpack.text
+  doc: clothing
+  heading: 背包 / Backpack
+  anchor: clothing.backpack
+  asset_id: clothing.backpack.image
+- id: clothing.eyeglasses.text
+  doc: clothing
+  heading: 眼镜 / Eyeglasses
+  anchor: clothing.eyeglasses
+  asset_id: clothing.eyeglasses.image
+- id: clothing.wristwatch.text
+  doc: clothing
+  heading: 手表 / Wristwatch
+  anchor: clothing.wristwatch
+  asset_id: clothing.wristwatch.image
+- id: clothing.umbrella.text
+  doc: clothing
+  heading: 雨伞 / Umbrella
+  anchor: clothing.umbrella
+  asset_id: clothing.umbrella.image
+- id: clothing.dress.text
+  doc: clothing
+  heading: 连衣裙 / Dress
+  anchor: clothing.dress
+  asset_id: clothing.dress.image
+- id: clothing.scarf.text
+  doc: clothing
+  heading: 围巾 / Scarf
+  anchor: clothing.scarf
+  asset_id: clothing.scarf.image
+- id: medical.stethoscope.text
+  doc: medical
+  heading: 听诊器 / Stethoscope
+  anchor: medical.stethoscope
+  asset_id: medical.stethoscope.image
+- id: medical.syringe.text
+  doc: medical
+  heading: 注射器 / Syringe
+  anchor: medical.syringe
+  asset_id: medical.syringe.image
+- id: medical.thermometer.text
+  doc: medical
+  heading: 体温计 / Digital Thermometer
+  anchor: medical.thermometer
+  asset_id: medical.thermometer.image
+- id: medical.bandage.text
+  doc: medical
+  heading: 绷带 / Bandage Roll
+  anchor: medical.bandage
+  asset_id: medical.bandage.image
+- id: medical.medicine_bottle.text
+  doc: medical
+  heading: 药瓶 / Medicine Bottle
+  anchor: medical.medicine_bottle
+  asset_id: medical.medicine_bottle.image
+- id: medical.first_aid_kit.text
+  doc: medical
+  heading: 急救箱 / First Aid Kit
+  anchor: medical.first_aid_kit
+  asset_id: medical.first_aid_kit.image
+- id: medical.wheelchair.text
+  doc: medical
+  heading: 轮椅 / Wheelchair
+  anchor: medical.wheelchair
+  asset_id: medical.wheelchair.image
+- id: medical.face_mask.text
+  doc: medical
+  heading: 口罩 / Surgical Face Mask
+  anchor: medical.face_mask
+  asset_id: medical.face_mask.image
+- id: medical.blood_pressure_monitor.text
+  doc: medical
+  heading: 血压计 / Blood Pressure Monitor
+  anchor: medical.blood_pressure_monitor
+  asset_id: medical.blood_pressure_monitor.image
+- id: medical.microscope.text
+  doc: medical
+  heading: 显微镜 / Microscope
+  anchor: medical.microscope
+  asset_id: medical.microscope.image
+- id: sports.soccer_ball.text
+  doc: sports
+  heading: 足球 / Soccer Ball
+  anchor: sports.soccer_ball
+  asset_id: sports.soccer_ball.image
+- id: sports.basketball.text
+  doc: sports
+  heading: 篮球 / Basketball
+  anchor: sports.basketball
+  asset_id: sports.basketball.image
+- id: sports.tennis_racket.text
+  doc: sports
+  heading: 网球拍 / Tennis Racket
+  anchor: sports.tennis_racket
+  asset_id: sports.tennis_racket.image
+- id: sports.skateboard.text
+  doc: sports
+  heading: 滑板 / Skateboard
+  anchor: sports.skateboard
+  asset_id: sports.skateboard.image
+- id: sports.dumbbell.text
+  doc: sports
+  heading: 哑铃 / Dumbbell
+  anchor: sports.dumbbell
+  asset_id: sports.dumbbell.image
+- id: sports.yoga_mat.text
+  doc: sports
+  heading: 瑜伽垫 / Yoga Mat
+  anchor: sports.yoga_mat
+  asset_id: sports.yoga_mat.image
+- id: sports.boxing_gloves.text
+  doc: sports
+  heading: 拳击手套 / Boxing Gloves
+  anchor: sports.boxing_gloves
+  asset_id: sports.boxing_gloves.image
+- id: sports.swimming_goggles.text
+  doc: sports
+  heading: 游泳镜 / Swimming Goggles
+  anchor: sports.swimming_goggles
+  asset_id: sports.swimming_goggles.image
+- id: sports.baseball_glove.text
+  doc: sports
+  heading: 棒球手套 / Baseball Glove
+  anchor: sports.baseball_glove
+  asset_id: sports.baseball_glove.image
+- id: sports.bicycle_helmet.text
+  doc: sports
+  heading: 自行车头盔 / Bicycle Helmet
+  anchor: sports.bicycle_helmet
+  asset_id: sports.bicycle_helmet.image
+- id: instruments.piano.text
+  doc: instruments
+  heading: 钢琴 / Piano Keyboard
+  anchor: instruments.piano
+  asset_id: instruments.piano.image
+- id: instruments.guitar.text
+  doc: instruments
+  heading: 吉他 / Acoustic Guitar
+  anchor: instruments.guitar
+  asset_id: instruments.guitar.image
+- id: instruments.violin.text
+  doc: instruments
+  heading: 小提琴 / Violin
+  anchor: instruments.violin
+  asset_id: instruments.violin.image
+- id: instruments.drum_kit.text
+  doc: instruments
+  heading: 架子鼓 / Drum Kit
+  anchor: instruments.drum_kit
+  asset_id: instruments.drum_kit.image
+- id: instruments.trumpet.text
+  doc: instruments
+  heading: 小号 / Trumpet
+  anchor: instruments.trumpet
+  asset_id: instruments.trumpet.image
+- id: instruments.saxophone.text
+  doc: instruments
+  heading: 萨克斯 / Saxophone
+  anchor: instruments.saxophone
+  asset_id: instruments.saxophone.image
+- id: instruments.flute.text
+  doc: instruments
+  heading: 长笛 / Flute
+  anchor: instruments.flute
+  asset_id: instruments.flute.image
+- id: instruments.cello.text
+  doc: instruments
+  heading: 大提琴 / Cello
+  anchor: instruments.cello
+  asset_id: instruments.cello.image
+- id: instruments.harmonica.text
+  doc: instruments
+  heading: 口琴 / Harmonica
+  anchor: instruments.harmonica
+  asset_id: instruments.harmonica.image
+- id: instruments.tambourine.text
+  doc: instruments
+  heading: 手鼓 / Tambourine
+  anchor: instruments.tambourine
+  asset_id: instruments.tambourine.image
+- id: office.notebook.text
+  doc: office
+  heading: 笔记本 / Notebook
+  anchor: office.notebook
+  asset_id: office.notebook.image
+- id: office.fountain_pen.text
+  doc: office
+  heading: 钢笔 / Fountain Pen
+  anchor: office.fountain_pen
+  asset_id: office.fountain_pen.image
+- id: office.file_folder.text
+  doc: office
+  heading: 文件夹 / File Folder
+  anchor: office.file_folder
+  asset_id: office.file_folder.image
+- id: office.stapler.text
+  doc: office
+  heading: 订书机 / Stapler
+  anchor: office.stapler
+  asset_id: office.stapler.image
+- id: office.paper_clips.text
+  doc: office
+  heading: 回形针 / Paper Clips
+  anchor: office.paper_clips
+  asset_id: office.paper_clips.image
+- id: office.calculator.text
+  doc: office
+  heading: 计算器 / Calculator
+  anchor: office.calculator
+  asset_id: office.calculator.image
+- id: office.whiteboard.text
+  doc: office
+  heading: 白板 / Whiteboard
+  anchor: office.whiteboard
+  asset_id: office.whiteboard.image
+- id: office.sticky_notes.text
+  doc: office
+  heading: 便签 / Sticky Notes
+  anchor: office.sticky_notes
+  asset_id: office.sticky_notes.image
+- id: office.clipboard.text
+  doc: office
+  heading: 剪贴板 / Clipboard
+  anchor: office.clipboard
+  asset_id: office.clipboard.image
+- id: office.desk_calendar.text
+  doc: office
+  heading: 台历 / Desk Calendar
+  anchor: office.desk_calendar
+  asset_id: office.desk_calendar.image
+- id: scenes.beach.text
+  doc: scenes
+  heading: 海滩 / Beach
+  anchor: scenes.beach
+  asset_id: scenes.beach.image
+- id: scenes.snowy_mountain.text
+  doc: scenes
+  heading: 雪山 / Snowy Mountain
+  anchor: scenes.snowy_mountain
+  asset_id: scenes.snowy_mountain.image
+- id: scenes.forest.text
+  doc: scenes
+  heading: 森林 / Forest
+  anchor: scenes.forest
+  asset_id: scenes.forest.image
+- id: scenes.desert.text
+  doc: scenes
+  heading: 沙漠 / Desert
+  anchor: scenes.desert
+  asset_id: scenes.desert.image
+- id: scenes.city_night.text
+  doc: scenes
+  heading: 城市夜景 / City Night Skyline
+  anchor: scenes.city_night
+  asset_id: scenes.city_night.image
+- id: scenes.rainy_street.text
+  doc: scenes
+  heading: 雨天街道 / Rainy Street
+  anchor: scenes.rainy_street
+  asset_id: scenes.rainy_street.image
+- id: scenes.sunset.text
+  doc: scenes
+  heading: 日落 / Sunset Landscape
+  anchor: scenes.sunset
+  asset_id: scenes.sunset.image
+- id: scenes.farmland.text
+  doc: scenes
+  heading: 农田 / Farmland
+  anchor: scenes.farmland
+  asset_id: scenes.farmland.image
+- id: scenes.library.text
+  doc: scenes
+  heading: 图书馆 / Library Interior
+  anchor: scenes.library
+  asset_id: scenes.library.image
+- id: scenes.kitchen.text
+  doc: scenes
+  heading: 厨房 / Kitchen Interior
+  anchor: scenes.kitchen
+  asset_id: scenes.kitchen.image
+- id: groups.citrus_comparison.text
+  doc: visual-comparisons
+  heading: 柑橘色水果对比 / Citrus Color Comparison
+  anchor: groups.citrus_comparison
+  asset_ids:
+  - fruits.orange.image
+  - fruits.lemon.image
+  - fruits.mango.image
+- id: groups.pet_face_comparison.text
+  doc: visual-comparisons
+  heading: 宠物面部对比 / Pet Face Comparison
+  anchor: groups.pet_face_comparison
+  asset_ids:
+  - animals.cat.image
+  - animals.dog.image
+  - animals.fox.image
+- id: groups.urban_transit_comparison.text
+  doc: visual-comparisons
+  heading: 城市交通工具对比 / Urban Transit Comparison
+  anchor: groups.urban_transit_comparison
+  asset_ids:
+  - vehicles.bus.image
+  - vehicles.train.image
+  - vehicles.subway.image
+- id: groups.round_sports_balls.text
+  doc: visual-comparisons
+  heading: 圆形运动球对比 / Round Sports Ball Comparison
+  anchor: groups.round_sports_balls
+  asset_ids:
+  - sports.soccer_ball.image
+  - sports.basketball.image
+  - foods.rice.image
+- id: groups.keyboard_input_devices.text
+  doc: visual-comparisons
+  heading: 键盘与输入设备对比 / Keyboard and Input Device Comparison
+  anchor: groups.keyboard_input_devices
+  asset_ids:
+  - electronics.laptop.image
+  - office.calculator.image
+  - instruments.piano.image
+- id: groups.protective_wear_comparison.text
+  doc: visual-comparisons
+  heading: 防护穿戴物对比 / Protective Wear Comparison
+  anchor: groups.protective_wear_comparison
+  asset_ids:
+  - medical.face_mask.image
+  - sports.bicycle_helmet.image
+  - clothing.umbrella.image
+- id: groups.long_handheld_tools.text
+  doc: visual-comparisons
+  heading: 长柄手持工具对比 / Long Handheld Tool Comparison
+  anchor: groups.long_handheld_tools
+  asset_ids:
+  - tools.hammer.image
+  - tools.screwdriver.image
+  - tools.shovel.image
+- id: groups.flower_shape_comparison.text
+  doc: visual-comparisons
+  heading: 花卉形态对比 / Flower Shape Comparison
+  anchor: groups.flower_shape_comparison
+  asset_ids:
+  - plants.rose.image
+  - plants.sunflower.image
+  - plants.tulip.image
+- id: groups.string_instrument_comparison.text
+  doc: visual-comparisons
+  heading: 弦乐器外观对比 / String Instrument Comparison
+  anchor: groups.string_instrument_comparison
+  asset_ids:
+  - instruments.guitar.image
+  - instruments.violin.image
+  - instruments.cello.image
+- id: groups.famous_architecture_shapes.text
+  doc: visual-comparisons
+  heading: 地标建筑轮廓对比 / Famous Architecture Shape Comparison
+  anchor: groups.famous_architecture_shapes
+  asset_ids:
+  - landmarks.eiffel_tower.image
+  - landmarks.pyramid.image
+  - landmarks.sydney_opera.image
+- id: groups.first_aid_set.text
+  doc: functional-sets
+  heading: 急救用品组合 / First Aid Set
+  anchor: groups.first_aid_set
+  asset_ids:
+  - medical.first_aid_kit.image
+  - medical.bandage.image
+  - medical.thermometer.image
+  - medical.face_mask.image
+- id: groups.office_desk_set.text
+  doc: functional-sets
+  heading: 办公桌文具组合 / Office Desk Set
+  anchor: groups.office_desk_set
+  asset_ids:
+  - office.notebook.image
+  - office.fountain_pen.image
+  - office.sticky_notes.image
+  - office.calculator.image
+- id: groups.kitchen_appliance_set.text
+  doc: functional-sets
+  heading: 厨房电器组合 / Kitchen Appliance Set
+  anchor: groups.kitchen_appliance_set
+  asset_ids:
+  - household.refrigerator.image
+  - household.microwave.image
+  - household.electric_kettle.image
+- id: groups.workout_training_set.text
+  doc: functional-sets
+  heading: 健身训练组合 / Workout Training Set
+  anchor: groups.workout_training_set
+  asset_ids:
+  - sports.dumbbell.image
+  - sports.yoga_mat.image
+  - sports.boxing_gloves.image
+  - sports.swimming_goggles.image
+- id: groups.recording_streaming_set.text
+  doc: functional-sets
+  heading: 录音直播设备组合 / Recording and Streaming Set
+  anchor: groups.recording_streaming_set
+  asset_ids:
+  - electronics.microphone.image
+  - electronics.camera.image
+  - electronics.headphones.image
+- id: groups.travel_carry_set.text
+  doc: functional-sets
+  heading: 出行携带组合 / Travel Carry Set
+  anchor: groups.travel_carry_set
+  asset_ids:
+  - clothing.backpack.image
+  - clothing.running_shoe.image
+  - clothing.hat.image
+  - clothing.umbrella.image
+- id: groups.home_cleaning_set.text
+  doc: functional-sets
+  heading: 家庭清洁组合 / Home Cleaning Set
+  anchor: groups.home_cleaning_set
+  asset_ids:
+  - household.vacuum_cleaner.image
+  - tools.brush.image
+  - tools.shovel.image
+- id: groups.music_band_set.text
+  doc: functional-sets
+  heading: 乐队演奏组合 / Music Band Set
+  anchor: groups.music_band_set
+  asset_ids:
+  - instruments.guitar.image
+  - instruments.drum_kit.image
+  - instruments.trumpet.image
+  - instruments.saxophone.image
+- id: groups.repair_tool_set.text
+  doc: functional-sets
+  heading: 维修工具组合 / Repair Tool Set
+  anchor: groups.repair_tool_set
+  asset_ids:
+  - tools.hammer.image
+  - tools.wrench.image
+  - tools.screwdriver.image
+  - tools.drill.image
+- id: groups.breakfast_food_set.text
+  doc: functional-sets
+  heading: 早餐食物组合 / Breakfast Food Set
+  anchor: groups.breakfast_food_set
+  asset_ids:
+  - foods.bread.image
+  - foods.rice.image
+  - fruits.banana.image
+  - fruits.orange.image
+- id: groups.kitchen_scene_appliances.text
+  doc: scene-object-groups
+  heading: 厨房场景与家电 / Kitchen Scene and Appliances
+  anchor: groups.kitchen_scene_appliances
+  asset_ids:
+  - scenes.kitchen.image
+  - household.refrigerator.image
+  - household.microwave.image
+  - household.electric_kettle.image
+- id: groups.library_study_objects.text
+  doc: scene-object-groups
+  heading: 图书馆与学习用品 / Library and Study Objects
+  anchor: groups.library_study_objects
+  asset_ids:
+  - scenes.library.image
+  - office.notebook.image
+  - office.fountain_pen.image
+  - office.file_folder.image
+- id: groups.rainy_street_protection.text
+  doc: scene-object-groups
+  heading: 雨天街道与防雨用品 / Rainy Street and Rain Gear
+  anchor: groups.rainy_street_protection
+  asset_ids:
+  - scenes.rainy_street.image
+  - clothing.umbrella.image
+  - medical.face_mask.image
+- id: groups.beach_summer_items.text
+  doc: scene-object-groups
+  heading: 海滩与夏季物品 / Beach and Summer Items
+  anchor: groups.beach_summer_items
+  asset_ids:
+  - scenes.beach.image
+  - fruits.watermelon.image
+  - sports.swimming_goggles.image
+  - clothing.hat.image
+- id: groups.snowy_mountain_wear.text
+  doc: scene-object-groups
+  heading: 雪山与保暖穿戴 / Snowy Mountain and Warm Wear
+  anchor: groups.snowy_mountain_wear
+  asset_ids:
+  - scenes.snowy_mountain.image
+  - clothing.jacket.image
+  - clothing.scarf.image
+  - sports.bicycle_helmet.image
+- id: groups.office_meeting_scene.text
+  doc: scene-object-groups
+  heading: 办公会议场景 / Office Meeting Scene
+  anchor: groups.office_meeting_scene
+  asset_ids:
+  - office.whiteboard.image
+  - office.clipboard.image
+  - office.desk_calendar.image
+  - electronics.laptop.image
+- id: groups.farm_crop_scene.text
+  doc: scene-object-groups
+  heading: 农田与作物 / Farmland and Crops
+  anchor: groups.farm_crop_scene
+  asset_ids:
+  - scenes.farmland.image
+  - plants.rice.image
+  - plants.sunflower.image
+- id: groups.city_night_media_devices.text
+  doc: scene-object-groups
+  heading: 城市夜景与影像设备 / City Night and Media Devices
+  anchor: groups.city_night_media_devices
+  asset_ids:
+  - scenes.city_night.image
+  - electronics.camera.image
+  - electronics.smartphone.image
+  - electronics.drone.image
+- id: groups.desert_survival_objects.text
+  doc: scene-object-groups
+  heading: 沙漠与户外补给 / Desert and Outdoor Supplies
+  anchor: groups.desert_survival_objects
+  asset_ids:
+  - scenes.desert.image
+  - clothing.hat.image
+  - clothing.backpack.image
+  - household.electric_kettle.image
+- id: groups.living_room_scene.text
+  doc: scene-object-groups
+  heading: 客厅生活场景 / Living Room Scene
+  anchor: groups.living_room_scene
+  asset_ids:
+  - household.sofa.image
+  - household.table_lamp.image
+  - electronics.router.image
+  - electronics.game_controller.image

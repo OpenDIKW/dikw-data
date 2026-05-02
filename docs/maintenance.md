@@ -118,8 +118,10 @@ datasets/synthetic-multimodal-datasets-v1
 ```
 
 It currently contains category Markdown files, local PNG images, asset targets,
-chunk targets, and paired asset/text queries. To update it, regenerate or append
-through scripts, then validate:
+single-image chunk targets, multi-image chunk targets, and paired asset/text
+queries. Multi-image chunks use `asset_ids` to connect one text section with
+several existing image assets. To update it, regenerate or append through
+scripts, then validate:
 
 ```powershell
 uv run python scripts/validate_dataset.py datasets/synthetic-multimodal-datasets-v1

@@ -207,6 +207,7 @@ def validate(dataset_dir: Path) -> list[str]:
                 heading = chunk.get("heading")
                 anchor = chunk.get("anchor")
                 asset_id = chunk.get("asset_id")
+                asset_ids = chunk.get("asset_ids")
                 if not isinstance(chunk_id, str) or not chunk_id:
                     errors.append(f"chunk target #{index} has empty id")
                 else:
@@ -227,12 +228,27 @@ def validate(dataset_dir: Path) -> list[str]:
                     errors.append(
                         f"chunk target #{index} anchor not found in {doc}.md: {anchor}"
                     )
-                if not isinstance(asset_id, str) or not asset_id:
+                has_asset_id = isinstance(asset_id, str) and bool(asset_id)
+                has_asset_ids = isinstance(asset_ids, list) and bool(asset_ids)
+                if has_asset_id and has_asset_ids:
+                    errors.append(f"chunk target #{index} must not set both asset_id and asset_ids")
+                elif has_asset_id:
+                    if target_assets and asset_id not in target_assets:
+                        errors.append(
+                            f"chunk target #{index} references missing asset target: {asset_id}"
+                        )
+                elif has_asset_ids:
+                    for item in asset_ids:
+                        if not isinstance(item, str) or not item:
+                            errors.append(f"chunk target #{index} asset_ids contains empty id")
+                        elif target_assets and item not in target_assets:
+                            errors.append(
+                                f"chunk target #{index} references missing asset target: {item}"
+                            )
+                elif asset_ids is not None:
+                    errors.append(f"chunk target #{index} asset_ids must be a non-empty list")
+                else:
                     errors.append(f"chunk target #{index} has empty asset_id")
-                elif target_assets and asset_id not in target_assets:
-                    errors.append(
-                        f"chunk target #{index} references missing asset target: {asset_id}"
-                    )
 
     for md_path in md_paths:
         text = md_path.read_text(encoding="utf-8")

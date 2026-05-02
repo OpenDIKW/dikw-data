@@ -1,7 +1,8 @@
 name: synthetic-multimodal-datasets-v1
 description: >
   Synthetic multimodal retrieval dataset with category-level Markdown files,
-  local PNG image assets, and explicit asset/chunk recall targets. Expanded
-  to cover natural objects, daily objects, tools, scenes, medical items,
-  electronics, clothing, sports, instruments, and office supplies.
+  local PNG image assets, explicit asset/chunk recall targets, and multi-image
+  chunk groups. Expanded to cover natural objects, daily objects, tools,
+  scenes, medical items, electronics, clothing, sports, instruments, and office
+  supplies.
 thresholds: {}
