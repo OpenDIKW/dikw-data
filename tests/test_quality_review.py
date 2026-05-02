@@ -9,6 +9,8 @@ from dikw_data.config import MiniMaxConfig, RetryPolicy
 from dikw_data.quality_review import (
     QualityReviewItem,
     QualityReviewStore,
+    ReviewTarget,
+    _build_tasks,
     collect_review_targets,
     normalize_review_items,
     run_quality_review_async,
@@ -110,6 +112,53 @@ def test_collect_review_targets_includes_text_and_multimodal_metadata(tmp_path: 
     assert by_id["fruits.apple.image"].target_type == "target_asset"
     assert by_id["fruits.apple.text"].target_type == "target_chunk"
     assert "苹果是红色圆形水果" in by_id["fruits.apple.text"].payload["section_text"]
+
+
+def test_collect_review_targets_summarizes_negative_queries_for_dataset_review(tmp_path: Path) -> None:
+    dataset = tmp_path / "datasets" / "demo"
+    corpus = dataset / "corpus"
+    corpus.mkdir(parents=True)
+    (dataset / "dataset.yaml").write_text("name: demo\nthresholds: {}\n", encoding="utf-8")
+    (corpus / "alpha.md").write_text("# Alpha\n\nA focused document.", encoding="utf-8")
+    (dataset / "queries.yaml").write_text(
+        "queries:\n"
+        "  - id: q1\n"
+        "    q: What is Alpha about?\n"
+        "    expect_any: [alpha]\n"
+        "  - id: q2\n"
+        "    q: What is the weather today?\n"
+        "    expect_none: true\n",
+        encoding="utf-8",
+    )
+
+    dataset_target = collect_review_targets(dataset)[0]
+
+    assert dataset_target.target_type == "dataset"
+    assert dataset_target.payload["dataset_mode"] == "text_doc_level"
+    assert dataset_target.payload["query_summary"] == {
+        "total": 2,
+        "positive": 1,
+        "negative_expect_none": 1,
+        "missing_expect_any_docs": [],
+        "positive_expect_any_docs": ["alpha"],
+    }
+    assert "optional" in dataset_target.payload["targets_yaml_note"]
+
+
+def test_quality_review_prompt_explains_expect_none_and_text_targets_yaml() -> None:
+    task, _ = _build_tasks(
+        "demo",
+        [
+            ReviewTarget(
+                target_type="dataset",
+                target_id="demo",
+                payload={"dataset_mode": "text_doc_level"},
+            ),
+        ],
+    )[0]
+
+    assert "expect_none=true marks an intentional negative query" in task.user
+    assert "targets.yaml is optional for text_doc_level datasets" in task.user
 
 
 def test_normalize_review_items_accepts_items_wrapper_and_clamps_score() -> None:

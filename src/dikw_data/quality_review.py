@@ -249,15 +249,25 @@ def collect_review_targets(dataset_dir: Path) -> list[ReviewTarget]:
     }
     doc_sections = {stem: _sections(text) for stem, text in docs.items()}
     dataset_meta = _load_yaml(dataset_dir / "dataset.yaml") if (dataset_dir / "dataset.yaml").is_file() else {}
+    queries = _load_queries(dataset_dir / "queries.yaml")
+    has_targets_yaml = (dataset_dir / "targets.yaml").is_file()
+    dataset_mode = _dataset_mode(docs, has_targets_yaml)
     targets: list[ReviewTarget] = [
         ReviewTarget(
             target_type="dataset",
             target_id=str(dataset_meta.get("name") or dataset_dir.name),
             payload={
                 "dataset_yaml": dataset_meta,
+                "dataset_mode": dataset_mode,
+                "corpus_doc_count": len(docs),
                 "corpus_docs": sorted(docs),
-                "has_targets_yaml": (dataset_dir / "targets.yaml").is_file(),
-                "query_count": _query_count(dataset_dir / "queries.yaml"),
+                "has_targets_yaml": has_targets_yaml,
+                "targets_yaml_note": (
+                    "targets.yaml is optional for text_doc_level datasets."
+                    if dataset_mode == "text_doc_level"
+                    else "targets.yaml is expected for multimodal datasets."
+                ),
+                "query_summary": _query_summary(queries, set(docs)),
             },
         )
     ]
@@ -279,22 +289,24 @@ def collect_review_targets(dataset_dir: Path) -> list[ReviewTarget]:
 
     queries_path = dataset_dir / "queries.yaml"
     if queries_path.is_file():
-        queries = _load_yaml(queries_path).get("queries") or []
-        if isinstance(queries, list):
-            for index, query in enumerate(queries, start=1):
-                if not isinstance(query, dict):
-                    continue
-                query_id = str(query.get("id") or f"query-{index}")
-                targets.append(
-                    ReviewTarget(
-                        target_type="query",
-                        target_id=query_id,
-                        payload={
-                            "query": query,
-                            "known_corpus_docs": sorted(docs),
-                        },
-                    )
+        for index, query in enumerate(queries, start=1):
+            query_id = str(query.get("id") or f"query-{index}")
+            targets.append(
+                ReviewTarget(
+                    target_type="query",
+                    target_id=query_id,
+                    payload={
+                        "query": query,
+                        "query_role": "negative" if query.get("expect_none") is True else "positive",
+                        "known_corpus_docs": sorted(docs),
+                        "review_note": (
+                            "expect_none=true means this is an intentional out-of-domain negative query."
+                            if query.get("expect_none") is True
+                            else "expect_any should resolve to one or more corpus document stems."
+                        ),
+                    },
                 )
+            )
 
     targets_path = dataset_dir / "targets.yaml"
     if targets_path.is_file():
@@ -463,6 +475,8 @@ def _build_tasks(dataset: str, targets: list[ReviewTarget], group_size: int = 8)
             system=(
                 "You are a strict evaluator for retrieval evaluation datasets. "
                 "Review corpus documents, queries, targets, and metadata for quality. "
+                "For text_doc_level datasets, targets.yaml is optional and must not be "
+                "treated as a schema issue by itself. "
                 "Do not assume access to image pixels; judge images by path, heading, "
                 "alt text, target metadata, and surrounding Markdown only."
             ),
@@ -472,6 +486,15 @@ def _build_tasks(dataset: str, targets: list[ReviewTarget], group_size: int = 8)
                 "(pass, warn, or fail), score from 0 to 100, reason, suggested_fix, and "
                 "risk_flags. Allowed risk_flags are ambiguous_query, weak_visual_grounding, "
                 "target_mismatch, duplicate, stale_or_invalid_fact, and schema_issue.\n\n"
+                "Important review rules:\n"
+                "- expect_none=true marks an intentional negative query, so it should not "
+                "resolve to a corpus document.\n"
+                "- Total query count may be larger than corpus document count when a dataset "
+                "contains negative expect_none queries.\n"
+                "- targets.yaml is optional for text_doc_level datasets; require target "
+                "metadata only for multimodal datasets.\n"
+                "- Judge topic coverage from the explicit corpus_docs and positive "
+                "expect_any document lists, not by guessing from summary counts.\n\n"
                 f"Dataset: {dataset}\n"
                 f"Batch index: {index}\n"
                 f"Targets:\n{source}"
@@ -547,11 +570,48 @@ def _load_yaml(path: Path) -> dict[str, Any]:
     return raw if isinstance(raw, dict) else {}
 
 
-def _query_count(path: Path) -> int:
+def _load_queries(path: Path) -> list[dict[str, Any]]:
     if not path.is_file():
-        return 0
+        return []
     queries = _load_yaml(path).get("queries")
-    return len(queries) if isinstance(queries, list) else 0
+    if not isinstance(queries, list):
+        return []
+    return [query for query in queries if isinstance(query, dict)]
+
+
+def _query_summary(queries: list[dict[str, Any]], corpus_docs: set[str]) -> dict[str, Any]:
+    positive_docs: set[str] = set()
+    missing_docs: set[str] = set()
+    negative_count = 0
+    positive_count = 0
+    for query in queries:
+        if query.get("expect_none") is True:
+            negative_count += 1
+            continue
+        positive_count += 1
+        expect_any = query.get("expect_any") or []
+        if not isinstance(expect_any, list):
+            continue
+        for doc in expect_any:
+            doc_stem = str(doc)
+            positive_docs.add(doc_stem)
+            if doc_stem not in corpus_docs:
+                missing_docs.add(doc_stem)
+    return {
+        "total": len(queries),
+        "positive": positive_count,
+        "negative_expect_none": negative_count,
+        "missing_expect_any_docs": sorted(missing_docs),
+        "positive_expect_any_docs": sorted(positive_docs),
+    }
+
+
+def _dataset_mode(docs: dict[str, str], has_targets_yaml: bool) -> str:
+    if has_targets_yaml:
+        return "multimodal"
+    if any(_image_refs(text) for text in docs.values()):
+        return "multimodal_without_targets"
+    return "text_doc_level"
 
 
 def _truncate(text: str, limit: int) -> str:
