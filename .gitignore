@@ -6,3 +6,5 @@ __pycache__/
 .ruff_cache/
 generated/
 reports/
+bases/
+datasets/markdown-books/
