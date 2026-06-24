@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -76,7 +77,9 @@ def build_eval_command(
     eval_args = ["eval", "--dataset", str(dataset), "--retrieval", retrieval]
     for mode_name in eval_modes or ["retrieval"]:
         eval_args += ["--eval", mode_name]
-    eval_args += ["--cache", cache, "--wait"]
+    # --plain disables the rich progress widget, whose ANSI bytes otherwise pollute
+    # stdout and make the captured NDJSON (and thus parse_eval_report) unparseable.
+    eval_args += ["--cache", cache, "--wait", "--plain"]
     if judge:
         eval_args.append("--judge")
         if judge_sample:
@@ -159,10 +162,31 @@ def resolve_datasets(datasets_dir: Path, names: list[str] | None) -> list[Path]:
     ]
 
 
+def merge_env(base_env: dict[str, str], overrides: dict[str, str]) -> dict[str, str]:
+    """Overlay non-empty secret values onto a base environment for child processes.
+
+    The dikw-core server reads provider keys straight from ``os.environ`` (e.g.
+    ``GITEE_API_KEY``) and ``serve-and-run`` forwards the parent environment to the
+    server it spawns. We never export ``.env.eval`` globally; instead we hand the
+    loaded values to each eval subprocess via its ``env=``. Empty values are dropped
+    so a blank line in ``.env.eval`` can't shadow a real key already in the env.
+    """
+    merged = dict(base_env)
+    merged.update({key: value for key, value in overrides.items() if value})
+    return merged
+
+
 def summarize(rows: list[dict]) -> dict:
-    """Roll per-(dataset, mode) results into a single gate-able summary."""
+    """Roll per-(dataset, mode) results into a single gate-able summary.
+
+    Pass/fail counts follow the *exit code*, not ``report.passed``: the exit code is
+    the authoritative gate result (0 pass / 1 regression or threshold-fail / 2
+    bad-spec). ``--against`` trips the exit code to 1 on a regression without flipping
+    the report's own ``passed`` flag (which reflects only the dataset's thresholds), so
+    counting by ``report.passed`` would disagree with ``worst_exit_code``.
+    """
     codes = [row["exit_code"] for row in rows]
-    passed = sum(1 for row in rows if row.get("report", {}).get("passed") is True)
+    passed = sum(1 for row in rows if row["exit_code"] == 0)
     failed = len(rows) - passed
     worst = worst_exit_code(codes)
     return {
@@ -281,11 +305,15 @@ def main(argv: list[str] | None = None) -> int:
     if args.mode == "serve-and-run":
         ensure_base(args.base, args.base_template)
 
+    # dikw-core reads provider keys from the process environment; inject the loaded
+    # .env.eval values into each child's env (never exported globally, never printed).
+    run_env = merge_env(dict(os.environ), env_values)
+
     rows: list[dict] = []
     for dataset, command in commands:
         label = f"{dataset.name}__{args.retrieval}"
         print(f"==> {label}: {' '.join(command)}")
-        result = subprocess.run(command, capture_output=True, text=True)
+        result = subprocess.run(command, capture_output=True, text=True, env=run_env)
         report_path = out_dir / f"{label}.ndjson"
         report_path.write_text(result.stdout, encoding="utf-8")
         if result.stderr:

@@ -1,6 +1,7 @@
 # dikw Evaluation Plan
 
-> **Status:** macro design (Phase 0 not yet run). This document is the blueprint
+> **Status:** macro design; **Phase 0 smoke run complete** — see
+> [`phase0-smoke-results.md`](phase0-smoke-results.md). This document is the blueprint
 > and the cornerstone for building `dikw` evaluation datasets; later increments
 > execute the phases it lays out.
 > **Ownership:** authored and run from this repo (`dikw-data`). `dikw-core` is
@@ -283,10 +284,12 @@ All thresholds below are **placeholders to be calibrated** (see §2.3).
 `dikw-core`'s rule: deterministic metrics first; defer LLM-judge frameworks
 (RAGAS/TruLens/ARES) until retrieval saturates **or** corpus > ~50 docs / queries > ~30.
 
-- **Phase 0 — smoke / calibration.** Reuse `mvp` + materialize `scifact` /
-  `cmteb-t2-subset`. Goal: pipeline runs end-to-end, numbers land near literature
-  anchors, first-run distributions recorded. **No gates yet.** Advance when a clean
-  real-vector run exists and public anchors are within ±0.10.
+- **Phase 0 — smoke / calibration.** ✅ **Run** ([results](phase0-smoke-results.md)):
+  the pipeline runs end-to-end on real vectors, the absolute-path `--dataset` linchpin
+  and snapshot-cache reuse hold, and four wrapper gaps (env injection, `--plain`,
+  exit-code accounting, `.env.eval` ignore) were fixed. Surfaced that the synthetic sets
+  **saturate at 1.0** (no discriminative signal). Still open before advancing: materialize
+  `scifact` / `cmteb-t2-subset` and confirm public anchors land within ±0.10. **No gates yet.**
 - **Phase 1 — retrieval gates.** Datasets ii + iii (+ i as floor). Gate `hit_at_3` /
   `ndcg_at_10` / `recall_at_100` **per language** at `observed − margin`; show RRF lift
   via per-mode views. Advance when gates are stable across ≥ 2 runs **and**
