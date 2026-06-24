@@ -140,6 +140,11 @@ adds a task-level retry layer on top of the Anthropic-compatible SDK:
 
 ## Evaluation Notes
 
+The macro evaluation plan for the `dikw-core` engine — engineering pipeline,
+environment deployment, eval dimensions, and dataset construction — is documented in
+[`docs/dikw-eval-plan.md`](docs/dikw-eval-plan.md). It is the cornerstone for
+building `dikw` evaluation datasets.
+
 The current `dikw-core` runner is doc-level. For multimodal datasets,
 `expect_any` remains for compatibility smoke tests, but real multimodal quality
 should be measured with asset/chunk-level metrics such as:
