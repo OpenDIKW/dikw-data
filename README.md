@@ -126,6 +126,38 @@ The web UI has two separate audit views:
 Generation and maintenance workflows are documented in
 [`docs/maintenance.md`](docs/maintenance.md).
 
+## Evaluating dikw-core
+
+`scripts/run_eval.py` orchestrates retrieval/synth evaluation of the read-only
+`dikw-core` engine over the datasets in this repo, following
+[`docs/dikw-eval-plan.md`](docs/dikw-eval-plan.md). It hands each dataset to the
+engine by absolute path, captures the NDJSON `EvalReport` under `reports/`, and
+writes a gate-able `summary.json`.
+
+One-time prerequisites:
+
+- Install the engine editable, with the CJK extra for Chinese BM25:
+  `uv pip install -e "../dikw-core[cjk]"`.
+- Put provider keys in `.env.eval` (gitignored): `MINIMAX_API_KEY`, `GITEE_API_KEY`.
+
+Plan a run without spending anything (validates datasets, checks key names, prints
+the exact commands):
+
+```powershell
+uv run python scripts/run_eval.py --dry-run
+```
+
+Run the default retrieval eval over every dataset (a one-shot server per dataset):
+
+```powershell
+uv run python scripts/run_eval.py --retrieval all
+```
+
+The eval base provider config lives in
+[`configs/eval-base.dikw.yml`](configs/eval-base.dikw.yml) (MiniMax + Gitee
+embeddings + sqlite); `run_eval.py` materialises it into the gitignored
+`bases/eval-base/` on first run. Reports and bases stay out of Git.
+
 ## LLM Reliability
 
 The shared client in [`src/dikw_data/llm_client.py`](src/dikw_data/llm_client.py)

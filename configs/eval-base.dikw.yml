@@ -1,0 +1,49 @@
+# Eval base config for evaluating the read-only dikw-core engine from dikw-data.
+#
+# TRACKED and NON-SECRET: this file names env vars (llm_api_key_env /
+# embedding_api_key_env) but never holds key values. run_eval.py copies it into
+# bases/eval-base/dikw.yml (gitignored) after `dikw init`. See
+# docs/dikw-eval-plan.md Part I §1.1 for rationale.
+#
+# Default: MiniMax-M2.7 (LLM/synth) + Gitee Qwen3-Embedding-0.6B@1024 (embeddings)
+# + sqlite. Matches dikw-core's own scifact calibration (same embedder/dim).
+#
+# A/B alternate (uncomment the DeepSeek/bge-m3 lines, comment the MiniMax/Qwen3 ones):
+#   llm_model: deepseek-v4-pro
+#   llm_base_url: https://api.deepseek.com/anthropic
+#   llm_api_key_env: DEEPSEEK_API_KEY
+#   llm_max_tokens_synth: 8192      # reasoning models need the larger synth budget
+#   embedding_model: bge-m3
+#
+# `cjk_tokenizer: jieba` needs the dikw-core [cjk] extra:
+#   uv pip install -e "../dikw-core[cjk]"
+
+provider:
+  llm: anthropic_compat
+  llm_model: MiniMax-M2.7
+  llm_base_url: https://api.minimaxi.com/anthropic
+  llm_api_key_env: MINIMAX_API_KEY
+  embedding: openai_compat
+  embedding_model: Qwen3-Embedding-0.6B
+  embedding_base_url: https://ai.gitee.com/v1
+  embedding_api_key_env: GITEE_API_KEY
+  embedding_dim: 1024
+  embedding_revision: ""
+  embedding_normalize: true
+  embedding_distance: cosine
+  embedding_batch_size: 16          # Gitee AI rejects batches > 25
+  embedding_provider_label: gitee-ai
+
+retrieval:
+  cjk_tokenizer: jieba              # needed for Chinese BM25/hybrid (bilingual corpora)
+
+storage:
+  backend: sqlite
+  path: .dikw/index.sqlite
+
+schema:
+  description: "dikw-core eval base — provider config only; eval ingests datasets into hermetic snapshots"
+
+sources:
+  - path: ./sources
+    pattern: "**/*.md"
