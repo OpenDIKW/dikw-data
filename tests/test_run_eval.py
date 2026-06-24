@@ -6,6 +6,7 @@ import pytest
 
 from scripts.run_eval import (
     build_eval_command,
+    merge_env,
     missing_keys,
     parse_eval_report,
     resolve_datasets,
@@ -32,6 +33,7 @@ def test_build_serve_and_run_command_basic() -> None:
     assert inner[inner.index("--eval") + 1] == "retrieval"
     assert inner[inner.index("--cache") + 1] == "read_write"
     assert "--wait" in inner
+    assert "--plain" in inner  # progress widget off -> clean NDJSON on stdout
     assert "--pretty" not in inner  # default is NDJSON
 
 
@@ -97,6 +99,16 @@ def test_missing_keys() -> None:
     assert missing_keys({"A": "x"}, ["A"]) == []
 
 
+def test_merge_env_overlays_nonempty_secrets() -> None:
+    base = {"PATH": "/usr/bin", "GITEE_API_KEY": "stale"}
+    merged = merge_env(base, {"GITEE_API_KEY": "fresh", "MINIMAX_API_KEY": "m", "EMPTY": ""})
+    assert merged["GITEE_API_KEY"] == "fresh"  # non-empty override wins
+    assert merged["MINIMAX_API_KEY"] == "m"  # new key added
+    assert merged["PATH"] == "/usr/bin"  # base preserved
+    assert "EMPTY" not in merged  # blank value never shadows
+    assert "GITEE_API_KEY" not in base or base["GITEE_API_KEY"] == "stale"  # base not mutated
+
+
 def test_parse_eval_report_picks_last_report_line() -> None:
     ndjson = "\n".join(
         [
@@ -150,3 +162,15 @@ def test_summarize_rolls_up_pass_fail() -> None:
     assert summary["passed"] is False
     assert summary["counts"] == {"total": 2, "passed": 1, "failed": 1}
     assert summary["results"][0]["dataset"] == "a"
+
+
+def test_summarize_counts_by_exit_code_not_report_passed() -> None:
+    # --against regression: exit 1 but the dataset's own thresholds still "passed".
+    rows = [
+        {"dataset": "a", "mode": "retrieval", "exit_code": 1,
+         "report": {"passed": True, "metrics": {"hit_at_3": 1.0}}},
+    ]
+    summary = summarize(rows)
+    assert summary["worst_exit_code"] == 1
+    assert summary["passed"] is False
+    assert summary["counts"] == {"total": 1, "passed": 0, "failed": 1}  # exit code wins
