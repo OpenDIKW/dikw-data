@@ -5,7 +5,6 @@ import re
 import sys
 from pathlib import Path
 
-
 MARKER_PREFIX = "dikwdoc"
 
 

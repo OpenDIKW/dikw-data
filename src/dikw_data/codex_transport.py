@@ -223,7 +223,7 @@ class CodexResponsesTransport:
             raise
         except (TypeError, AttributeError):
             raise
-        except Exception as e:  # noqa: BLE001 — SDK exception types vary by version
+        except Exception as e:
             status = getattr(e, "status_code", None)
             raise MiniMaxCallError(str(e), status_code=status) from e
 

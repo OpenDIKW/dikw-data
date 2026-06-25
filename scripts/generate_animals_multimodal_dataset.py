@@ -5,7 +5,6 @@ import struct
 import zlib
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
 DATASET_DIR = ROOT / "datasets" / "synthetic-animals-multimodal-v1"
 CORPUS_DIR = DATASET_DIR / "corpus"
@@ -69,7 +68,7 @@ def draw_icon(kind: str) -> list[tuple[int, int, int]]:
                     p = blend(p, (30, 35, 30), 0.96)
                 if ellipse(x, y, 128, 145, 9, 6):
                     p = blend(p, (93, 48, 45), 0.9)
-                if abs(y - 150) < 2 and 88 < x < 115 or abs(y - 150) < 2 and 141 < x < 168:
+                if (abs(y - 150) < 2 and 88 < x < 115) or (abs(y - 150) < 2 and 141 < x < 168):
                     p = blend(p, (80, 58, 47), 0.55)
 
             elif kind == "dog":

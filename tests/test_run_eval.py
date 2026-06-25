@@ -3,7 +3,6 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
-
 from scripts.run_eval import (
     build_eval_command,
     merge_env,

@@ -20,7 +20,6 @@ from .llm_client import MiniMaxTransport, RetryingMiniMaxClient
 from .pipeline import prompt_task
 from .tasks import LLMTask
 
-
 DECISIONS = {"pass", "warn", "fail"}
 IMAGE_REF = re.compile(r"!\[([^\]]*)\]\(([^)\n]+)\)")
 HEADING_REF = re.compile(r"^##\s+(.+)$", re.MULTILINE)

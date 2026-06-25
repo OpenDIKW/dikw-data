@@ -1,10 +1,8 @@
 from __future__ import annotations
 
 import argparse
-import re
 import sys
 from pathlib import Path
-
 
 NEGATIVE_QUERIES = [
     "What's the weather in Shanghai tomorrow?",
@@ -53,8 +51,6 @@ def build_positive_queries(docs: list[Path], limit: int) -> list[dict[str, objec
 
     queries: list[dict[str, object]] = []
     for path in selected:
-        text = path.read_text(encoding="utf-8")
-        title = extract_title(text, path.stem)
         marker = "dikwdoc" + path.stem.replace("-", "")
         if path.name.startswith("zh-"):
             queries.append(
@@ -88,16 +84,6 @@ def spread(items: list[Path], count: int) -> list[Path]:
         used.add(idx)
         picked.append(items[idx])
     return picked
-
-
-def extract_title(text: str, fallback: str) -> str:
-    match = re.search(r"^title:\s*(.+)$", text, flags=re.MULTILINE)
-    if match:
-        return match.group(1).strip().strip('"')
-    match = re.search(r"^#\s+(.+)$", text, flags=re.MULTILINE)
-    if match:
-        return match.group(1).strip()
-    return fallback
 
 
 def write_dataset_yaml(dataset_dir: Path) -> None:

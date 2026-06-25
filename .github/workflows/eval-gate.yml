@@ -1,0 +1,46 @@
+name: Eval gate
+
+# A dataset change (corpus / queries / thresholds) shifts the engine's retrieval
+# numbers, so it must land with a baseline entry recording the real-vector
+# outcome. This is the dikw-data analog of dikw-core's eval-gate: a *content*
+# check (parse the added reports/BASELINES.md lines, assert a new dated entry that
+# names a retrieval metric), not a presence check — a blank-line edit won't pass.
+# Re-running the eval to verify the numbers is separate (needs provider keys).
+#
+# Override: label the PR `no-baseline-needed` for a dataset edit that genuinely
+# shifts no numbers (a corpus typo fix, a rename).
+
+on:
+  pull_request:
+    paths:
+      - 'datasets/**'
+
+permissions:
+  contents: read
+
+jobs:
+  baseline-must-update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
+        with:
+          fetch-depth: 0
+
+      # Override via a native expression (no shell): a label containing a quote
+      # can't break detection the way an inline grep on the label could.
+      - name: Skip note (no-baseline-needed)
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'no-baseline-needed') }}
+        run: |
+          echo "::notice::PR labeled 'no-baseline-needed' — skipping baseline content check."
+          echo "Reviewer is expected to confirm the dataset change shifts no numbers."
+
+      # SHAs come in via env (not inline ${{ }} in the script) — the safe pattern
+      # for workflow inputs. check_baselines.py is stdlib-only, so no uv/setup-python.
+      - name: Content-check reports/BASELINES.md
+        if: ${{ !contains(github.event.pull_request.labels.*.name, 'no-baseline-needed') }}
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          python3 tools/check_baselines.py --base-sha "$BASE_SHA" --head-sha "$HEAD_SHA"

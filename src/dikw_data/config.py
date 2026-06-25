@@ -6,7 +6,6 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_CONFIG_PATH = PROJECT_ROOT / "configs" / "minimax.yml"
 DEFAULT_ENV_PATH = PROJECT_ROOT / ".env"
@@ -123,7 +122,7 @@ def _mapping(value: Any, name: str) -> dict[str, Any]:
 def _load_yaml_mapping(path: Path) -> dict[str, Any]:
     text = path.read_text(encoding="utf-8")
     try:
-        import yaml  # type: ignore[import-not-found]
+        import yaml
 
         raw = yaml.safe_load(text) or {}
         if not isinstance(raw, dict):

@@ -9,10 +9,9 @@ import re
 from dataclasses import dataclass
 from typing import Any, Protocol
 
-from .audit import AuditStore, FAILED, NEEDS_MANUAL_REVIEW, TERMINAL_SUCCESS
+from .audit import FAILED, NEEDS_MANUAL_REVIEW, TERMINAL_SUCCESS, AuditStore
 from .config import LLMConfig, get_required_env
 from .tasks import LLMTask
-
 
 RETRYABLE_STATUSES = {408, 409, 429, 529}
 NON_RETRYABLE_STATUSES = {400, 401, 403}
@@ -334,7 +333,10 @@ class RetryingMiniMaxClient:
 
     def _backoff_seconds(self, attempt: int) -> float:
         policy = self.config.retry_policy
-        base = min(
+        # Annotated float because ``2 ** (attempt - 1)`` (int ** int) is typed Any
+        # in typeshed — negative exponents yield a float — which otherwise widens
+        # ``base`` and both returns to Any under strict mypy.
+        base: float = min(
             policy.max_backoff_seconds,
             policy.initial_backoff_seconds * (2 ** (attempt - 1)),
         )

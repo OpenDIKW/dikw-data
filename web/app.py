@@ -5,10 +5,11 @@ import html
 import json
 import re
 import sqlite3
+from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 from urllib.parse import parse_qs, quote
 
 import yaml
@@ -16,7 +17,6 @@ from fastapi import BackgroundTasks, FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse
 
 from dikw_data.quality_review import QualityReviewStore, run_quality_review
-
 
 ROOT = Path(__file__).resolve().parents[1]
 IMAGE_REF = re.compile(r"!\[([^\]]*)\]\(([^)\n]+)\)")

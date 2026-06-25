@@ -8,7 +8,6 @@ from pathlib import Path
 
 from audit_corpus_quality import audit_dataset, file_reasons
 
-
 CONCEPTS = [
     ("chunk 切分", "heading-aware chunking"),
     ("BM25 召回", "BM25 recall"),

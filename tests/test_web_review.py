@@ -1,14 +1,14 @@
 from __future__ import annotations
 
-import sqlite3
 import json
+import sqlite3
 from pathlib import Path
 
 import yaml
 from fastapi.testclient import TestClient
+from web.app import create_app
 
 from dikw_data.quality_review import QualityReviewItem, QualityReviewStore
-from web.app import create_app
 
 
 def make_dataset(root: Path, name: str = "demo") -> Path:

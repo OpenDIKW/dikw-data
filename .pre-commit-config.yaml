@@ -1,0 +1,21 @@
+# Pre-commit hooks for dikw-data. Install once: `uv run pre-commit install`.
+#
+# Local hooks shell out to `uv run` so they use the EXACT ruff / mypy pinned in
+# pyproject — no version drift between the hook and CI (.github/workflows/ci.yml).
+# These are the cheap deterministic stages; the full floor (incl. pytest +
+# dataset validation) runs in CI.
+repos:
+  - repo: local
+    hooks:
+      - id: ruff
+        name: ruff check
+        entry: uv run ruff check --force-exclude
+        language: system
+        types_or: [python, pyi]
+        require_serial: true
+      - id: mypy
+        name: mypy (strict, src)
+        entry: uv run mypy src
+        language: system
+        pass_filenames: false
+        types: [python]

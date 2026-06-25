@@ -6,6 +6,12 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 generated/
-reports/
+# Eval run artifacts are disposable, but the human-readable baseline LOG is the
+# tracked source of truth (the eval-gate workflow asserts a new entry on dataset
+# changes). Ignore everything under reports/ EXCEPT that log — a file inside a
+# fully-ignored dir cannot be re-included, so ignore the contents, not the dir.
+reports/*
+!reports/BASELINES.md
 bases/
 datasets/markdown-books/
+.impeccable/

@@ -22,7 +22,7 @@ import json
 import os
 import subprocess
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -31,8 +31,9 @@ for _candidate in (PROJECT_ROOT, PROJECT_ROOT / "src"):
     if _entry not in sys.path:
         sys.path.insert(0, _entry)
 
-from dikw_data.config import load_dotenv  # noqa: E402
 from scripts.validate_dataset import validate  # noqa: E402
+
+from dikw_data.config import load_dotenv  # noqa: E402
 
 DIKW_LAUNCH: tuple[str, ...] = ("uv", "run", "dikw")
 DEFAULT_REQUIRED_KEYS: tuple[str, ...] = ("MINIMAX_API_KEY", "GITEE_API_KEY")
@@ -93,9 +94,9 @@ def build_eval_command(
     if pretty:
         eval_args.append("--pretty")
 
-    client = list(launch) + ["client"]
+    client = [*launch, "client"]
     if mode == "serve-and-run":
-        return client + ["serve-and-run", "--base", str(base), "--"] + eval_args
+        return [*client, "serve-and-run", "--base", str(base), "--", *eval_args]
     cmd = client + eval_args
     if server:
         cmd += ["--server", server]
@@ -214,7 +215,7 @@ def ensure_base(base: Path, template: Path, *, launch: tuple[str, ...] = DIKW_LA
 
 
 def _utc_stamp() -> str:
-    return datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    return datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
 
 
 def main(argv: list[str] | None = None) -> int:
