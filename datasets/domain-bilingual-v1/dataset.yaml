@@ -5,4 +5,15 @@ description: >
   set; the zh/en split is recorded in reports/BASELINES.md (see
   docs/dikw-eval-plan.md §2.4). Thresholds are set at observed − margin from a
   real-vector calibration run.
-thresholds: {}
+  NOTE: this 24-distinct-topic corpus saturates the vector/hybrid views at 1.0, so
+  these gates are a high floor (regression detector), not a discriminative
+  benchmark — a denser, deliberately-confusable domain-bilingual-v2 is the
+  discriminative follow-up. See reports/BASELINES.md (2026-06-26).
+# Canonical doc/hybrid observed = 1.0 across the board (2026-06-26 calibration).
+# Gate at observed − margin: −0.05 for hit@k / mrr, −0.03 for ndcg / recall.
+thresholds:
+  hit_at_3: 0.95
+  hit_at_10: 0.95
+  mrr: 0.95
+  ndcg_at_10: 0.97
+  recall_at_100: 0.97
