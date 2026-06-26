@@ -16,6 +16,14 @@ from .tasks import LLMTask
 RETRYABLE_STATUSES = {408, 409, 429, 529}
 NON_RETRYABLE_STATUSES = {400, 401, 403}
 
+# Output-token ceiling per completion. MiniMax-M2.7 is a reasoning model: its
+# internal reasoning counts against ``max_tokens``, so a tight budget truncates
+# the actual answer mid-token (observed: a JSON array cut off after one element
+# with ``stop_reason: max_tokens``). Give generation enough room for reasoning
+# plus a multi-item JSON payload. Mirrors the eval plan's note that reasoning
+# models need a larger token budget.
+MAX_OUTPUT_TOKENS = 16000
+
 
 class MiniMaxCallError(RuntimeError):
     def __init__(self, message: str, *, status_code: int | None = None) -> None:
@@ -77,7 +85,7 @@ class AnthropicTransport:
                 model=model,
                 system=system,
                 messages=[{"role": "user", "content": user}],
-                max_tokens=4096,
+                max_tokens=MAX_OUTPUT_TOKENS,
                 temperature=0.2,
             )
         except Exception as e:  # SDK exception types differ across versions.

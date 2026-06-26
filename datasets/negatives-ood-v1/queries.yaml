@@ -1,0 +1,78 @@
+# Off-corpus negatives (expect_none) riding the diverse-v2 corpus. Plausible,
+# well-formed zh/en questions on topics ADJACENT to the corpus domains but not
+# answerable by any document here — a healthy engine returns nothing relevant.
+# LLM-generated (MiniMax) then verified to be genuinely uncovered. ids are
+# language-prefixed for the per-language record. expect_none is diagnostic-only in
+# dikw-core (no threshold key), so this set is observe-only.
+queries:
+  # --- zh (11) ---
+  - id: zh-cooking-mapo-tofu
+    q: "如何在家制作正宗的四川麻婆豆腐？"
+    expect_none: true
+  - id: zh-sports-baseball-pitcher
+    q: "棒球比赛中，投手可以在哪些情况下被迫退场？"
+    expect_none: true
+  - id: zh-devops-docker-env-vars
+    q: "在Docker容器中，如何设置环境变量并确保在重启后仍然有效？"
+    expect_none: true
+  - id: zh-weather-beijing-smog
+    q: "今天北京的天气情况如何，是否有雾霾？"
+    expect_none: true
+  - id: zh-travel-tokyo-itinerary
+    q: "计划去日本东京旅行，推荐的七天行程和必备物品是什么？"
+    expect_none: true
+  - id: zh-app-wechat-backup
+    q: "如何在微信中设置聊天记录自动备份到云端？"
+    expect_none: true
+  - id: zh-health-headache-sorethroat
+    q: "如果出现轻度头痛和喉咙痛，应该如何自我护理？"
+    expect_none: true
+  - id: zh-music-guitar-chords
+    q: "学习吉他时，如何正确练习和弦转换？"
+    expect_none: true
+  - id: zh-film-parasite-director
+    q: "电影《寄生虫》的导演是谁？"
+    expect_none: true
+  - id: zh-car-engine-overheat
+    q: "汽车发动机出现高温警报时，应该立即采取哪些措施？"
+    expect_none: true
+  - id: zh-gardening-tomato-pests
+    q: "在春季种植番茄时，如何防治常见病虫害？"
+    expect_none: true
+  # --- en (12) ---
+  - id: en-cooking-margherita-pizza
+    q: "How do you make a classic Margherita pizza from scratch?"
+    expect_none: true
+  - id: en-sports-soccer-offside
+    q: "What are the official rules for an offside call in soccer?"
+    expect_none: true
+  - id: en-devops-jenkins-cicd
+    q: "How can I set up a CI/CD pipeline using Jenkins and Docker?"
+    expect_none: true
+  - id: en-weather-nyc-forecast
+    q: "What is the weather forecast for New York City today?"
+    expect_none: true
+  - id: en-travel-italy-itinerary
+    q: "What are the best travel itineraries for a 10-day trip to Italy?"
+    expect_none: true
+  - id: en-app-instagram-2fa
+    q: "How do I enable two-factor authentication on my Instagram account?"
+    expect_none: true
+  - id: en-health-sorethroat-remedies
+    q: "What are effective home remedies for a sore throat?"
+    expect_none: true
+  - id: en-music-notation-basics
+    q: "Can you explain the basics of music notation for beginners?"
+    expect_none: true
+  - id: en-film-inception-themes
+    q: "What are the main themes in the film Inception directed by Christopher Nolan?"
+    expect_none: true
+  - id: en-car-brake-spongy
+    q: "What steps should I take if my car's brake pedal feels spongy?"
+    expect_none: true
+  - id: en-gardening-small-backyard
+    q: "How do I start a vegetable garden in a small backyard?"
+    expect_none: true
+  - id: en-space-jwst-status
+    q: "What is the current status of the James Webb Space Telescope mission?"
+    expect_none: true

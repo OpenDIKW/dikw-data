@@ -1,0 +1,111 @@
+# Bilingual domain positives over the diverse-v2 corpus. ids are language-prefixed
+# (zh-/en-) so reports can split per language; a query's language matches its gold
+# doc's frontmatter `language:`. Queries are LLM-generated (MiniMax) then verified:
+# every expect_any stem was checked to be the single correct, answerable doc.
+# Some chinese-history / world-history queries are deliberately under-specified to
+# create intra-cluster ranking difficulty (the gold stays unique).
+queries:
+  # --- zh (18) ---
+  - id: zh-opium-war-military-conflict
+    q: "哪些因素导致了19世纪中期中国与外国之间的军事冲突？"
+    expect_any: [chinese-history-opium-war]
+  - id: zh-opium-war-hongkong-cession
+    q: "香港岛的割让是哪场战争后的条约规定的？"
+    expect_any: [chinese-history-opium-war]
+  - id: zh-qin-territorial-administration
+    q: "秦朝如何在政治上实现对广阔领土的有效管辖？"
+    expect_any: [chinese-history-qin-unification]
+  - id: zh-qin-fengjian-vs-junxian
+    q: "分封制与郡县制在地方治理方式上有何根本区别？"
+    expect_any: [chinese-history-qin-unification]
+  - id: zh-tang-after-sui-collapse
+    q: "隋朝灭亡后，谁在关中地区建立了新的统一王朝？"
+    expect_any: [chinese-history-tang-founding]
+  - id: zh-tang-gaozu-accession
+    q: "唐高祖是通过什么方式获得皇位并建立新政权的？"
+    expect_any: [chinese-history-tang-founding]
+  - id: zh-wanganshi-fiscal-pressure
+    q: "北宋时期的财政困难如何推动了官方对经济制度的调整？"
+    expect_any: [chinese-history-wang-anshi-reform]
+  - id: zh-wanganshi-new-laws-goals
+    q: "青苗法和方田均税法等新法的核心目标是什么？"
+    expect_any: [chinese-history-wang-anshi-reform]
+  - id: zh-supply-demand-price-change
+    q: "需求增加而供给保持不变时，市场价格会怎样变化？"
+    expect_any: [economics-supply-demand]
+  - id: zh-compound-interest-mechanism
+    q: "长期投资中收益继续产生收益的机制是如何运作的？"
+    expect_any: [finance-compound-interest]
+  - id: zh-monsoon-seasonal-shift
+    q: "季风系统是如何在夏季和冬季之间转变的？"
+    expect_any: [geography-monsoon-climate]
+  - id: zh-contract-valid-offer
+    q: "合同订立过程中，什么样的意思表示才能构成有效的要约？"
+    expect_any: [law-contract-offer-acceptance]
+  - id: zh-dream-rise-and-decline
+    q: "贾府的繁华与衰败如何在小说的叙事结构中呈现？"
+    expect_any: [literature-dream-red-chamber]
+  - id: zh-dream-grand-view-garden
+    q: "《红楼梦》中的大观园象征着什么？它与家族命运有何关联？"
+    expect_any: [literature-dream-red-chamber]
+  - id: zh-vaccination-rapid-response
+    q: "人体接种疫苗后如何获得对病原体的快速反应能力？"
+    expect_any: [medicine-vaccination-immunity]
+  - id: zh-plate-tectonics-pacific-ring
+    q: "为什么环太平洋地区地震和火山活动特别频繁？"
+    expect_any: [science-plate-tectonics]
+  - id: zh-public-key-digital-signature
+    q: "数字签名技术如何确保消息的真实性和完整性？"
+    expect_any: [technology-public-key-cryptography]
+  - id: zh-public-key-private-key-leak
+    q: "公钥密码系统中的私钥泄露会产生什么后果？"
+    expect_any: [technology-public-key-cryptography]
+  # --- en (16) ---
+  - id: en-externalities-market-failure
+    q: "How do external costs like pollution lead to market failure, and what policy tools can correct it?"
+    expect_any: [economics-externalities]
+  - id: en-externalities-positive-subsidy
+    q: "Why might subsidies be justified for activities that generate positive externalities?"
+    expect_any: [economics-externalities]
+  - id: en-inflation-bond-prices
+    q: "What happens to the market price of existing bonds when inflation rises?"
+    expect_any: [finance-inflation-bonds]
+  - id: en-river-delta-formation
+    q: "What natural processes create a river delta at the mouth of a river?"
+    expect_any: [geography-river-deltas]
+  - id: en-fair-use-four-factors
+    q: "Which four factors are typically considered in a fair use analysis of copyrighted material?"
+    expect_any: [law-copyright-fair-use]
+  - id: en-macbeth-ambition
+    q: "In Macbeth, how does unchecked ambition drive the protagonist's moral collapse?"
+    expect_any: [literature-shakespeare-macbeth]
+  - id: en-antibiotic-stopping-early
+    q: "Why does stopping antibiotic treatment early increase the risk of antibiotic resistance?"
+    expect_any: [medicine-antibiotic-resistance]
+  - id: en-photosynthesis-chlorophyll
+    q: "How does chlorophyll enable plants to convert light energy into chemical energy?"
+    expect_any: [science-photosynthesis]
+  - id: en-db-index-read-benefit
+    q: "What performance benefit do database indexes provide for read queries?"
+    expect_any: [technology-database-indexes]
+  - id: en-db-index-write-tradeoff
+    q: "What are the trade-offs of using many indexes on a database, particularly regarding write performance?"
+    expect_any: [technology-database-indexes]
+  - id: en-coldwar-containment-strategy
+    q: "What was the US containment strategy during the Cold War and which major policies exemplified it?"
+    expect_any: [world-history-cold-war-containment]
+  - id: en-coldwar-ideological-competition
+    q: "In what ways did ideological competition shape state actions during periods of global conflict?"
+    expect_any: [world-history-cold-war-containment]
+  - id: en-french-rev-legitimacy
+    q: "How did the French Revolution shift the source of political legitimacy from monarchy to the nation?"
+    expect_any: [world-history-french-revolution]
+  - id: en-industrial-household-to-factory
+    q: "What were the social consequences of moving production from households to factories during the Industrial Revolution?"
+    expect_any: [world-history-industrial-revolution]
+  - id: en-industrial-labor-urban
+    q: "How did the shift to factory production alter labor relations and urban living conditions?"
+    expect_any: [world-history-industrial-revolution]
+  - id: en-roman-power-checks
+    q: "How did the Roman Republic's institutional design prevent the concentration of power in a single leader?"
+    expect_any: [world-history-roman-republic]
