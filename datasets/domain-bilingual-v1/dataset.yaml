@@ -1,0 +1,8 @@
+name: domain-bilingual-v1
+description: >
+  In-house bilingual (50/50 zh+en) domain retrieval set over the diverse-v2
+  corpus. The Phase-1 retrieval gate. The engine gates one blended flat-threshold
+  set; the zh/en split is recorded in reports/BASELINES.md (see
+  docs/dikw-eval-plan.md §2.4). Thresholds are set at observed − margin from a
+  real-vector calibration run.
+thresholds: {}
