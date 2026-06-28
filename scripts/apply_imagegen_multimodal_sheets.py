@@ -5,7 +5,6 @@ from pathlib import Path
 
 from PIL import Image
 
-
 ROOT = Path(__file__).resolve().parents[1]
 DATASET = "synthetic-multimodal-datasets-v1"
 SHEET_DIR = Path.home() / ".codex" / "generated_images" / "019dca28-eaa6-77f0-8a22-0e9235befec2"

@@ -19,7 +19,56 @@ dependencies = [
 dev = [
     "pytest>=8.0",
     "pytest-asyncio>=0.23",
+    "ruff>=0.15",
+    "mypy>=1.20",
+    "types-PyYAML",
+    # Local git pre-commit hooks (ruff + mypy) mirroring the CI floor. Wire
+    # them once with `uv run pre-commit install`; config in .pre-commit-config.yaml.
+    "pre-commit>=4.0",
 ]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+# This repo keeps runnable code outside src/ too (scripts/, web/), so lint the lot.
+src = ["src", "scripts", "web", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "C4", "RUF"]
+ignore = [
+    "E501",  # line length is handled by formatter
+    # This is a bilingual zh/en data factory: prompts, sample corpora, and
+    # query strings embed Chinese text and full-width punctuation directly in
+    # .py files. RUF001/002/003 (ambiguous-unicode) then fire on every CJK
+    # character — pure false positives here, so silence them repo-wide.
+    "RUF001",
+    "RUF002",
+    "RUF003",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["SIM117"]
+# FastAPI's idiomatic ``Query(default=...)`` / ``Depends(...)`` in parameter
+# defaults is exactly the B008 anti-pattern, but here it's the framework's
+# contract — silence the rule scope-locally rather than refactoring endpoints.
+"web/*.py" = ["B008"]
+# This generator draws pictograms procedurally: each icon is one line of
+# grouped canvas draw-ops (``c.rect(...); c.line(...); wheel(...)``). The
+# semicolon grouping is deliberate — one line == one icon — so splitting it
+# per E702 would bloat and obscure the file. Scope the allowance to this file.
+"scripts/generate_additional_multimodal_datasets.py" = ["E702"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["dikw_data"]
+mypy_path = "src"
+explicit_package_bases = true
+
+[[tool.mypy.overrides]]
+# Third-party modules without bundled type stubs in this repo's install.
+module = ["anthropic.*", "yaml.*"]
+ignore_missing_imports = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

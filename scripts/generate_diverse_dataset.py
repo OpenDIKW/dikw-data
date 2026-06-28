@@ -4,7 +4,6 @@ import argparse
 import sys
 from pathlib import Path
 
-
 TOPICS = [
     {
         "stem": "chinese-history-tang-founding",

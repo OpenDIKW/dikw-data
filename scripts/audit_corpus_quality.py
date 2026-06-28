@@ -6,7 +6,6 @@ import re
 import sys
 from pathlib import Path
 
-
 BAD_PATTERNS = [
     "The user wants",
     "We need",

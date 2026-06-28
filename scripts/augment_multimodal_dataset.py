@@ -7,6 +7,8 @@ from PIL import Image
 
 from generate_multimodal_asset_chunk_dataset import (
     CATEGORIES as BASE_CATEGORIES,
+)
+from generate_multimodal_asset_chunk_dataset import (
     CORPUS_DIR,
     DATASET,
     DATASET_DIR,
@@ -14,7 +16,6 @@ from generate_multimodal_asset_chunk_dataset import (
     Item,
     yaml_scalar,
 )
-
 
 SHEET_DIR = Path.home() / ".codex" / "generated_images" / "019dca28-eaa6-77f0-8a22-0e9235befec2"
 

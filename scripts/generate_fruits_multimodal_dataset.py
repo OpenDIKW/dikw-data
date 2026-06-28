@@ -5,7 +5,6 @@ import struct
 import zlib
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
 DATASET_DIR = ROOT / "datasets" / "synthetic-fruits-multimodal-v1"
 CORPUS_DIR = DATASET_DIR / "corpus"

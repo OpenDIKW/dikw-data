@@ -12,7 +12,6 @@ from .config import LLMConfig, config_path_for, load_llm_config
 from .llm_client import RetryingMiniMaxClient
 from .tasks import LLMTask, hash_text
 
-
 PROVIDERS = ("minimax", "deepseek", "codex")
 
 

@@ -3,9 +3,7 @@ from __future__ import annotations
 import math
 import struct
 import zlib
-from collections.abc import Callable
 from pathlib import Path
-
 
 ROOT = Path(__file__).resolve().parents[1]
 W = 256
@@ -253,7 +251,7 @@ def landmark_icon(slug: str) -> list[Color]:
     elif slug == "forbidden_city":
         c.rect(56, 136, 200, 190, (170, 64, 46)); c.polygon([(45, 136), (211, 136), (188, 106), (68, 106)], (198, 146, 55)); c.polygon([(74, 106), (182, 106), (164, 82), (92, 82)], (198, 146, 55)); c.rect(117, 153, 139, 190, (94, 55, 37))
     elif slug == "colosseum":
-        c.ellipse(128, 140, 82, 55, (173, 143, 101)); c.rect(49, 140, 207, 188, (173, 143, 101)); 
+        c.ellipse(128, 140, 82, 55, (173, 143, 101)); c.rect(49, 140, 207, 188, (173, 143, 101))
         for x in [72, 102, 132, 162]:
             c.ellipse(x, 158, 10, 22, (88, 75, 62))
     elif slug == "tower_bridge":

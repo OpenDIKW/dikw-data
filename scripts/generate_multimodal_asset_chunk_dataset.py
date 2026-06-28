@@ -4,7 +4,6 @@ import shutil
 from dataclasses import dataclass
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
 DATASET = "synthetic-multimodal-datasets-v1"
 DATASET_DIR = ROOT / "datasets" / DATASET

@@ -6,7 +6,6 @@ from typing import Any
 
 import yaml
 
-
 ROOT = Path(__file__).resolve().parents[1]
 DATASET = "synthetic-multimodal-datasets-v1"
 DATASET_DIR = ROOT / "datasets" / DATASET
