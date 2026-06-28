@@ -142,3 +142,46 @@ regression-detector). `negatives-ood-v1` observe-only. Recalibrate / promote onc
 discriminative `domain-bilingual-v2` exists (corpus > ~50 docs, deliberately
 confusable) — see `docs/dikw-eval-plan.md` §2.3/§3 and
 `docs/phase1-inhouse-datasets-design.md`.
+
+## 2026-06-28 — domain-bilingual-v2 calibration (discriminative confusable set)
+
+**Config.** dikw-core 0.6.4; provider: MiniMax-M3 (LLM, unused — retrieval-only) +
+Gitee Qwen3-Embedding-0.6B@1024 (embeddings) + sqlite + jieba. `--retrieval all`,
+`--eval retrieval`, `--cache read_write`; cold-embedded the 56-doc corpus once.
+
+**domain-bilingual-v2** (56 docs / 56 queries; 8 intra-cluster-confusable clusters,
+28 zh + 28 en; corpus + queries via codex gpt-5.5 xhigh) — `passed: True`, exit 0.
+
+Canonical (doc / hybrid):
+`hit_at_3 1.000 / hit_at_10 1.000 / mrr 0.991 / ndcg_at_10 0.993 / recall_at_100 1.000`
+
+Per-mode (`--retrieval all`):
+
+| mode | hit_at_3 | hit_at_10 | mrr | ndcg_at_10 | recall_at_100 |
+|---|---|---|---|---|---|
+| bm25   | 1.000 | 1.000 | 0.955 | 0.967 | 1.000 |
+| vector | 1.000 | 1.000 | 0.991 | 0.993 | 1.000 |
+| hybrid | 1.000 | 1.000 | 0.991 | 0.993 | 1.000 |
+
+zh/en split (offline `tools/split_metrics_by_lang.py`, reconciles with the engine's
+blended doc metrics):
+
+| lang | n | hit_at_3 | hit_at_10 | mrr | ndcg_at_10 | recall_at_100 |
+|---|---|---|---|---|---|---|
+| all | 56 | 1.000 | 1.000 | 0.991 | 0.993 | 1.000 |
+| zh  | 28 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
+| en  | 28 | 1.000 | 1.000 | 0.982 | 0.987 | 1.000 |
+
+- **Only partially de-saturated.** hybrid/vector `ndcg_at_10 0.993` (vs v1's 1.000)
+  — barely below saturation, and the **zh slice is fully 1.0**. The confusable
+  corpus itself works — **bm25 `ndcg 0.967` carries real intra-cluster signal** — but
+  the **draft queries over-name their gold** (they embed the answer's distinctive
+  term verbatim), making vector retrieval trivial. A **query gold-tightening pass**
+  (human verification of `queries.yaml`: describe the answer without naming it) is
+  the discriminative follow-up; recalibrate after it (vector/hybrid should fall
+  toward bm25).
+- **Gate set at `observed − margin`** (−0.05 hit@k/mrr, −0.03 ndcg/recall):
+  `hit_at_3 0.95 / hit_at_10 0.95 / mrr 0.94 / ndcg_at_10 0.96 / recall_at_100 0.97`.
+  A regression-detector floor over **draft** queries — recalibrate after gold-tightening.
+- v2's retrieval calibration is independent of dikw-core#249 (no `expect_none`
+  negatives) and #250 (single fixed retrieval config, no ablation sweep).
