@@ -138,7 +138,9 @@ One-time prerequisites:
 
 - Install the engine editable, with the CJK extra for Chinese BM25:
   `uv pip install -e "../dikw-core[cjk]"`.
-- Put provider keys in `.env.eval` (gitignored): `MINIMAX_API_KEY`, `GITEE_API_KEY`.
+- Put provider keys in `.env` (gitignored): `MINIMAX_API_KEY`, `GITEE_API_KEY` (and
+  `DEEPSEEK_API_KEY` if used). This one file serves both generation and `run_eval`.
+  The codex provider authenticates via OAuth (`.dikw/auth.json`), not a key here.
 
 Plan a run without spending anything (validates datasets, checks key names, prints
 the exact commands):

@@ -22,7 +22,7 @@ class RetryPolicy:
 
 
 @dataclass(frozen=True)
-class MiniMaxConfig:
+class LLMConfig:
     model: str
     base_url: str
     timeout_seconds: float
@@ -30,6 +30,16 @@ class MiniMaxConfig:
     retry_policy: RetryPolicy
     concurrency: int = 2
     rate_limit_slowdown_after: int = 3
+    # Provider kind: "anthropic_compat" (MiniMax / DeepSeek) or "openai_codex".
+    llm: str = "anthropic_compat"
+    # Env var holding the API key (anthropic_compat only; codex uses OAuth).
+    llm_api_key_env: str = "ANTHROPIC_API_KEY"
+    # Reasoning effort for codex (e.g. "xhigh"); None leaves the backend default.
+    reasoning_effort: str | None = None
+
+
+# Backward-compat alias — the config predates multi-provider support.
+MiniMaxConfig = LLMConfig
 
 
 def load_dotenv(path: Path = DEFAULT_ENV_PATH) -> dict[str, str]:
@@ -54,9 +64,14 @@ def get_required_env(key: str, env_path: Path = DEFAULT_ENV_PATH) -> str:
     return value
 
 
-def load_minimax_config(path: Path = DEFAULT_CONFIG_PATH) -> MiniMaxConfig:
+def config_path_for(provider: str) -> Path:
+    """Map a provider name to its default config file under ``configs/``."""
+    return PROJECT_ROOT / "configs" / f"{provider}.yml"
+
+
+def load_llm_config(path: Path = DEFAULT_CONFIG_PATH) -> LLMConfig:
     if not path.is_file():
-        raise FileNotFoundError(f"MiniMax config not found: {path}")
+        raise FileNotFoundError(f"LLM config not found: {path}")
     raw = _load_yaml_mapping(path)
     if not isinstance(raw, dict):
         raise ValueError(f"{path}: top-level YAML must be a mapping")
@@ -72,15 +87,29 @@ def load_minimax_config(path: Path = DEFAULT_CONFIG_PATH) -> MiniMaxConfig:
         jitter=bool(retry.get("jitter", True)),
         timeout_seconds=float(retry.get("timeout_seconds", provider.get("timeout_seconds", 120))),
     )
-    return MiniMaxConfig(
-        model=str(provider.get("llm_model") or "MiniMax-M2.7"),
-        base_url=str(provider.get("llm_base_url") or "https://api.minimaxi.com/anthropic"),
+    llm = str(provider.get("llm") or "anthropic_compat")
+    default_base_url = (
+        "https://chatgpt.com/backend-api/codex"
+        if llm == "openai_codex"
+        else "https://api.minimaxi.com/anthropic"
+    )
+    effort = provider.get("reasoning_effort")
+    return LLMConfig(
+        model=str(provider.get("llm_model") or "MiniMax-M3"),
+        base_url=str(provider.get("llm_base_url") or default_base_url),
         timeout_seconds=float(provider.get("timeout_seconds", retry_policy.timeout_seconds)),
         sdk_max_retries=int(provider.get("sdk_max_retries", 2)),
         retry_policy=retry_policy,
         concurrency=int(runtime.get("concurrency", 2)),
         rate_limit_slowdown_after=int(runtime.get("rate_limit_slowdown_after", 3)),
+        llm=llm,
+        llm_api_key_env=str(provider.get("llm_api_key_env") or "ANTHROPIC_API_KEY"),
+        reasoning_effort=str(effort) if effort else None,
     )
+
+
+# Backward-compat alias.
+load_minimax_config = load_llm_config
 
 
 def _mapping(value: Any, name: str) -> dict[str, Any]:

@@ -9,13 +9,20 @@ from pathlib import Path
 from typing import Any
 
 from dikw_data.audit import AuditRecord, AuditStore
-from dikw_data.config import load_minimax_config
 from dikw_data.llm_client import RetryingMiniMaxClient, TaskResult
+from dikw_data.pipeline import add_provider_args, load_config_from_args
 from dikw_data.tasks import LLMTask, hash_text
 
 
 PROMPT_VERSION = "v1"
 MISSING_PROMPT_VERSION = "v5-clean"
+
+# Corpus frontmatter provenance marker, by provider.
+SOURCE_MARKERS = {
+    "minimax": "minimax-synthetic",
+    "deepseek": "deepseek-synthetic",
+    "codex": "openai-codex-synthetic",
+}
 
 
 @dataclass(frozen=True)
@@ -39,6 +46,7 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--materialize-only", action="store_true")
     parser.add_argument("--only-missing", action="store_true")
+    add_provider_args(parser)
     args = parser.parse_args()
 
     indices = missing_indices(args.dataset, args.count) if args.only_missing else None
@@ -50,11 +58,16 @@ def main() -> int:
         indices=indices,
         prompt_version=prompt_version,
     )
-    config = load_minimax_config()
+    config = load_config_from_args(args)
+    source_marker = SOURCE_MARKERS[args.provider]
     audit = AuditStore(args.dataset)
     if args.materialize_only:
         written = materialize_corpus(
-            args.dataset, [], audit=audit, meta_by_task_id=meta_by_task_id
+            args.dataset,
+            [],
+            audit=audit,
+            meta_by_task_id=meta_by_task_id,
+            source_marker=source_marker,
         )
         print(f"wrote {written} corpus files under datasets/{args.dataset}/corpus")
         return 0
@@ -85,7 +98,11 @@ def main() -> int:
         return 0
 
     written = materialize_corpus(
-        args.dataset, results, audit=audit, meta_by_task_id=meta_by_task_id
+        args.dataset,
+        results,
+        audit=audit,
+        meta_by_task_id=meta_by_task_id,
+        source_marker=source_marker,
     )
     print(f"wrote {written} corpus files under datasets/{args.dataset}/corpus")
     return 1 if any(r.status in {"failed", "needs_manual_review"} for r in results) else 0
@@ -170,6 +187,7 @@ def materialize_corpus(
     *,
     audit: AuditStore | None = None,
     meta_by_task_id: dict[str, CorpusTaskMeta] | None = None,
+    source_marker: str = "minimax-synthetic",
 ) -> int:
     corpus_dir = Path("datasets") / dataset / "corpus"
     corpus_dir.mkdir(parents=True, exist_ok=True)
@@ -177,9 +195,13 @@ def materialize_corpus(
     seen: set[str] = set()
     if audit is not None:
         for record in audit.records(stage="generate_bilingual_corpus", status="succeeded"):
-            written += _write_result(corpus_dir, record, seen, meta_by_task_id or {})
+            written += _write_result(
+                corpus_dir, record, seen, meta_by_task_id or {}, source_marker
+            )
     for result in results:
-        written += _write_result(corpus_dir, result, seen, meta_by_task_id or {})
+        written += _write_result(
+            corpus_dir, result, seen, meta_by_task_id or {}, source_marker
+        )
     return written
 
 
@@ -188,6 +210,7 @@ def _write_result(
     result: TaskResult | AuditRecord,
     seen: set[str],
     meta_by_task_id: dict[str, CorpusTaskMeta],
+    source_marker: str,
 ) -> int:
     result_json = result.result if isinstance(result, TaskResult) else result.result_json
     if result.status != "succeeded" or result_json is None:
@@ -205,7 +228,7 @@ def _write_result(
             return 0
         if not markdown.lstrip().startswith("#"):
             markdown = f"# {title}\n\n{markdown}"
-        _write_markdown(corpus_dir, stem, title, language, markdown)
+        _write_markdown(corpus_dir, stem, title, language, markdown, source_marker)
         return 1
     written = 0
     docs = result_json if isinstance(result_json, list) else [result_json]
@@ -223,19 +246,24 @@ def _write_result(
             continue
         if not markdown.lstrip().startswith("#"):
             markdown = f"# {title}\n\n{markdown}"
-        _write_markdown(corpus_dir, stem, title, language, markdown)
+        _write_markdown(corpus_dir, stem, title, language, markdown, source_marker)
         written += 1
     return written
 
 
 def _write_markdown(
-    corpus_dir: Path, stem: str, title: str, language: str, markdown: str
+    corpus_dir: Path,
+    stem: str,
+    title: str,
+    language: str,
+    markdown: str,
+    source_marker: str = "minimax-synthetic",
 ) -> None:
     prefix = "---\n"
     prefix += f"title: {title}\n"
     if language:
         prefix += f"language: {language}\n"
-    prefix += "source: minimax-synthetic\n---\n\n"
+    prefix += f"source: {source_marker}\n---\n\n"
     (corpus_dir / f"{stem}.md").write_text(prefix + markdown + "\n", encoding="utf-8")
 
 

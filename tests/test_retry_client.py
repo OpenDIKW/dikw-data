@@ -29,7 +29,7 @@ async def no_sleep(seconds: float) -> None:
 
 def make_config() -> MiniMaxConfig:
     return MiniMaxConfig(
-        model="MiniMax-M2.7",
+        model="MiniMax-M3",
         base_url="https://api.minimaxi.com/anthropic",
         timeout_seconds=120,
         sdk_max_retries=0,

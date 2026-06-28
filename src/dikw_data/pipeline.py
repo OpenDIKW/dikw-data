@@ -8,9 +8,35 @@ import json
 from pathlib import Path
 
 from .audit import AuditStore
-from .config import load_minimax_config
+from .config import LLMConfig, config_path_for, load_llm_config
 from .llm_client import RetryingMiniMaxClient
 from .tasks import LLMTask, hash_text
+
+
+PROVIDERS = ("minimax", "deepseek", "codex")
+
+
+def add_provider_args(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument(
+        "--provider",
+        choices=PROVIDERS,
+        default="minimax",
+        help="LLM provider; selects configs/<provider>.yml",
+    )
+    parser.add_argument(
+        "--config",
+        default=None,
+        help="Path to a provider config YAML (overrides --provider)",
+    )
+
+
+def load_config_from_args(args: argparse.Namespace) -> LLMConfig:
+    path = (
+        Path(args.config)
+        if getattr(args, "config", None)
+        else config_path_for(getattr(args, "provider", "minimax"))
+    )
+    return load_llm_config(path)
 
 
 def add_common_args(parser: argparse.ArgumentParser) -> None:
@@ -20,10 +46,11 @@ def add_common_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--max-attempts", type=int, default=None)
     parser.add_argument("--concurrency", type=int, default=None)
     parser.add_argument("--dry-run", action="store_true")
+    add_provider_args(parser)
 
 
 def run_tasks_from_cli(args: argparse.Namespace, tasks: list[LLMTask]) -> int:
-    config = load_minimax_config()
+    config = load_config_from_args(args)
     audit = AuditStore(args.dataset)
     client = RetryingMiniMaxClient(config=config, audit=audit)
     results = asyncio.run(

@@ -1,7 +1,8 @@
 provider:
-  llm: anthropic
-  llm_model: MiniMax-M2.7
+  llm: anthropic_compat
+  llm_model: MiniMax-M3
   llm_base_url: https://api.minimaxi.com/anthropic
+  llm_api_key_env: MINIMAX_API_KEY
   timeout_seconds: 120
   sdk_max_retries: 2
 

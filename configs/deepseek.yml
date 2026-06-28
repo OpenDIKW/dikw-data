@@ -1,0 +1,21 @@
+# DeepSeek via its Anthropic-compatible endpoint.
+# Requires DEEPSEEK_API_KEY in the env file that config.get_required_env reads
+# (<project>/.env by default).
+provider:
+  llm: anthropic_compat
+  llm_model: deepseek-v4-pro      # TODO: confirm exact model id for the account
+  llm_base_url: https://api.deepseek.com/anthropic
+  llm_api_key_env: DEEPSEEK_API_KEY
+  timeout_seconds: 120
+  sdk_max_retries: 2
+
+retry_policy:
+  max_attempts: 6
+  initial_backoff_seconds: 2
+  max_backoff_seconds: 60
+  jitter: true
+  timeout_seconds: 120
+
+runtime:
+  concurrency: 2
+  rate_limit_slowdown_after: 3

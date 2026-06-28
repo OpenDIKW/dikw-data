@@ -27,7 +27,7 @@ MTEB/CMTEB, MS MARCO, RAGAS, TruLens, ViDoRe).
   are handed to the engine by **absolute path**, so nothing needs to be added to
   `dikw-core`.
 
-**Secrets.** `.env.eval` (gitignored, listed in `.worktreeinclude` so it is
+**Secrets.** `.env` (gitignored, listed in `.worktreeinclude` so it is
 auto-copied into worktrees) holds the provider keys:
 
 | Var | Role | Provider / endpoint |
@@ -36,11 +36,11 @@ auto-copied into worktrees) holds the provider keys:
 | `DEEPSEEK_API_KEY` | LLM / synth (A/B alternate) | DeepSeek via `anthropic_compat`, `https://api.deepseek.com/anthropic` |
 | `GITEE_API_KEY` | **Embeddings** | Gitee AI via `openai_compat`, `https://ai.gitee.com/v1` |
 
-`.env.eval` is never committed and key values are never echoed. The orchestration
+`.env` is never committed and key values are never echoed. The orchestration
 wrapper sources it in-process only.
 
 **Locked decisions.**
-1. **Default eval base** = MiniMax-M2.7 (LLM/synth) + Gitee `Qwen3-Embedding-0.6B`@1024
+1. **Default eval base** = MiniMax-M3 (LLM/synth) + Gitee `Qwen3-Embedding-0.6B`@1024
    (embeddings) + sqlite. Chosen because it matches `dikw-core`'s own `scifact`
    calibration (same embedder/dim) and needs no synth token override. DeepSeek-V4 +
    Gitee `bge-m3`@1024 is the documented **A/B alternate**.
@@ -68,7 +68,7 @@ tokenizer (so Chinese BM25/hybrid is non-degenerate):
 ```yaml
 provider:
   llm: anthropic_compat
-  llm_model: MiniMax-M2.7
+  llm_model: MiniMax-M3
   llm_base_url: https://api.minimaxi.com/anthropic
   llm_api_key_env: MINIMAX_API_KEY
   embedding: openai_compat
@@ -155,7 +155,7 @@ the snapshot cache, `evals/BASELINES.md` discipline, and the
 --out reports/<UTC-ts>/
 ```
 
-Behavior: source `.env.eval` in-process (abort if any referenced key var is empty;
+Behavior: source `.env` in-process (abort if any referenced key var is empty;
 never print values) → ensure base exists → run `validate_dataset.py` per dataset
 (fail fast, $0) → resolve each dataset to an absolute path → invoke
 `dikw client eval … --pretty off` (NDJSON) → capture per-`(dataset, mode)` NDJSON +
@@ -182,12 +182,12 @@ a `summary.json` rollup → propagate the worst-of exit code (0 pass / 1 fail /
 
 ### 1.6 Worktree & secrets hygiene
 
-- `.env.eval` is gitignored and in `.worktreeinclude` → auto-copied into new worktrees.
+- `.env` is gitignored and in `.worktreeinclude` → auto-copied into new worktrees.
 - `generated/`, `reports/`, `bases/` are already gitignored in this repo → generated
   bases, sqlite indices, and NDJSON reports never enter git.
 - Committed `--against` baselines must stay tracked: keep them **beside their dataset**
   (e.g. `datasets/<name>/baseline.json`) to avoid fighting the `reports/` ignore.
-- CI injects keys via secrets, not `.env.eval`.
+- CI injects keys via secrets, not `.env`.
 
 ---
 
@@ -287,7 +287,7 @@ All thresholds below are **placeholders to be calibrated** (see §2.3).
 - **Phase 0 — smoke / calibration.** ✅ **Run** ([results](phase0-smoke-results.md)):
   the pipeline runs end-to-end on real vectors, the absolute-path `--dataset` linchpin
   and snapshot-cache reuse hold, and four wrapper gaps (env injection, `--plain`,
-  exit-code accounting, `.env.eval` ignore) were fixed. Surfaced that the synthetic sets
+  exit-code accounting, `.env` ignore) were fixed. Surfaced that the synthetic sets
   **saturate at 1.0** (no discriminative signal). Still open before advancing: materialize
   `scifact` / `cmteb-t2-subset` and confirm public anchors land within ±0.10. **No gates yet.**
 - **Phase 1 — retrieval gates.** Datasets ii + iii (+ i as floor). Gate `hit_at_3` /

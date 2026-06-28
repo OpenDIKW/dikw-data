@@ -5,7 +5,7 @@
 # bases/eval-base/dikw.yml (gitignored) after `dikw init`. See
 # docs/dikw-eval-plan.md Part I §1.1 for rationale.
 #
-# Default: MiniMax-M2.7 (LLM/synth) + Gitee Qwen3-Embedding-0.6B@1024 (embeddings)
+# Default: MiniMax-M3 (LLM/synth) + Gitee Qwen3-Embedding-0.6B@1024 (embeddings)
 # + sqlite. Matches dikw-core's own scifact calibration (same embedder/dim).
 #
 # A/B alternate (uncomment the DeepSeek/bge-m3 lines, comment the MiniMax/Qwen3 ones):
@@ -20,7 +20,7 @@
 
 provider:
   llm: anthropic_compat
-  llm_model: MiniMax-M2.7
+  llm_model: MiniMax-M3
   llm_base_url: https://api.minimaxi.com/anthropic
   llm_api_key_env: MINIMAX_API_KEY
   embedding: openai_compat

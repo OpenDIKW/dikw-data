@@ -1,0 +1,22 @@
+# OpenAI Codex (gpt-5.5) via ChatGPT subscription OAuth.
+# Auth: lazily imported from ~/.codex/auth.json on first use, then stored at
+# <project>/.dikw/auth.json. To decouple from codex CLI, run:
+#   python -m dikw_data.codex_auth login
+provider:
+  llm: openai_codex
+  llm_model: gpt-5.5
+  llm_base_url: https://chatgpt.com/backend-api/codex
+  reasoning_effort: xhigh        # honoured on the wire (reasoning.effort)
+  timeout_seconds: 600           # xhigh is slow; allow long single calls
+  sdk_max_retries: 2
+
+retry_policy:
+  max_attempts: 4
+  initial_backoff_seconds: 3
+  max_backoff_seconds: 90
+  jitter: true
+  timeout_seconds: 600
+
+runtime:
+  concurrency: 1                 # subscription rate + xhigh: serialize
+  rate_limit_slowdown_after: 2
