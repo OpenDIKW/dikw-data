@@ -1,0 +1,12 @@
+name: domain-bilingual-v2
+description: >
+  Discriminative bilingual (28 zh / 28 en) domain retrieval set: 8
+  intra-cluster-confusable topic clusters (~56 docs) where a query's gold doc
+  must out-rank ~6 near-neighbour siblings, so ndcg_at_10 / mrr carry real
+  ranking signal — unlike domain-bilingual-v1, whose 24 mutually-distinct topics
+  saturate vector/hybrid at 1.0. The engine gates one blended flat-threshold set;
+  the zh/en split is recorded in reports/BASELINES.md (see
+  docs/dikw-eval-plan.md §2.4). See docs/phase1-domain-bilingual-v2-design.md.
+  Thresholds are PLACEHOLDER (empty): calibrated at observed - margin from the
+  single post-#249/#250 real-vector run (parallel-plan Workstream D).
+thresholds: {}

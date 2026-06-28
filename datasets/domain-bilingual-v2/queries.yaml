@@ -1,0 +1,172 @@
+# DRAFT — codex-generated confusable queries; gold targets need human
+# verification (uniqueness, sibling-wrongness, dedup, balance). See
+# docs/phase1-domain-bilingual-v2-design.md §4.
+queries:
+  - id: zh-tang-founding
+    q: "唐朝建立与统一过程中，李渊太原起兵、618年建唐、唐初统一战争同关陇集团的政治基础之间有什么关系？"
+    expect_any: [tang-founding]
+  - id: zh-tang-juntian
+    q: "唐朝均田制中授田对象是谁，口分田与永业田如何划分，其土地分配原理怎样成为租庸调等赋役制度的基础？"
+    expect_any: [tang-juntian]
+  - id: zh-tang-zuyongdiao
+    q: "唐代以均田制为基础、按丁征收的租庸调制中，租、庸、调分别对应粟、代役和绢布的哪些赋役内容？"
+    expect_any: [tang-zuyongdiao]
+  - id: zh-tang-keju
+    q: "唐朝选官制度里，常科与制科、进士科与明经科各有什么特点，科举为何会冲击门阀士族的政治基础？"
+    expect_any: [tang-keju]
+  - id: zh-tang-xiyu
+    q: "唐朝经营西域时，安西四镇和都护府如何维护丝绸之路，并与突厥、回纥关系相联系？"
+    expect_any: [tang-xiyu]
+  - id: zh-tang-anshi
+    q: "755—763年安禄山、史思明叛乱的起因和经过是什么，为什么说安史之乱使唐朝由盛转衰？"
+    expect_any: [tang-anshi]
+  - id: zh-tang-liangshui
+    q: "780年杨炎推行的两税法如何以资产和土地为征税依据、实行夏秋两征，并取代以均田为基础的租庸调制？"
+    expect_any: [tang-liangshui]
+  - id: zh-china-money-jiaozi
+    q: "北宋四川交子为什么被称为世界最早纸币，它产生时的商业背景和由私商到官府的发行兑换机制是什么？"
+    expect_any: [china-money-jiaozi]
+  - id: zh-china-money-song-inflation
+    q: "北宋交子钱引因超发造成通货膨胀的过程是什么，铜钱与铁钱并行又怎样加剧货币问题？"
+    expect_any: [china-money-song-inflation]
+  - id: zh-china-money-silver
+    q: "明清时期海外白银流入如何推动白银成为主要通货，并促成中国银本位或白银货币化的形成？"
+    expect_any: [china-money-silver]
+  - id: zh-china-money-piaohao
+    q: "晋商票号的异地汇兑业务如何运作，它与钱庄的存款、放款等传统金融功能有何区别？"
+    expect_any: [china-money-piaohao]
+  - id: zh-china-money-yanyin
+    q: "食盐专卖制度下盐引或盐钞为什么能作为有价凭证流通，并怎样被政府用作财政筹款工具？"
+    expect_any: [china-money-yanyin]
+  - id: zh-china-money-qingmiao
+    q: "王安石青苗法如何通过低息官贷在青黄不接时发放贷款，以抑制兼并、增加财政收入，并为何引发争议？"
+    expect_any: [china-money-qingmiao]
+  - id: zh-china-money-yitiaobian
+    q: "张居正推行的一条鞭法怎样把赋役合并并折银征收，它与明代财政改革和白银使用有什么关系？"
+    expect_any: [china-money-yitiaobian]
+  - id: zh-tcm-yinyang
+    q: "在解释五脏气血的生理病理变化时，如何运用阴阳的对立制约、互根互用、消长平衡和相互转化？"
+    expect_any: [tcm-yinyang]
+  - id: zh-tcm-wuxing
+    q: "将五脏配属木火土金水后，怎样依据五行相生相克分析脏腑病变传变并用于辨证？"
+    expect_any: [tcm-wuxing]
+  - id: zh-tcm-qixue
+    q: "气、血、津液分别怎样生成并发挥推动、濡养、滋润等功能，它们之间又如何相互化生和影响运行？"
+    expect_any: [tcm-qixue]
+  - id: zh-tcm-jingluo
+    q: "十二经脉与奇经八脉的循行路线如何构成气血运行通路，并联系脏腑内外表里？"
+    expect_any: [tcm-jingluo]
+  - id: zh-tcm-zangfu
+    q: "五脏六腑各自的生理功能是什么，脏与腑之间如何形成表里配合关系？"
+    expect_any: [tcm-zangfu]
+  - id: zh-tcm-sizhen
+    q: "诊断同一病证时，如何把望、闻、问、切所得的症状体征进行四诊合参，而不是只凭阴阳寒热下结论？"
+    expect_any: [tcm-sizhen]
+  - id: zh-tcm-bianzheng
+    q: "如何用阴阳、表里、寒热、虚实八纲归纳望闻问切资料，并据此确定相应的论治原则？"
+    expect_any: [tcm-bianzheng]
+  - id: zh-china-lit-hongloumeng
+    q: "哪部中国古典小说通过贾府兴衰和宝黛爱情，塑造贾宝玉、林黛玉、薛宝钗等主要人物并揭示封建家族衰败主题？"
+    expect_any: [china-lit-hongloumeng]
+  - id: zh-china-lit-sanguo
+    q: "哪部中国古典小说描写东汉末年群雄割据，并围绕曹操、刘备、诸葛亮等人物与赤壁之战、官渡之战等重大战役展开？"
+    expect_any: [china-lit-sanguo]
+  - id: zh-china-lit-shuihu
+    q: "哪部中国古典小说以梁山好汉聚义为核心，写宋江、林冲、武松等人物在官逼民反主题下反抗官府的故事？"
+    expect_any: [china-lit-shuihu]
+  - id: zh-china-lit-xiyouji
+    q: "哪部中国古典小说讲述唐僧师徒四人西天取经，并通过孙悟空、猪八戒、沙僧等形象表现神魔冒险与修行主题？"
+    expect_any: [china-lit-xiyouji]
+  - id: zh-china-lit-tangshi
+    q: "在中国古典诗词体裁中，哪一类以律诗、绝句为重要形式，并以李白、杜甫等诗人的不同风格为代表？"
+    expect_any: [china-lit-tangshi]
+  - id: zh-china-lit-songci
+    q: "在中国古典诗词中，哪种体裁依照词牌格律填写，形成婉约与豪放风格，并以苏轼、李清照、辛弃疾等词人为代表？"
+    expect_any: [china-lit-songci]
+  - id: zh-china-lit-yuanqu
+    q: "在中国古典文学体裁中，哪一类包括元杂剧与散曲，以关汉卿等作家和通俗化、舞台化的艺术特点区别于唐诗宋词？"
+    expect_any: [china-lit-yuanqu]
+  - id: en-crypto-symmetric
+    q: "How does AES use one shared secret key for both encryption and decryption in a block cipher, rather than using an RSA public/private key pair?"
+    expect_any: [crypto-symmetric]
+  - id: en-crypto-public-key
+    q: "In RSA public-key cryptography, how does encrypting with a public key and decrypting with a private key differ from shared-secret AES encryption?"
+    expect_any: [crypto-public-key]
+  - id: en-crypto-hash
+    q: "Why are SHA-2 cryptographic hash functions considered one-way integrity checks with collision resistance rather than encryption or digital signatures?"
+    expect_any: [crypto-hash]
+  - id: en-crypto-signatures
+    q: "How does a digital signature sign a message digest with a private key to provide authenticity and non-repudiation, unlike merely hashing or encrypting the message?"
+    expect_any: [crypto-signatures]
+  - id: en-crypto-diffie-hellman
+    q: "How does Diffie-Hellman let two parties agree on a shared secret over a public channel without already having a shared AES key?"
+    expect_any: [crypto-diffie-hellman]
+  - id: en-crypto-tls
+    q: "During the TLS handshake, how are server authentication and session key negotiation combined using public-key methods, Diffie-Hellman, hashes, and symmetric encryption?"
+    expect_any: [crypto-tls]
+  - id: en-crypto-block-stream
+    q: "What are the tradeoffs between block ciphers using modes of operation and stream ciphers, especially compared with AES-style symmetric encryption?"
+    expect_any: [crypto-block-stream]
+  - id: en-cell-energy-light-reactions
+    q: "Which photosynthesis stage in the thylakoid membranes, rather than the Calvin carbon-fixation cycle, uses photosystems to split water and make ATP and NADPH from light?"
+    expect_any: [cell-energy-light-reactions]
+  - id: en-cell-energy-calvin-cycle
+    q: "Which light-independent photosynthetic process uses RuBisCO plus ATP and NADPH from the light reactions to fix CO2 and build sugar instead of splitting water?"
+    expect_any: [cell-energy-calvin-cycle]
+  - id: en-cell-energy-glycolysis
+    q: "Which dedicated pathway in cellular respiration splits glucose into pyruvate in the cytosol for only a small net ATP yield before the Krebs cycle and electron transport chain?"
+    expect_any: [cell-energy-glycolysis]
+  - id: en-cell-energy-respiration
+    q: "Which overview ties glycolysis, the Krebs cycle, and the electron transport chain together as the complete oxidation of glucose to CO2 and water?"
+    expect_any: [cell-energy-respiration]
+  - id: en-cell-energy-electron-transport
+    q: "Which inner-membrane electron carrier system pumps protons to build the gradient later used by chemiosmosis and ATP synthase?"
+    expect_any: [cell-energy-electron-transport]
+  - id: en-cell-energy-chemiosmosis
+    q: "Which mechanism uses the proton-motive force from electron transport to drive ATP synthase in phosphorylating ADP into ATP?"
+    expect_any: [cell-energy-chemiosmosis]
+  - id: en-cell-energy-photorespiration
+    q: "Which RuBisCO-related process is wasteful because oxygen is used instead of CO2, competing with the Calvin cycle rather than fixing carbon into sugar?"
+    expect_any: [cell-energy-photorespiration]
+  - id: en-french-rev-causes
+    q: "How did France's pre-1789 fiscal crisis, Enlightenment ideas, and society of estates create the conditions for the French Revolution before the Estates-General assembled?"
+    expect_any: [french-rev-causes]
+  - id: en-french-rev-estates-general
+    q: "What happened in 1789 when the Estates-General was convened, the National Assembly formed, the Bastille was stormed, and the Declaration of Rights was issued?"
+    expect_any: [french-rev-estates-general]
+  - id: en-french-rev-terror
+    q: "How did the Jacobins, the Committee of Public Safety, and Robespierre define the Reign of Terror through executions in 1793–94?"
+    expect_any: [french-rev-terror]
+  - id: en-french-rev-thermidor
+    q: "How did the Thermidorian Reaction bring Robespierre's fall, end the Terror, and lead to the Directory after the Jacobin phase of the Revolution?"
+    expect_any: [french-rev-thermidor]
+  - id: en-french-rev-napoleon-rise
+    q: "How did Napoleon rise from the Brumaire coup to the Consulate and then become Emperor after the French Revolution?"
+    expect_any: [french-rev-napoleon-rise]
+  - id: en-french-rev-napoleonic-wars
+    q: "Which coalitions, major campaigns, and the Continental System shaped the Napoleonic Wars during Napoleon's empire?"
+    expect_any: [french-rev-napoleonic-wars]
+  - id: en-french-rev-vienna
+    q: "How did the 1815 Congress of Vienna create a post-Napoleon settlement based on balance of power and restoration after the Napoleonic Wars?"
+    expect_any: [french-rev-vienna]
+  - id: en-macro-money-supply
+    q: "How do M0, M1, and M2 differ, and how do fractional-reserve commercial banks create new money through lending?"
+    expect_any: [macro-money-supply]
+  - id: en-macro-inflation-causes
+    q: "What is the difference between demand-pull and cost-push inflation, and how does the quantity theory of money explain rising prices?"
+    expect_any: [macro-inflation-causes]
+  - id: en-macro-cb-policy
+    q: "How does a central bank use the policy rate, open-market operations, and inflation targeting to conduct monetary policy?"
+    expect_any: [macro-cb-policy]
+  - id: en-macro-interest-rates
+    q: "What is the difference between nominal and real interest rates, and what does the yield curve reveal about the term structure of rates?"
+    expect_any: [macro-interest-rates]
+  - id: en-macro-quantitative-easing
+    q: "Why do central banks use large-scale asset purchases as quantitative easing when interest rates are at the zero lower bound?"
+    expect_any: [macro-quantitative-easing]
+  - id: en-macro-phillips
+    q: "What does the Phillips curve imply about the short-run inflation-unemployment tradeoff, and why did that relationship break down?"
+    expect_any: [macro-phillips]
+  - id: en-macro-hyperinflation
+    q: "What makes hyperinflation a self-reinforcing episode of very high inflation leading to currency collapse, as seen in historical cases?"
+    expect_any: [macro-hyperinflation]
