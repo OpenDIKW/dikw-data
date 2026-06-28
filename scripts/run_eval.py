@@ -5,7 +5,7 @@ hands datasets to a read-only ``dikw-core`` engine by absolute path, captures ea
 ``dikw client eval`` NDJSON report under ``reports/``, and rolls the run up into a
 ``summary.json`` whose exit code CI can gate on.
 
-Secrets come from ``.env.eval`` (loaded in-process, never printed). No API calls are
+Secrets come from ``.env`` (loaded in-process, never printed). No API calls are
 made in ``--dry-run``; that mode validates datasets, checks that the required key
 *names* are populated, and prints the exact commands it would run.
 
@@ -36,7 +36,7 @@ from scripts.validate_dataset import validate  # noqa: E402
 
 DIKW_LAUNCH: tuple[str, ...] = ("uv", "run", "dikw")
 DEFAULT_REQUIRED_KEYS: tuple[str, ...] = ("MINIMAX_API_KEY", "GITEE_API_KEY")
-DEFAULT_ENV_EVAL = PROJECT_ROOT / ".env.eval"
+DEFAULT_ENV = PROJECT_ROOT / ".env"
 DEFAULT_BASE = PROJECT_ROOT / "bases" / "eval-base"
 DEFAULT_BASE_TEMPLATE = PROJECT_ROOT / "configs" / "eval-base.dikw.yml"
 DEFAULT_DATASETS_DIR = PROJECT_ROOT / "datasets"
@@ -167,9 +167,9 @@ def merge_env(base_env: dict[str, str], overrides: dict[str, str]) -> dict[str, 
 
     The dikw-core server reads provider keys straight from ``os.environ`` (e.g.
     ``GITEE_API_KEY``) and ``serve-and-run`` forwards the parent environment to the
-    server it spawns. We never export ``.env.eval`` globally; instead we hand the
+    server it spawns. We never export ``.env`` globally; instead we hand the
     loaded values to each eval subprocess via its ``env=``. Empty values are dropped
-    so a blank line in ``.env.eval`` can't shadow a real key already in the env.
+    so a blank line in ``.env`` can't shadow a real key already in the env.
     """
     merged = dict(base_env)
     merged.update({key: value for key, value in overrides.items() if value})
@@ -234,7 +234,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--base", type=Path, default=DEFAULT_BASE)
     parser.add_argument("--base-template", type=Path, default=DEFAULT_BASE_TEMPLATE)
     parser.add_argument("--datasets-dir", type=Path, default=DEFAULT_DATASETS_DIR)
-    parser.add_argument("--env-file", type=Path, default=DEFAULT_ENV_EVAL)
+    parser.add_argument("--env-file", type=Path, default=DEFAULT_ENV)
     parser.add_argument("--out", type=Path, help="Report directory (default: reports/<UTC-ts>).")
     parser.add_argument("--skip-validate", action="store_true")
     parser.add_argument("--dry-run", action="store_true", help="Print plan; no base, no API, no spend.")
@@ -306,7 +306,7 @@ def main(argv: list[str] | None = None) -> int:
         ensure_base(args.base, args.base_template)
 
     # dikw-core reads provider keys from the process environment; inject the loaded
-    # .env.eval values into each child's env (never exported globally, never printed).
+    # .env values into each child's env (never exported globally, never printed).
     run_env = merge_env(dict(os.environ), env_values)
 
     rows: list[dict] = []

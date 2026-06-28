@@ -2,4 +2,4 @@
 # Only paths that match AND are gitignored are copied — tracked files
 # (.env.example, .env.core.example) are never duplicated.
 .env.local
-.env.eval
+.env

@@ -1,5 +1,5 @@
 .env
-.env.eval
+.dikw/
 .venv/
 .uv-cache/
 __pycache__/

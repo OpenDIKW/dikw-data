@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from typing import Any, Protocol
 
 from .audit import AuditStore, FAILED, NEEDS_MANUAL_REVIEW, TERMINAL_SUCCESS
-from .config import MiniMaxConfig, get_required_env
+from .config import LLMConfig, get_required_env
 from .tasks import LLMTask
 
 
@@ -24,12 +24,16 @@ class MiniMaxCallError(RuntimeError):
         self.status_code = status_code
 
 
-class MiniMaxTransport(Protocol):
+class LLMTransport(Protocol):
     async def complete(self, *, system: str, user: str, model: str) -> str:
         """Return the raw text response from the provider."""
 
 
-class AnthropicMiniMaxTransport:
+# Backward-compat alias — the seam predates multi-provider support.
+MiniMaxTransport = LLMTransport
+
+
+class AnthropicTransport:
     def __init__(
         self,
         *,
@@ -89,6 +93,38 @@ class AnthropicMiniMaxTransport:
         return "".join(parts)
 
 
+# Backward-compat alias.
+AnthropicMiniMaxTransport = AnthropicTransport
+
+
+def build_transport(config: LLMConfig) -> LLMTransport:
+    """Construct the transport for ``config.llm``.
+
+    ``anthropic_compat`` covers MiniMax / DeepSeek (Anthropic-compatible HTTP);
+    ``openai_codex`` is the ChatGPT codex Responses API over OAuth.
+    """
+    if config.llm == "openai_codex":
+        # Lazy import: codex_transport imports MiniMaxCallError from this
+        # module, so a top-level import would be circular.
+        from .codex_transport import CodexResponsesTransport
+
+        return CodexResponsesTransport(
+            base_url=config.base_url,
+            reasoning_effort=config.reasoning_effort,
+            timeout_seconds=config.timeout_seconds,
+            max_retries=config.sdk_max_retries,
+        )
+    # Accept the legacy "anthropic" spelling alongside "anthropic_compat".
+    if config.llm in ("anthropic_compat", "anthropic"):
+        return AnthropicTransport(
+            api_key=get_required_env(config.llm_api_key_env),
+            base_url=config.base_url,
+            timeout_seconds=config.timeout_seconds,
+            max_retries=config.sdk_max_retries,
+        )
+    raise ValueError(f"unknown provider llm: {config.llm!r}")
+
+
 @dataclass(frozen=True)
 class TaskResult:
     task_id: str
@@ -104,19 +140,14 @@ class RetryingMiniMaxClient:
     def __init__(
         self,
         *,
-        config: MiniMaxConfig,
+        config: LLMConfig,
         audit: AuditStore,
-        transport: MiniMaxTransport | None = None,
+        transport: LLMTransport | None = None,
         sleep: Any = asyncio.sleep,
     ) -> None:
         self.config = config
         self.audit = audit
-        self.transport = transport or AnthropicMiniMaxTransport(
-            api_key=get_required_env("ANTHROPIC_API_KEY"),
-            base_url=config.base_url,
-            timeout_seconds=config.timeout_seconds,
-            max_retries=config.sdk_max_retries,
-        )
+        self.transport = transport or build_transport(config)
         self._sleep = sleep
         self._consecutive_rate_limits = 0
 
