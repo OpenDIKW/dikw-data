@@ -77,3 +77,68 @@ by absolute path from `dikw-core/evals/datasets/` (out-of-tree). Canonical view 
 thresholds get set at `observed − margin` once the in-house sets
 (`domain-bilingual-v1`, `negatives-ood-v1`) exist — see `docs/dikw-eval-plan.md`
 §2.3 and §3.
+
+## 2026-06-26 — domain-bilingual-v1 + negatives-ood-v1 (Phase 1 in-house sets)
+
+Run from `dikw-data` against a read-only `dikw-core` v0.6.2 (editable, `[cjk]`).
+Provider: **MiniMax-M2.7** (LLM — used only for query *generation*, not retrieval)
++ **Gitee Qwen3-Embedding-0.6B@1024** (embeddings) + sqlite. `--retrieval all`,
+`--eval retrieval`, `--cache read_write`, `serve-and-run`, 1 run each. Both reuse
+the `synthetic-diverse-v2` 24-doc corpus (12 zh / 12 en). Queries are
+LLM-generated through the MiniMax factory (`scripts/generate_candidates.py`) then
+human-verified gold. Canonical view is `doc/hybrid`. See design:
+`docs/phase1-inhouse-datasets-design.md`.
+
+**domain-bilingual-v1** (34 positives: 18 zh + 16 en, every doc covered) —
+`passed: True`, exit 0.
+
+| mode | hit_at_3 | hit_at_10 | mrr | ndcg_at_10 | recall_at_100 |
+|---|---|---|---|---|---|
+| bm25 | 1.000 | 1.000 | 0.985 | 0.989 | 1.000 |
+| vector | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
+| **hybrid** | **1.000** | **1.000** | **1.000** | **1.000** | **1.000** |
+
+Per-language split (canonical `doc/hybrid`, via `tools/split_metrics_by_lang.py`):
+
+| lang | n | hit_at_3 | hit_at_10 | mrr | ndcg_at_10 | recall_at_100 |
+|---|---|---|---|---|---|---|
+| all | 34 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
+| zh | 18 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
+| en | 16 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
+
+- **Saturates at 1.0** on vector/hybrid — 24 distinct-topic docs are trivially
+  separable by the embedder. Only **bm25** carries signal (`mrr 0.985`,
+  `ndcg_at_10 0.989`), from the deliberately intra-cluster-confusable history
+  queries. The splitter's `all` block reconciles with the engine's blended doc
+  metrics to within 1e-9 (the tool is validated against the engine's own formulas).
+- **Gate set at `observed − margin`** (first committed in-house floor):
+  `hit_at_3 0.95 / hit_at_10 0.95 / mrr 0.95 / ndcg_at_10 0.97 / recall_at_100 0.97`
+  (−0.05 hit@k/mrr, −0.03 ndcg/recall). This is a **regression-detector floor, not
+  a discriminative benchmark** — a denser, deliberately-confusable
+  `domain-bilingual-v2` is the discriminative follow-up.
+
+**negatives-ood-v1** (23 `expect_none`: 11 zh + 12 en, riding the same corpus) —
+`passed: True`, exit 0.
+
+- `thresholds: {}`, `metrics: {}` — **observe-only**. `expect_none` is *diagnostic
+  only* in dikw-core (`runner.py:244`: no threshold key, no exit-1), and doc-level
+  retrieval cannot abstain (it always returns a ranked list), so there is no
+  "satisfaction" metric to gate at this layer.
+- Diagnostic: for every off-topic query the top-ranked doc is an unrelated corpus
+  doc (e.g. `麻婆豆腐` → `science-plate-tectonics`) — no spurious strong match into a
+  same-topic domain doc. Score-based pos-vs-neg separation needs the served
+  `retrieve` contract (scored cutoff) and is out of scope for the doc-level eval.
+
+**Cross-cutting**
+
+- Read-only held: both datasets live under `dikw-data/datasets/` (corpus copied
+  from `synthetic-diverse-v2`). `git -C ../dikw-core status` stays clean.
+- Factory fix: MiniMax-M2.7 reasoning was exhausting the 4096-token output cap and
+  truncating candidate JSON mid-array (`stop_reason: max_tokens`); raised the
+  generation output budget to 16000 (`src/dikw_data/llm_client.py`).
+
+**Gates.** First committed in-house floor: `domain-bilingual-v1` (saturated →
+regression-detector). `negatives-ood-v1` observe-only. Recalibrate / promote once a
+discriminative `domain-bilingual-v2` exists (corpus > ~50 docs, deliberately
+confusable) — see `docs/dikw-eval-plan.md` §2.3/§3 and
+`docs/phase1-inhouse-datasets-design.md`.

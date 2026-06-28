@@ -11,16 +11,24 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Generate retrieval query candidates.")
     add_common_args(parser)
     parser.add_argument("--queries", type=int, default=30)
+    parser.add_argument(
+        "--instruction",
+        default="",
+        help="Extra steering appended to the prompt (e.g. positives-only, "
+        "coverage/balance, or expect_none-only constraints).",
+    )
     args = parser.parse_args()
 
     corpus_dir = dataset_dir(args.dataset) / "corpus"
     corpus = _read_corpus(corpus_dir)
+    extra = f"{args.instruction.strip()}\n\n" if args.instruction.strip() else ""
     system = "You generate retrieval-evaluation query candidates with exact document stems."
     user = (
         f"Generate {args.queries} retrieval query candidates from this corpus. "
         "Return a JSON array. Each object must include q, type, expect_any, evidence, "
         "confidence, and rationale. Use expect_none=true for out-of-domain negatives. "
         "expect_any values must be file stems from the corpus.\n\n"
+        f"{extra}"
         f"{corpus}"
     )
     task = prompt_task(

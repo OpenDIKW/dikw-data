@@ -1,0 +1,7 @@
+name: negatives-ood-v1
+description: >
+  Off-corpus negatives (expect_none) riding the diverse-v2 corpus: plausible but
+  unanswerable zh+en queries that a healthy engine should return nothing relevant
+  for. expect_none is diagnostic-only in dikw-core (not a threshold key), so this
+  set is observe-only — see the negative diagnostics in reports/BASELINES.md.
+thresholds: {}
